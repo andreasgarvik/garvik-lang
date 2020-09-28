@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/andreasgarvik/inf122-lab3-go/evaluator"
-	"github.com/andreasgarvik/inf122-lab3-go/parser"
+	"github.com/andreasgarvik/inf225-lab3-go/evaluator"
+	"github.com/andreasgarvik/inf225-lab3-go/parser"
 	"github.com/antlr/antlr4/runtime/Go/antlr"
 )
 
