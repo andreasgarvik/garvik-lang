@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestSimpl(t *testing.T) {
+func TestEvaluator(t *testing.T) {
 	tests := []struct {
 		input string
 		want  int

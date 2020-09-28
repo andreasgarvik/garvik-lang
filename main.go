@@ -4,8 +4,8 @@ import (
 	"fmt"
 
 	"github.com/andreasgarvik/inf122-lab3-go/evaluator"
-	"github.com/antlr/antlr4/runtime/Go/antlr"
 	"github.com/andreasgarvik/inf122-lab3-go/parser"
+	"github.com/antlr/antlr4/runtime/Go/antlr"
 )
 
 func eval(input string) int {
@@ -25,5 +25,5 @@ func eval(input string) int {
 }
 
 func main() {
-	fmt.Printf("The answer is: %d\n", eval("1 + 2 * 3"))
+	fmt.Printf("The answer is: %d\n", eval("let x = 2 in let y = x in let x = 3 in x+y end + x end + x end"))
 }

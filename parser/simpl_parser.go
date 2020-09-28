@@ -22,26 +22,25 @@ var parserATN = []uint16{
 	3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 7, 3, 33, 10, 3, 12, 3, 14, 3, 36,
 	11, 3, 3, 3, 2, 3, 4, 4, 2, 4, 2, 2, 2, 40, 2, 6, 3, 2, 2, 2, 4, 24, 3,
 	2, 2, 2, 6, 7, 5, 4, 3, 2, 7, 8, 7, 2, 2, 3, 8, 3, 3, 2, 2, 2, 9, 10, 8,
-	3, 1, 2, 10, 25, 7, 3, 2, 2, 11, 25, 7, 4, 2, 2, 12, 13, 7, 7, 2, 2, 13,
-	14, 5, 4, 3, 2, 14, 15, 7, 8, 2, 2, 15, 25, 3, 2, 2, 2, 16, 17, 7, 9, 2,
-	2, 17, 18, 7, 3, 2, 2, 18, 19, 7, 10, 2, 2, 19, 20, 5, 4, 3, 2, 20, 21,
-	7, 11, 2, 2, 21, 22, 5, 4, 3, 2, 22, 23, 7, 12, 2, 2, 23, 25, 3, 2, 2,
-	2, 24, 9, 3, 2, 2, 2, 24, 11, 3, 2, 2, 2, 24, 12, 3, 2, 2, 2, 24, 16, 3,
-	2, 2, 2, 25, 34, 3, 2, 2, 2, 26, 27, 12, 5, 2, 2, 27, 28, 7, 5, 2, 2, 28,
-	33, 5, 4, 3, 6, 29, 30, 12, 4, 2, 2, 30, 31, 7, 6, 2, 2, 31, 33, 5, 4,
-	3, 5, 32, 26, 3, 2, 2, 2, 32, 29, 3, 2, 2, 2, 33, 36, 3, 2, 2, 2, 34, 32,
-	3, 2, 2, 2, 34, 35, 3, 2, 2, 2, 35, 5, 3, 2, 2, 2, 36, 34, 3, 2, 2, 2,
-	5, 24, 32, 34,
+	3, 1, 2, 10, 25, 7, 11, 2, 2, 11, 25, 7, 12, 2, 2, 12, 13, 7, 3, 2, 2,
+	13, 14, 5, 4, 3, 2, 14, 15, 7, 4, 2, 2, 15, 25, 3, 2, 2, 2, 16, 17, 7,
+	7, 2, 2, 17, 18, 7, 11, 2, 2, 18, 19, 7, 8, 2, 2, 19, 20, 5, 4, 3, 2, 20,
+	21, 7, 9, 2, 2, 21, 22, 5, 4, 3, 2, 22, 23, 7, 10, 2, 2, 23, 25, 3, 2,
+	2, 2, 24, 9, 3, 2, 2, 2, 24, 11, 3, 2, 2, 2, 24, 12, 3, 2, 2, 2, 24, 16,
+	3, 2, 2, 2, 25, 34, 3, 2, 2, 2, 26, 27, 12, 5, 2, 2, 27, 28, 7, 5, 2, 2,
+	28, 33, 5, 4, 3, 6, 29, 30, 12, 4, 2, 2, 30, 31, 7, 6, 2, 2, 31, 33, 5,
+	4, 3, 5, 32, 26, 3, 2, 2, 2, 32, 29, 3, 2, 2, 2, 33, 36, 3, 2, 2, 2, 34,
+	32, 3, 2, 2, 2, 34, 35, 3, 2, 2, 2, 35, 5, 3, 2, 2, 2, 36, 34, 3, 2, 2,
+	2, 5, 24, 32, 34,
 }
 var deserializer = antlr.NewATNDeserializer(nil)
 var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
 
 var literalNames = []string{
-	"", "", "", "'*'", "'+'", "'('", "')'", "'let'", "'='", "'in'", "'end'",
+	"", "'('", "')'", "'*'", "'+'", "'let'", "'='", "'in'", "'end'",
 }
 var symbolicNames = []string{
-	"", "ID", "NUM", "MUL", "ADD", "RPAREN", "LPAREN", "LET", "EQ", "IN", "END",
-	"WS",
+	"", "", "", "", "", "", "", "", "", "ID", "NUM", "WS",
 }
 
 var ruleNames = []string{
@@ -75,18 +74,18 @@ func NewSimplParser(input antlr.TokenStream) *SimplParser {
 
 // SimplParser tokens.
 const (
-	SimplParserEOF    = antlr.TokenEOF
-	SimplParserID     = 1
-	SimplParserNUM    = 2
-	SimplParserMUL    = 3
-	SimplParserADD    = 4
-	SimplParserRPAREN = 5
-	SimplParserLPAREN = 6
-	SimplParserLET    = 7
-	SimplParserEQ     = 8
-	SimplParserIN     = 9
-	SimplParserEND    = 10
-	SimplParserWS     = 11
+	SimplParserEOF  = antlr.TokenEOF
+	SimplParserT__0 = 1
+	SimplParserT__1 = 2
+	SimplParserT__2 = 3
+	SimplParserT__3 = 4
+	SimplParserT__4 = 5
+	SimplParserT__5 = 6
+	SimplParserT__6 = 7
+	SimplParserT__7 = 8
+	SimplParserID   = 9
+	SimplParserNUM  = 10
+	SimplParserWS   = 11
 )
 
 // SimplParser rules.
@@ -288,10 +287,6 @@ func (s *AddExprContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *AddExprContext) ADD() antlr.TerminalNode {
-	return s.GetToken(SimplParserADD, 0)
-}
-
 func (s *AddExprContext) AllExpr() []IExprContext {
 	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
 	var tst = make([]IExprContext, len(ts))
@@ -363,10 +358,6 @@ func (s *MultExprContext) SetRight(v IExprContext) { s.right = v }
 
 func (s *MultExprContext) GetRuleContext() antlr.RuleContext {
 	return s
-}
-
-func (s *MultExprContext) MUL() antlr.TerminalNode {
-	return s.GetToken(SimplParserMUL, 0)
 }
 
 func (s *MultExprContext) AllExpr() []IExprContext {
@@ -476,10 +467,6 @@ func (s *ParenExprContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *ParenExprContext) RPAREN() antlr.TerminalNode {
-	return s.GetToken(SimplParserRPAREN, 0)
-}
-
 func (s *ParenExprContext) Expr() IExprContext {
 	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), 0)
 
@@ -488,10 +475,6 @@ func (s *ParenExprContext) Expr() IExprContext {
 	}
 
 	return t.(IExprContext)
-}
-
-func (s *ParenExprContext) LPAREN() antlr.TerminalNode {
-	return s.GetToken(SimplParserLPAREN, 0)
 }
 
 func (s *ParenExprContext) EnterRule(listener antlr.ParseTreeListener) {
@@ -544,24 +527,8 @@ func (s *LetExprContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *LetExprContext) LET() antlr.TerminalNode {
-	return s.GetToken(SimplParserLET, 0)
-}
-
 func (s *LetExprContext) ID() antlr.TerminalNode {
 	return s.GetToken(SimplParserID, 0)
-}
-
-func (s *LetExprContext) EQ() antlr.TerminalNode {
-	return s.GetToken(SimplParserEQ, 0)
-}
-
-func (s *LetExprContext) IN() antlr.TerminalNode {
-	return s.GetToken(SimplParserIN, 0)
-}
-
-func (s *LetExprContext) END() antlr.TerminalNode {
-	return s.GetToken(SimplParserEND, 0)
 }
 
 func (s *LetExprContext) AllExpr() []IExprContext {
@@ -708,13 +675,13 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 			p.Match(SimplParserNUM)
 		}
 
-	case SimplParserRPAREN:
+	case SimplParserT__0:
 		localctx = NewParenExprContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
 			p.SetState(10)
-			p.Match(SimplParserRPAREN)
+			p.Match(SimplParserT__0)
 		}
 		{
 			p.SetState(11)
@@ -722,16 +689,16 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 		}
 		{
 			p.SetState(12)
-			p.Match(SimplParserLPAREN)
+			p.Match(SimplParserT__1)
 		}
 
-	case SimplParserLET:
+	case SimplParserT__4:
 		localctx = NewLetExprContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
 			p.SetState(14)
-			p.Match(SimplParserLET)
+			p.Match(SimplParserT__4)
 		}
 		{
 			p.SetState(15)
@@ -739,7 +706,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 		}
 		{
 			p.SetState(16)
-			p.Match(SimplParserEQ)
+			p.Match(SimplParserT__5)
 		}
 		{
 			p.SetState(17)
@@ -750,7 +717,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 		}
 		{
 			p.SetState(18)
-			p.Match(SimplParserIN)
+			p.Match(SimplParserT__6)
 		}
 		{
 			p.SetState(19)
@@ -761,7 +728,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 		}
 		{
 			p.SetState(20)
-			p.Match(SimplParserEND)
+			p.Match(SimplParserT__7)
 		}
 
 	default:
@@ -793,7 +760,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				}
 				{
 					p.SetState(25)
-					p.Match(SimplParserMUL)
+					p.Match(SimplParserT__2)
 				}
 				{
 					p.SetState(26)
@@ -815,7 +782,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				}
 				{
 					p.SetState(28)
-					p.Match(SimplParserADD)
+					p.Match(SimplParserT__3)
 				}
 				{
 					p.SetState(29)
