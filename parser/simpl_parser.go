@@ -16,31 +16,46 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 13, 38, 4,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 19, 70, 4,
 	2, 9, 2, 4, 3, 9, 3, 3, 2, 3, 2, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-	3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 5, 3, 25, 10,
-	3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 7, 3, 33, 10, 3, 12, 3, 14, 3, 36,
-	11, 3, 3, 3, 2, 3, 4, 4, 2, 4, 2, 2, 2, 40, 2, 6, 3, 2, 2, 2, 4, 24, 3,
-	2, 2, 2, 6, 7, 5, 4, 3, 2, 7, 8, 7, 2, 2, 3, 8, 3, 3, 2, 2, 2, 9, 10, 8,
-	3, 1, 2, 10, 25, 7, 11, 2, 2, 11, 25, 7, 12, 2, 2, 12, 13, 7, 3, 2, 2,
-	13, 14, 5, 4, 3, 2, 14, 15, 7, 4, 2, 2, 15, 25, 3, 2, 2, 2, 16, 17, 7,
-	7, 2, 2, 17, 18, 7, 11, 2, 2, 18, 19, 7, 8, 2, 2, 19, 20, 5, 4, 3, 2, 20,
-	21, 7, 9, 2, 2, 21, 22, 5, 4, 3, 2, 22, 23, 7, 10, 2, 2, 23, 25, 3, 2,
-	2, 2, 24, 9, 3, 2, 2, 2, 24, 11, 3, 2, 2, 2, 24, 12, 3, 2, 2, 2, 24, 16,
-	3, 2, 2, 2, 25, 34, 3, 2, 2, 2, 26, 27, 12, 5, 2, 2, 27, 28, 7, 5, 2, 2,
-	28, 33, 5, 4, 3, 6, 29, 30, 12, 4, 2, 2, 30, 31, 7, 6, 2, 2, 31, 33, 5,
-	4, 3, 5, 32, 26, 3, 2, 2, 2, 32, 29, 3, 2, 2, 2, 33, 36, 3, 2, 2, 2, 34,
-	32, 3, 2, 2, 2, 34, 35, 3, 2, 2, 2, 35, 5, 3, 2, 2, 2, 36, 34, 3, 2, 2,
-	2, 5, 24, 32, 34,
+	3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+	3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+	3, 3, 3, 3, 3, 3, 3, 5, 3, 43, 10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+	3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+	3, 3, 3, 3, 3, 7, 3, 65, 10, 3, 12, 3, 14, 3, 68, 11, 3, 3, 3, 2, 3, 4,
+	4, 2, 4, 2, 2, 2, 78, 2, 6, 3, 2, 2, 2, 4, 42, 3, 2, 2, 2, 6, 7, 5, 4,
+	3, 2, 7, 8, 7, 2, 2, 3, 8, 3, 3, 2, 2, 2, 9, 10, 8, 3, 1, 2, 10, 43, 7,
+	17, 2, 2, 11, 43, 7, 18, 2, 2, 12, 13, 7, 3, 2, 2, 13, 14, 5, 4, 3, 2,
+	14, 15, 7, 4, 2, 2, 15, 43, 3, 2, 2, 2, 16, 17, 7, 10, 2, 2, 17, 18, 5,
+	4, 3, 2, 18, 19, 7, 11, 2, 2, 19, 20, 5, 4, 3, 2, 20, 21, 7, 12, 2, 2,
+	21, 22, 5, 4, 3, 5, 22, 43, 3, 2, 2, 2, 23, 24, 7, 13, 2, 2, 24, 25, 5,
+	4, 3, 2, 25, 26, 7, 3, 2, 2, 26, 27, 5, 4, 3, 2, 27, 28, 7, 4, 2, 2, 28,
+	29, 7, 14, 2, 2, 29, 30, 5, 4, 3, 2, 30, 31, 7, 15, 2, 2, 31, 32, 5, 4,
+	3, 2, 32, 33, 7, 16, 2, 2, 33, 43, 3, 2, 2, 2, 34, 35, 7, 13, 2, 2, 35,
+	36, 5, 4, 3, 2, 36, 37, 7, 14, 2, 2, 37, 38, 5, 4, 3, 2, 38, 39, 7, 15,
+	2, 2, 39, 40, 5, 4, 3, 2, 40, 41, 7, 16, 2, 2, 41, 43, 3, 2, 2, 2, 42,
+	9, 3, 2, 2, 2, 42, 11, 3, 2, 2, 2, 42, 12, 3, 2, 2, 2, 42, 16, 3, 2, 2,
+	2, 42, 23, 3, 2, 2, 2, 42, 34, 3, 2, 2, 2, 43, 66, 3, 2, 2, 2, 44, 45,
+	12, 11, 2, 2, 45, 46, 7, 5, 2, 2, 46, 65, 5, 4, 3, 12, 47, 48, 12, 9, 2,
+	2, 48, 49, 7, 6, 2, 2, 49, 65, 5, 4, 3, 10, 50, 51, 12, 8, 2, 2, 51, 52,
+	7, 7, 2, 2, 52, 65, 5, 4, 3, 9, 53, 54, 12, 7, 2, 2, 54, 55, 7, 8, 2, 2,
+	55, 65, 5, 4, 3, 8, 56, 57, 12, 6, 2, 2, 57, 58, 7, 9, 2, 2, 58, 65, 5,
+	4, 3, 7, 59, 60, 12, 10, 2, 2, 60, 61, 7, 3, 2, 2, 61, 62, 5, 4, 3, 2,
+	62, 63, 7, 4, 2, 2, 63, 65, 3, 2, 2, 2, 64, 44, 3, 2, 2, 2, 64, 47, 3,
+	2, 2, 2, 64, 50, 3, 2, 2, 2, 64, 53, 3, 2, 2, 2, 64, 56, 3, 2, 2, 2, 64,
+	59, 3, 2, 2, 2, 65, 68, 3, 2, 2, 2, 66, 64, 3, 2, 2, 2, 66, 67, 3, 2, 2,
+	2, 67, 5, 3, 2, 2, 2, 68, 66, 3, 2, 2, 2, 5, 42, 64, 66,
 }
 var deserializer = antlr.NewATNDeserializer(nil)
 var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
 
 var literalNames = []string{
-	"", "'('", "')'", "'*'", "'+'", "'let'", "'='", "'in'", "'end'",
+	"", "'('", "')'", "'=='", "'/'", "'*'", "'-'", "'+'", "'if'", "'then'",
+	"'else'", "'let'", "'='", "'in'", "'end'",
 }
 var symbolicNames = []string{
-	"", "", "", "", "", "", "", "", "", "ID", "NUM", "WS",
+	"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "ID", "NUM",
+	"WS",
 }
 
 var ruleNames = []string{
@@ -74,18 +89,24 @@ func NewSimplParser(input antlr.TokenStream) *SimplParser {
 
 // SimplParser tokens.
 const (
-	SimplParserEOF  = antlr.TokenEOF
-	SimplParserT__0 = 1
-	SimplParserT__1 = 2
-	SimplParserT__2 = 3
-	SimplParserT__3 = 4
-	SimplParserT__4 = 5
-	SimplParserT__5 = 6
-	SimplParserT__6 = 7
-	SimplParserT__7 = 8
-	SimplParserID   = 9
-	SimplParserNUM  = 10
-	SimplParserWS   = 11
+	SimplParserEOF   = antlr.TokenEOF
+	SimplParserT__0  = 1
+	SimplParserT__1  = 2
+	SimplParserT__2  = 3
+	SimplParserT__3  = 4
+	SimplParserT__4  = 5
+	SimplParserT__5  = 6
+	SimplParserT__6  = 7
+	SimplParserT__7  = 8
+	SimplParserT__8  = 9
+	SimplParserT__9  = 10
+	SimplParserT__10 = 11
+	SimplParserT__11 = 12
+	SimplParserT__12 = 13
+	SimplParserT__13 = 14
+	SimplParserID    = 15
+	SimplParserNUM   = 16
+	SimplParserWS    = 17
 )
 
 // SimplParser rules.
@@ -259,6 +280,162 @@ func (s *ExprContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) s
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
+type ApplyExprContext struct {
+	*ExprContext
+	id  IExprContext
+	arg IExprContext
+}
+
+func NewApplyExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *ApplyExprContext {
+	var p = new(ApplyExprContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *ApplyExprContext) GetId() IExprContext { return s.id }
+
+func (s *ApplyExprContext) GetArg() IExprContext { return s.arg }
+
+func (s *ApplyExprContext) SetId(v IExprContext) { s.id = v }
+
+func (s *ApplyExprContext) SetArg(v IExprContext) { s.arg = v }
+
+func (s *ApplyExprContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *ApplyExprContext) AllExpr() []IExprContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
+	var tst = make([]IExprContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IExprContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *ApplyExprContext) Expr(i int) IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *ApplyExprContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SimplListener); ok {
+		listenerT.EnterApplyExpr(s)
+	}
+}
+
+func (s *ApplyExprContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SimplListener); ok {
+		listenerT.ExitApplyExpr(s)
+	}
+}
+
+func (s *ApplyExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SimplVisitor:
+		return t.VisitApplyExpr(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+type FunExprContext struct {
+	*ExprContext
+	id   IExprContext
+	arg  IExprContext
+	body IExprContext
+	call IExprContext
+}
+
+func NewFunExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *FunExprContext {
+	var p = new(FunExprContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *FunExprContext) GetId() IExprContext { return s.id }
+
+func (s *FunExprContext) GetArg() IExprContext { return s.arg }
+
+func (s *FunExprContext) GetBody() IExprContext { return s.body }
+
+func (s *FunExprContext) GetCall() IExprContext { return s.call }
+
+func (s *FunExprContext) SetId(v IExprContext) { s.id = v }
+
+func (s *FunExprContext) SetArg(v IExprContext) { s.arg = v }
+
+func (s *FunExprContext) SetBody(v IExprContext) { s.body = v }
+
+func (s *FunExprContext) SetCall(v IExprContext) { s.call = v }
+
+func (s *FunExprContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *FunExprContext) AllExpr() []IExprContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
+	var tst = make([]IExprContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IExprContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *FunExprContext) Expr(i int) IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *FunExprContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SimplListener); ok {
+		listenerT.EnterFunExpr(s)
+	}
+}
+
+func (s *FunExprContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SimplListener); ok {
+		listenerT.ExitFunExpr(s)
+	}
+}
+
+func (s *FunExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SimplVisitor:
+		return t.VisitFunExpr(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type AddExprContext struct {
 	*ExprContext
 	left  IExprContext
@@ -326,6 +503,230 @@ func (s *AddExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
 	case SimplVisitor:
 		return t.VisitAddExpr(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+type IfElseExprContext struct {
+	*ExprContext
+	con IExprContext
+	t   IExprContext
+	f   IExprContext
+}
+
+func NewIfElseExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *IfElseExprContext {
+	var p = new(IfElseExprContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *IfElseExprContext) GetCon() IExprContext { return s.con }
+
+func (s *IfElseExprContext) GetT() IExprContext { return s.t }
+
+func (s *IfElseExprContext) GetF() IExprContext { return s.f }
+
+func (s *IfElseExprContext) SetCon(v IExprContext) { s.con = v }
+
+func (s *IfElseExprContext) SetT(v IExprContext) { s.t = v }
+
+func (s *IfElseExprContext) SetF(v IExprContext) { s.f = v }
+
+func (s *IfElseExprContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *IfElseExprContext) AllExpr() []IExprContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
+	var tst = make([]IExprContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IExprContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *IfElseExprContext) Expr(i int) IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *IfElseExprContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SimplListener); ok {
+		listenerT.EnterIfElseExpr(s)
+	}
+}
+
+func (s *IfElseExprContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SimplListener); ok {
+		listenerT.ExitIfElseExpr(s)
+	}
+}
+
+func (s *IfElseExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SimplVisitor:
+		return t.VisitIfElseExpr(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+type DivExprContext struct {
+	*ExprContext
+	left  IExprContext
+	right IExprContext
+}
+
+func NewDivExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *DivExprContext {
+	var p = new(DivExprContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *DivExprContext) GetLeft() IExprContext { return s.left }
+
+func (s *DivExprContext) GetRight() IExprContext { return s.right }
+
+func (s *DivExprContext) SetLeft(v IExprContext) { s.left = v }
+
+func (s *DivExprContext) SetRight(v IExprContext) { s.right = v }
+
+func (s *DivExprContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *DivExprContext) AllExpr() []IExprContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
+	var tst = make([]IExprContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IExprContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *DivExprContext) Expr(i int) IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *DivExprContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SimplListener); ok {
+		listenerT.EnterDivExpr(s)
+	}
+}
+
+func (s *DivExprContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SimplListener); ok {
+		listenerT.ExitDivExpr(s)
+	}
+}
+
+func (s *DivExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SimplVisitor:
+		return t.VisitDivExpr(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+type SubExprContext struct {
+	*ExprContext
+	left  IExprContext
+	right IExprContext
+}
+
+func NewSubExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *SubExprContext {
+	var p = new(SubExprContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *SubExprContext) GetLeft() IExprContext { return s.left }
+
+func (s *SubExprContext) GetRight() IExprContext { return s.right }
+
+func (s *SubExprContext) SetLeft(v IExprContext) { s.left = v }
+
+func (s *SubExprContext) SetRight(v IExprContext) { s.right = v }
+
+func (s *SubExprContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *SubExprContext) AllExpr() []IExprContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
+	var tst = make([]IExprContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IExprContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *SubExprContext) Expr(i int) IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *SubExprContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SimplListener); ok {
+		listenerT.EnterSubExpr(s)
+	}
+}
+
+func (s *SubExprContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SimplListener); ok {
+		listenerT.ExitSubExpr(s)
+	}
+}
+
+func (s *SubExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SimplVisitor:
+		return t.VisitSubExpr(s)
 
 	default:
 		return t.VisitChildren(s)
@@ -501,6 +902,7 @@ func (s *ParenExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 type LetExprContext struct {
 	*ExprContext
+	id         IExprContext
 	value      IExprContext
 	expression IExprContext
 }
@@ -515,9 +917,13 @@ func NewLetExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *LetExp
 	return p
 }
 
+func (s *LetExprContext) GetId() IExprContext { return s.id }
+
 func (s *LetExprContext) GetValue() IExprContext { return s.value }
 
 func (s *LetExprContext) GetExpression() IExprContext { return s.expression }
+
+func (s *LetExprContext) SetId(v IExprContext) { s.id = v }
 
 func (s *LetExprContext) SetValue(v IExprContext) { s.value = v }
 
@@ -525,10 +931,6 @@ func (s *LetExprContext) SetExpression(v IExprContext) { s.expression = v }
 
 func (s *LetExprContext) GetRuleContext() antlr.RuleContext {
 	return s
-}
-
-func (s *LetExprContext) ID() antlr.TerminalNode {
-	return s.GetToken(SimplParserID, 0)
 }
 
 func (s *LetExprContext) AllExpr() []IExprContext {
@@ -620,6 +1022,79 @@ func (s *IdExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	}
 }
 
+type EqualExprContext struct {
+	*ExprContext
+	left  IExprContext
+	right IExprContext
+}
+
+func NewEqualExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *EqualExprContext {
+	var p = new(EqualExprContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *EqualExprContext) GetLeft() IExprContext { return s.left }
+
+func (s *EqualExprContext) GetRight() IExprContext { return s.right }
+
+func (s *EqualExprContext) SetLeft(v IExprContext) { s.left = v }
+
+func (s *EqualExprContext) SetRight(v IExprContext) { s.right = v }
+
+func (s *EqualExprContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *EqualExprContext) AllExpr() []IExprContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
+	var tst = make([]IExprContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IExprContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *EqualExprContext) Expr(i int) IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *EqualExprContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SimplListener); ok {
+		listenerT.EnterEqualExpr(s)
+	}
+}
+
+func (s *EqualExprContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(SimplListener); ok {
+		listenerT.ExitEqualExpr(s)
+	}
+}
+
+func (s *EqualExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SimplVisitor:
+		return t.VisitEqualExpr(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SimplParser) Expr() (localctx IExprContext) {
 	return p.expr(0)
 }
@@ -652,11 +1127,10 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 	var _alt int
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(22)
+	p.SetState(40)
 	p.GetErrorHandler().Sync(p)
-
-	switch p.GetTokenStream().LA(1) {
-	case SimplParserID:
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 0, p.GetParserRuleContext()) {
+	case 1:
 		localctx = NewIdExprContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
@@ -666,7 +1140,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 			p.Match(SimplParserID)
 		}
 
-	case SimplParserNUM:
+	case 2:
 		localctx = NewNumExprContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
@@ -675,7 +1149,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 			p.Match(SimplParserNUM)
 		}
 
-	case SimplParserT__0:
+	case 3:
 		localctx = NewParenExprContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
@@ -692,50 +1166,146 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 			p.Match(SimplParserT__1)
 		}
 
-	case SimplParserT__4:
-		localctx = NewLetExprContext(p, localctx)
+	case 4:
+		localctx = NewIfElseExprContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
 			p.SetState(14)
-			p.Match(SimplParserT__4)
+			p.Match(SimplParserT__7)
 		}
 		{
 			p.SetState(15)
-			p.Match(SimplParserID)
+
+			var _x = p.expr(0)
+
+			localctx.(*IfElseExprContext).con = _x
 		}
 		{
 			p.SetState(16)
-			p.Match(SimplParserT__5)
+			p.Match(SimplParserT__8)
 		}
 		{
 			p.SetState(17)
 
 			var _x = p.expr(0)
 
-			localctx.(*LetExprContext).value = _x
+			localctx.(*IfElseExprContext).t = _x
 		}
 		{
 			p.SetState(18)
-			p.Match(SimplParserT__6)
+			p.Match(SimplParserT__9)
 		}
 		{
 			p.SetState(19)
+
+			var _x = p.expr(3)
+
+			localctx.(*IfElseExprContext).f = _x
+		}
+
+	case 5:
+		localctx = NewFunExprContext(p, localctx)
+		p.SetParserRuleContext(localctx)
+		_prevctx = localctx
+		{
+			p.SetState(21)
+			p.Match(SimplParserT__10)
+		}
+		{
+			p.SetState(22)
+
+			var _x = p.expr(0)
+
+			localctx.(*FunExprContext).id = _x
+		}
+		{
+			p.SetState(23)
+			p.Match(SimplParserT__0)
+		}
+		{
+			p.SetState(24)
+
+			var _x = p.expr(0)
+
+			localctx.(*FunExprContext).arg = _x
+		}
+		{
+			p.SetState(25)
+			p.Match(SimplParserT__1)
+		}
+		{
+			p.SetState(26)
+			p.Match(SimplParserT__11)
+		}
+		{
+			p.SetState(27)
+
+			var _x = p.expr(0)
+
+			localctx.(*FunExprContext).body = _x
+		}
+		{
+			p.SetState(28)
+			p.Match(SimplParserT__12)
+		}
+		{
+			p.SetState(29)
+
+			var _x = p.expr(0)
+
+			localctx.(*FunExprContext).call = _x
+		}
+		{
+			p.SetState(30)
+			p.Match(SimplParserT__13)
+		}
+
+	case 6:
+		localctx = NewLetExprContext(p, localctx)
+		p.SetParserRuleContext(localctx)
+		_prevctx = localctx
+		{
+			p.SetState(32)
+			p.Match(SimplParserT__10)
+		}
+		{
+			p.SetState(33)
+
+			var _x = p.expr(0)
+
+			localctx.(*LetExprContext).id = _x
+		}
+		{
+			p.SetState(34)
+			p.Match(SimplParserT__11)
+		}
+		{
+			p.SetState(35)
+
+			var _x = p.expr(0)
+
+			localctx.(*LetExprContext).value = _x
+		}
+		{
+			p.SetState(36)
+			p.Match(SimplParserT__12)
+		}
+		{
+			p.SetState(37)
 
 			var _x = p.expr(0)
 
 			localctx.(*LetExprContext).expression = _x
 		}
 		{
-			p.SetState(20)
-			p.Match(SimplParserT__7)
+			p.SetState(38)
+			p.Match(SimplParserT__13)
 		}
 
-	default:
-		panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
 	}
 	p.GetParserRuleContext().SetStop(p.GetTokenStream().LT(-1))
-	p.SetState(32)
+	p.SetState(64)
 	p.GetErrorHandler().Sync(p)
 	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 2, p.GetParserRuleContext())
 
@@ -745,57 +1315,149 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				p.TriggerExitRuleEvent()
 			}
 			_prevctx = localctx
-			p.SetState(30)
+			p.SetState(62)
 			p.GetErrorHandler().Sync(p)
 			switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 1, p.GetParserRuleContext()) {
 			case 1:
+				localctx = NewEqualExprContext(p, NewExprContext(p, _parentctx, _parentState))
+				localctx.(*EqualExprContext).left = _prevctx
+
+				p.PushNewRecursionContext(localctx, _startState, SimplParserRULE_expr)
+				p.SetState(42)
+
+				if !(p.Precpred(p.GetParserRuleContext(), 9)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 9)", ""))
+				}
+				{
+					p.SetState(43)
+					p.Match(SimplParserT__2)
+				}
+				{
+					p.SetState(44)
+
+					var _x = p.expr(10)
+
+					localctx.(*EqualExprContext).right = _x
+				}
+
+			case 2:
+				localctx = NewDivExprContext(p, NewExprContext(p, _parentctx, _parentState))
+				localctx.(*DivExprContext).left = _prevctx
+
+				p.PushNewRecursionContext(localctx, _startState, SimplParserRULE_expr)
+				p.SetState(45)
+
+				if !(p.Precpred(p.GetParserRuleContext(), 7)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 7)", ""))
+				}
+				{
+					p.SetState(46)
+					p.Match(SimplParserT__3)
+				}
+				{
+					p.SetState(47)
+
+					var _x = p.expr(8)
+
+					localctx.(*DivExprContext).right = _x
+				}
+
+			case 3:
 				localctx = NewMultExprContext(p, NewExprContext(p, _parentctx, _parentState))
 				localctx.(*MultExprContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, SimplParserRULE_expr)
-				p.SetState(24)
+				p.SetState(48)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 3)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 3)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 6)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 6)", ""))
 				}
 				{
-					p.SetState(25)
-					p.Match(SimplParserT__2)
+					p.SetState(49)
+					p.Match(SimplParserT__4)
 				}
 				{
-					p.SetState(26)
+					p.SetState(50)
 
-					var _x = p.expr(4)
+					var _x = p.expr(7)
 
 					localctx.(*MultExprContext).right = _x
 				}
 
-			case 2:
+			case 4:
+				localctx = NewSubExprContext(p, NewExprContext(p, _parentctx, _parentState))
+				localctx.(*SubExprContext).left = _prevctx
+
+				p.PushNewRecursionContext(localctx, _startState, SimplParserRULE_expr)
+				p.SetState(51)
+
+				if !(p.Precpred(p.GetParserRuleContext(), 5)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 5)", ""))
+				}
+				{
+					p.SetState(52)
+					p.Match(SimplParserT__5)
+				}
+				{
+					p.SetState(53)
+
+					var _x = p.expr(6)
+
+					localctx.(*SubExprContext).right = _x
+				}
+
+			case 5:
 				localctx = NewAddExprContext(p, NewExprContext(p, _parentctx, _parentState))
 				localctx.(*AddExprContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, SimplParserRULE_expr)
-				p.SetState(27)
+				p.SetState(54)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 2)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 2)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 4)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 4)", ""))
 				}
 				{
-					p.SetState(28)
-					p.Match(SimplParserT__3)
+					p.SetState(55)
+					p.Match(SimplParserT__6)
 				}
 				{
-					p.SetState(29)
+					p.SetState(56)
 
-					var _x = p.expr(3)
+					var _x = p.expr(5)
 
 					localctx.(*AddExprContext).right = _x
+				}
+
+			case 6:
+				localctx = NewApplyExprContext(p, NewExprContext(p, _parentctx, _parentState))
+				localctx.(*ApplyExprContext).id = _prevctx
+
+				p.PushNewRecursionContext(localctx, _startState, SimplParserRULE_expr)
+				p.SetState(57)
+
+				if !(p.Precpred(p.GetParserRuleContext(), 8)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 8)", ""))
+				}
+				{
+					p.SetState(58)
+					p.Match(SimplParserT__0)
+				}
+				{
+					p.SetState(59)
+
+					var _x = p.expr(0)
+
+					localctx.(*ApplyExprContext).arg = _x
+				}
+				{
+					p.SetState(60)
+					p.Match(SimplParserT__1)
 				}
 
 			}
 
 		}
-		p.SetState(34)
+		p.SetState(66)
 		p.GetErrorHandler().Sync(p)
 		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 2, p.GetParserRuleContext())
 	}
@@ -820,10 +1482,22 @@ func (p *SimplParser) Sempred(localctx antlr.RuleContext, ruleIndex, predIndex i
 func (p *SimplParser) Expr_Sempred(localctx antlr.RuleContext, predIndex int) bool {
 	switch predIndex {
 	case 0:
-		return p.Precpred(p.GetParserRuleContext(), 3)
+		return p.Precpred(p.GetParserRuleContext(), 9)
 
 	case 1:
-		return p.Precpred(p.GetParserRuleContext(), 2)
+		return p.Precpred(p.GetParserRuleContext(), 7)
+
+	case 2:
+		return p.Precpred(p.GetParserRuleContext(), 6)
+
+	case 3:
+		return p.Precpred(p.GetParserRuleContext(), 5)
+
+	case 4:
+		return p.Precpred(p.GetParserRuleContext(), 4)
+
+	case 5:
+		return p.Precpred(p.GetParserRuleContext(), 8)
 
 	default:
 		panic("No predicate with index: " + fmt.Sprint(predIndex))

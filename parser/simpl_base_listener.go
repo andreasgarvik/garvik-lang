@@ -27,11 +27,41 @@ func (s *BaseSimplListener) EnterProgram(ctx *ProgramContext) {}
 // ExitProgram is called when production program is exited.
 func (s *BaseSimplListener) ExitProgram(ctx *ProgramContext) {}
 
+// EnterApplyExpr is called when production applyExpr is entered.
+func (s *BaseSimplListener) EnterApplyExpr(ctx *ApplyExprContext) {}
+
+// ExitApplyExpr is called when production applyExpr is exited.
+func (s *BaseSimplListener) ExitApplyExpr(ctx *ApplyExprContext) {}
+
+// EnterFunExpr is called when production funExpr is entered.
+func (s *BaseSimplListener) EnterFunExpr(ctx *FunExprContext) {}
+
+// ExitFunExpr is called when production funExpr is exited.
+func (s *BaseSimplListener) ExitFunExpr(ctx *FunExprContext) {}
+
 // EnterAddExpr is called when production addExpr is entered.
 func (s *BaseSimplListener) EnterAddExpr(ctx *AddExprContext) {}
 
 // ExitAddExpr is called when production addExpr is exited.
 func (s *BaseSimplListener) ExitAddExpr(ctx *AddExprContext) {}
+
+// EnterIfElseExpr is called when production ifElseExpr is entered.
+func (s *BaseSimplListener) EnterIfElseExpr(ctx *IfElseExprContext) {}
+
+// ExitIfElseExpr is called when production ifElseExpr is exited.
+func (s *BaseSimplListener) ExitIfElseExpr(ctx *IfElseExprContext) {}
+
+// EnterDivExpr is called when production divExpr is entered.
+func (s *BaseSimplListener) EnterDivExpr(ctx *DivExprContext) {}
+
+// ExitDivExpr is called when production divExpr is exited.
+func (s *BaseSimplListener) ExitDivExpr(ctx *DivExprContext) {}
+
+// EnterSubExpr is called when production subExpr is entered.
+func (s *BaseSimplListener) EnterSubExpr(ctx *SubExprContext) {}
+
+// ExitSubExpr is called when production subExpr is exited.
+func (s *BaseSimplListener) ExitSubExpr(ctx *SubExprContext) {}
 
 // EnterMultExpr is called when production multExpr is entered.
 func (s *BaseSimplListener) EnterMultExpr(ctx *MultExprContext) {}
@@ -62,3 +92,9 @@ func (s *BaseSimplListener) EnterIdExpr(ctx *IdExprContext) {}
 
 // ExitIdExpr is called when production idExpr is exited.
 func (s *BaseSimplListener) ExitIdExpr(ctx *IdExprContext) {}
+
+// EnterEqualExpr is called when production equalExpr is entered.
+func (s *BaseSimplListener) EnterEqualExpr(ctx *EqualExprContext) {}
+
+// ExitEqualExpr is called when production equalExpr is exited.
+func (s *BaseSimplListener) ExitEqualExpr(ctx *EqualExprContext) {}

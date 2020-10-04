@@ -21,9 +21,13 @@ func eval(input string) int {
 
 	// Finally parse the expression (by walking the tree)
 	var visitor evaluator.Evaluator
-	return p.Expr().Accept(&visitor).(int)
+	result := p.Expr().Accept(&visitor)
+	if result != nil {
+		return result.(int)
+	}
+	return 0
 }
 
 func main() {
-	fmt.Printf("The answer is: %d\n", eval("let x = 2 in let y = x in let x = 3 in x+y end + x end + x end"))
+	fmt.Printf("The answer is: %d\n", eval("let f(x) = if x == 0 then 0 else if x == 1 then 1 else 2 in f(2) end"))
 }
