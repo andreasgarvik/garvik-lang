@@ -16,6 +16,7 @@ expr:
 	| left = expr '*' right = expr												# multExpr
 	| left = expr '-' right = expr												# subExpr
 	| left = expr '+' right = expr												# addExpr
+	| arg = expr '->' body = expr												# lamdaExpr
 	| 'if' con = expr 'then' t = expr 'else' f = expr							# ifElseExpr
 	| 'let' id = expr '(' arg = expr ')' '=' body = expr 'in' call = expr 'end'	# funExpr
 	| 'let' id = expr '=' value = expr 'in' expression = expr 'end'				# letExpr;

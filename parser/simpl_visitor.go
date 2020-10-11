@@ -17,14 +17,8 @@ type SimplVisitor interface {
 	// Visit a parse tree produced by SimplParser#funExpr.
 	VisitFunExpr(ctx *FunExprContext) interface{}
 
-	// Visit a parse tree produced by SimplParser#addExpr.
-	VisitAddExpr(ctx *AddExprContext) interface{}
-
 	// Visit a parse tree produced by SimplParser#ifElseExpr.
 	VisitIfElseExpr(ctx *IfElseExprContext) interface{}
-
-	// Visit a parse tree produced by SimplParser#divExpr.
-	VisitDivExpr(ctx *DivExprContext) interface{}
 
 	// Visit a parse tree produced by SimplParser#subExpr.
 	VisitSubExpr(ctx *SubExprContext) interface{}
@@ -40,6 +34,15 @@ type SimplVisitor interface {
 
 	// Visit a parse tree produced by SimplParser#letExpr.
 	VisitLetExpr(ctx *LetExprContext) interface{}
+
+	// Visit a parse tree produced by SimplParser#addExpr.
+	VisitAddExpr(ctx *AddExprContext) interface{}
+
+	// Visit a parse tree produced by SimplParser#divExpr.
+	VisitDivExpr(ctx *DivExprContext) interface{}
+
+	// Visit a parse tree produced by SimplParser#lamdaExpr.
+	VisitLamdaExpr(ctx *LamdaExprContext) interface{}
 
 	// Visit a parse tree produced by SimplParser#idExpr.
 	VisitIdExpr(ctx *IdExprContext) interface{}

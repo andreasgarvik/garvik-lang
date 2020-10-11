@@ -29,5 +29,6 @@ func eval(input string) int {
 }
 
 func main() {
-	fmt.Printf("The answer is: %d\n", eval("let f(x) = if x == 0 then 0 else if x == 1 then 1 else 2 in f(2) end"))
+	fmt.Printf("The answer is: %d\n", eval("let f(x) = if x == 0 then 0 else if x == 1 then 1 else f(x-1) + f(x-2) in f(10) end"))
+	fmt.Printf("The answer is: %d\n", eval("(x -> x * x)(2)"))
 }

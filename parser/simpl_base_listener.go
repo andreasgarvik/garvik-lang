@@ -39,23 +39,11 @@ func (s *BaseSimplListener) EnterFunExpr(ctx *FunExprContext) {}
 // ExitFunExpr is called when production funExpr is exited.
 func (s *BaseSimplListener) ExitFunExpr(ctx *FunExprContext) {}
 
-// EnterAddExpr is called when production addExpr is entered.
-func (s *BaseSimplListener) EnterAddExpr(ctx *AddExprContext) {}
-
-// ExitAddExpr is called when production addExpr is exited.
-func (s *BaseSimplListener) ExitAddExpr(ctx *AddExprContext) {}
-
 // EnterIfElseExpr is called when production ifElseExpr is entered.
 func (s *BaseSimplListener) EnterIfElseExpr(ctx *IfElseExprContext) {}
 
 // ExitIfElseExpr is called when production ifElseExpr is exited.
 func (s *BaseSimplListener) ExitIfElseExpr(ctx *IfElseExprContext) {}
-
-// EnterDivExpr is called when production divExpr is entered.
-func (s *BaseSimplListener) EnterDivExpr(ctx *DivExprContext) {}
-
-// ExitDivExpr is called when production divExpr is exited.
-func (s *BaseSimplListener) ExitDivExpr(ctx *DivExprContext) {}
 
 // EnterSubExpr is called when production subExpr is entered.
 func (s *BaseSimplListener) EnterSubExpr(ctx *SubExprContext) {}
@@ -86,6 +74,24 @@ func (s *BaseSimplListener) EnterLetExpr(ctx *LetExprContext) {}
 
 // ExitLetExpr is called when production letExpr is exited.
 func (s *BaseSimplListener) ExitLetExpr(ctx *LetExprContext) {}
+
+// EnterAddExpr is called when production addExpr is entered.
+func (s *BaseSimplListener) EnterAddExpr(ctx *AddExprContext) {}
+
+// ExitAddExpr is called when production addExpr is exited.
+func (s *BaseSimplListener) ExitAddExpr(ctx *AddExprContext) {}
+
+// EnterDivExpr is called when production divExpr is entered.
+func (s *BaseSimplListener) EnterDivExpr(ctx *DivExprContext) {}
+
+// ExitDivExpr is called when production divExpr is exited.
+func (s *BaseSimplListener) ExitDivExpr(ctx *DivExprContext) {}
+
+// EnterLamdaExpr is called when production lamdaExpr is entered.
+func (s *BaseSimplListener) EnterLamdaExpr(ctx *LamdaExprContext) {}
+
+// ExitLamdaExpr is called when production lamdaExpr is exited.
+func (s *BaseSimplListener) ExitLamdaExpr(ctx *LamdaExprContext) {}
 
 // EnterIdExpr is called when production idExpr is entered.
 func (s *BaseSimplListener) EnterIdExpr(ctx *IdExprContext) {}

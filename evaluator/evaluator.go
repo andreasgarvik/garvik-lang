@@ -21,6 +21,7 @@ func (v *Evaluator) VisitApplyExpr(ctx *parser.ApplyExprContext) interface{} {
 		fun := id.(FunValue)
 		env := make(map[string]interface{})
 		param := ctx.GetArg().Accept(v)
+		env[ctx.GetId().GetText()] = fun
 		env[fun.Arg] = param
 		temp := v.stack
 		v.stack = fun.Env
@@ -163,4 +164,9 @@ func (v *Evaluator) VisitEqualExpr(ctx *parser.EqualExprContext) interface{} {
 		return l == r
 	}
 	return nil
+}
+
+// VisitLamdaExpr evaluates a lambda expression
+func (v *Evaluator) VisitLamdaExpr(ctx *parser.LamdaExprContext) interface{} {
+	return FunValue{ctx.GetArg().GetText(), ctx.GetBody(), v.stack}
 }

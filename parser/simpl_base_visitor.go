@@ -20,15 +20,7 @@ func (v *BaseSimplVisitor) VisitFunExpr(ctx *FunExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseSimplVisitor) VisitAddExpr(ctx *AddExprContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
 func (v *BaseSimplVisitor) VisitIfElseExpr(ctx *IfElseExprContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseSimplVisitor) VisitDivExpr(ctx *DivExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -49,6 +41,18 @@ func (v *BaseSimplVisitor) VisitParenExpr(ctx *ParenExprContext) interface{} {
 }
 
 func (v *BaseSimplVisitor) VisitLetExpr(ctx *LetExprContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseSimplVisitor) VisitAddExpr(ctx *AddExprContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseSimplVisitor) VisitDivExpr(ctx *DivExprContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseSimplVisitor) VisitLamdaExpr(ctx *LamdaExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

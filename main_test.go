@@ -25,6 +25,8 @@ func TestEvaluator(t *testing.T) {
 		{"if true then 1 else 2", 1},
 		{"let x = 2 in if x == 2 then 2 else 1 end", 2},
 		{"let f(x) = if x == 0 then 0 else if x == 1 then 1 else 2 in f(2) end", 2},
+		{"let f(x) = if x == 0 then 0 else if x == 1 then 1 else f(x-1) + f(x-2) in f(10) end", 55},
+		{"(x -> x * x)(2)", 4},
 	}
 
 	for _, test := range tests {

@@ -17,14 +17,8 @@ type SimplListener interface {
 	// EnterFunExpr is called when entering the funExpr production.
 	EnterFunExpr(c *FunExprContext)
 
-	// EnterAddExpr is called when entering the addExpr production.
-	EnterAddExpr(c *AddExprContext)
-
 	// EnterIfElseExpr is called when entering the ifElseExpr production.
 	EnterIfElseExpr(c *IfElseExprContext)
-
-	// EnterDivExpr is called when entering the divExpr production.
-	EnterDivExpr(c *DivExprContext)
 
 	// EnterSubExpr is called when entering the subExpr production.
 	EnterSubExpr(c *SubExprContext)
@@ -41,6 +35,15 @@ type SimplListener interface {
 	// EnterLetExpr is called when entering the letExpr production.
 	EnterLetExpr(c *LetExprContext)
 
+	// EnterAddExpr is called when entering the addExpr production.
+	EnterAddExpr(c *AddExprContext)
+
+	// EnterDivExpr is called when entering the divExpr production.
+	EnterDivExpr(c *DivExprContext)
+
+	// EnterLamdaExpr is called when entering the lamdaExpr production.
+	EnterLamdaExpr(c *LamdaExprContext)
+
 	// EnterIdExpr is called when entering the idExpr production.
 	EnterIdExpr(c *IdExprContext)
 
@@ -56,14 +59,8 @@ type SimplListener interface {
 	// ExitFunExpr is called when exiting the funExpr production.
 	ExitFunExpr(c *FunExprContext)
 
-	// ExitAddExpr is called when exiting the addExpr production.
-	ExitAddExpr(c *AddExprContext)
-
 	// ExitIfElseExpr is called when exiting the ifElseExpr production.
 	ExitIfElseExpr(c *IfElseExprContext)
-
-	// ExitDivExpr is called when exiting the divExpr production.
-	ExitDivExpr(c *DivExprContext)
 
 	// ExitSubExpr is called when exiting the subExpr production.
 	ExitSubExpr(c *SubExprContext)
@@ -79,6 +76,15 @@ type SimplListener interface {
 
 	// ExitLetExpr is called when exiting the letExpr production.
 	ExitLetExpr(c *LetExprContext)
+
+	// ExitAddExpr is called when exiting the addExpr production.
+	ExitAddExpr(c *AddExprContext)
+
+	// ExitDivExpr is called when exiting the divExpr production.
+	ExitDivExpr(c *DivExprContext)
+
+	// ExitLamdaExpr is called when exiting the lamdaExpr production.
+	ExitLamdaExpr(c *LamdaExprContext)
 
 	// ExitIdExpr is called when exiting the idExpr production.
 	ExitIdExpr(c *IdExprContext)
