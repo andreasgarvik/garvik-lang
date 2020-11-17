@@ -12,6 +12,10 @@ func (v *BaseSimplVisitor) VisitProgram(ctx *ProgramContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseSimplVisitor) VisitStrExpr(ctx *StrExprContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseSimplVisitor) VisitApplyExpr(ctx *ApplyExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -49,6 +53,10 @@ func (v *BaseSimplVisitor) VisitAddExpr(ctx *AddExprContext) interface{} {
 }
 
 func (v *BaseSimplVisitor) VisitDivExpr(ctx *DivExprContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseSimplVisitor) VisitBoolExpr(ctx *BoolExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

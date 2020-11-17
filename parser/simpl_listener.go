@@ -11,6 +11,9 @@ type SimplListener interface {
 	// EnterProgram is called when entering the program production.
 	EnterProgram(c *ProgramContext)
 
+	// EnterStrExpr is called when entering the strExpr production.
+	EnterStrExpr(c *StrExprContext)
+
 	// EnterApplyExpr is called when entering the applyExpr production.
 	EnterApplyExpr(c *ApplyExprContext)
 
@@ -41,6 +44,9 @@ type SimplListener interface {
 	// EnterDivExpr is called when entering the divExpr production.
 	EnterDivExpr(c *DivExprContext)
 
+	// EnterBoolExpr is called when entering the boolExpr production.
+	EnterBoolExpr(c *BoolExprContext)
+
 	// EnterLamdaExpr is called when entering the lamdaExpr production.
 	EnterLamdaExpr(c *LamdaExprContext)
 
@@ -52,6 +58,9 @@ type SimplListener interface {
 
 	// ExitProgram is called when exiting the program production.
 	ExitProgram(c *ProgramContext)
+
+	// ExitStrExpr is called when exiting the strExpr production.
+	ExitStrExpr(c *StrExprContext)
 
 	// ExitApplyExpr is called when exiting the applyExpr production.
 	ExitApplyExpr(c *ApplyExprContext)
@@ -82,6 +91,9 @@ type SimplListener interface {
 
 	// ExitDivExpr is called when exiting the divExpr production.
 	ExitDivExpr(c *DivExprContext)
+
+	// ExitBoolExpr is called when exiting the boolExpr production.
+	ExitBoolExpr(c *BoolExprContext)
 
 	// ExitLamdaExpr is called when exiting the lamdaExpr production.
 	ExitLamdaExpr(c *LamdaExprContext)

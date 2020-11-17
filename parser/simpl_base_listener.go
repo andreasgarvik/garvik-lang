@@ -27,6 +27,12 @@ func (s *BaseSimplListener) EnterProgram(ctx *ProgramContext) {}
 // ExitProgram is called when production program is exited.
 func (s *BaseSimplListener) ExitProgram(ctx *ProgramContext) {}
 
+// EnterStrExpr is called when production strExpr is entered.
+func (s *BaseSimplListener) EnterStrExpr(ctx *StrExprContext) {}
+
+// ExitStrExpr is called when production strExpr is exited.
+func (s *BaseSimplListener) ExitStrExpr(ctx *StrExprContext) {}
+
 // EnterApplyExpr is called when production applyExpr is entered.
 func (s *BaseSimplListener) EnterApplyExpr(ctx *ApplyExprContext) {}
 
@@ -86,6 +92,12 @@ func (s *BaseSimplListener) EnterDivExpr(ctx *DivExprContext) {}
 
 // ExitDivExpr is called when production divExpr is exited.
 func (s *BaseSimplListener) ExitDivExpr(ctx *DivExprContext) {}
+
+// EnterBoolExpr is called when production boolExpr is entered.
+func (s *BaseSimplListener) EnterBoolExpr(ctx *BoolExprContext) {}
+
+// ExitBoolExpr is called when production boolExpr is exited.
+func (s *BaseSimplListener) ExitBoolExpr(ctx *BoolExprContext) {}
 
 // EnterLamdaExpr is called when production lamdaExpr is entered.
 func (s *BaseSimplListener) EnterLamdaExpr(ctx *LamdaExprContext) {}

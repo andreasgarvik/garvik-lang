@@ -2,13 +2,16 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
+	"log"
+	"os"
 
 	"github.com/andreasgarvik/inf225-lab3-go/evaluator"
 	"github.com/andreasgarvik/inf225-lab3-go/parser"
 	"github.com/antlr/antlr4/runtime/Go/antlr"
 )
 
-func eval(input string) int {
+func eval(input string) interface{} {
 	// Setup the input
 	is := antlr.NewInputStream(input)
 
@@ -22,13 +25,16 @@ func eval(input string) int {
 	// Finally parse the expression (by walking the tree)
 	var visitor evaluator.Evaluator
 	result := p.Expr().Accept(&visitor)
-	if result != nil {
-		return result.(int)
+	if result == nil {
+		log.Fatal("Error validating input")
 	}
-	return 0
+	return result
 }
 
 func main() {
-	fmt.Printf("The answer is: %d\n", eval("let f(x) = if x == 0 then 0 else if x == 1 then 1 else f(x-1) + f(x-2) in f(10) end"))
-	fmt.Printf("The answer is: %d\n", eval("(x -> x * x)(2)"))
+	content, err := ioutil.ReadFile(os.Args[1])
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(eval(string(content)))
 }

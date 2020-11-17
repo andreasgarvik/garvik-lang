@@ -7,7 +7,7 @@ import (
 
 // FunValue is storing an argument, a body and an environment
 type FunValue struct {
-	Arg  string
+	Arg  interface{}
 	Body parser.IExprContext
 	Env  stack.Stack
 }

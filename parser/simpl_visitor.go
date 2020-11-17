@@ -11,6 +11,9 @@ type SimplVisitor interface {
 	// Visit a parse tree produced by SimplParser#program.
 	VisitProgram(ctx *ProgramContext) interface{}
 
+	// Visit a parse tree produced by SimplParser#strExpr.
+	VisitStrExpr(ctx *StrExprContext) interface{}
+
 	// Visit a parse tree produced by SimplParser#applyExpr.
 	VisitApplyExpr(ctx *ApplyExprContext) interface{}
 
@@ -40,6 +43,9 @@ type SimplVisitor interface {
 
 	// Visit a parse tree produced by SimplParser#divExpr.
 	VisitDivExpr(ctx *DivExprContext) interface{}
+
+	// Visit a parse tree produced by SimplParser#boolExpr.
+	VisitBoolExpr(ctx *BoolExprContext) interface{}
 
 	// Visit a parse tree produced by SimplParser#lamdaExpr.
 	VisitLamdaExpr(ctx *LamdaExprContext) interface{}
