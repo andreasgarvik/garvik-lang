@@ -1,9 +1,7 @@
 package main
 
 import (
-	"fmt"
 	"io/ioutil"
-	"log"
 	"os"
 
 	"github.com/andreasgarvik/inf225-lab3-go/evaluator"
@@ -11,7 +9,7 @@ import (
 	"github.com/antlr/antlr4/runtime/Go/antlr"
 )
 
-func eval(input string) interface{} {
+func eval(input string) {
 	// Setup the input
 	is := antlr.NewInputStream(input)
 
@@ -24,11 +22,7 @@ func eval(input string) interface{} {
 
 	// Finally parse the expression (by walking the tree)
 	var visitor evaluator.Evaluator
-	result := p.Expr().Accept(&visitor)
-	if result == nil {
-		log.Fatal("Error validating input")
-	}
-	return result
+	p.Program().Accept(&visitor)
 }
 
 func main() {
@@ -36,5 +30,5 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(eval(string(content)))
+	eval(string(content))
 }

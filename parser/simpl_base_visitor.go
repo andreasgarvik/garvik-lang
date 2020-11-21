@@ -16,14 +16,6 @@ func (v *BaseSimplVisitor) VisitStrExpr(ctx *StrExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseSimplVisitor) VisitApplyExpr(ctx *ApplyExprContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseSimplVisitor) VisitFunExpr(ctx *FunExprContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
 func (v *BaseSimplVisitor) VisitIfElseExpr(ctx *IfElseExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -36,19 +28,23 @@ func (v *BaseSimplVisitor) VisitMultExpr(ctx *MultExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseSimplVisitor) VisitNumExpr(ctx *NumExprContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
 func (v *BaseSimplVisitor) VisitParenExpr(ctx *ParenExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseSimplVisitor) VisitLetExpr(ctx *LetExprContext) interface{} {
+func (v *BaseSimplVisitor) VisitNumExpr(ctx *NumExprContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseSimplVisitor) VisitVarExpr(ctx *VarExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
 func (v *BaseSimplVisitor) VisitAddExpr(ctx *AddExprContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseSimplVisitor) VisitLambdaExpr(ctx *LambdaExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -60,7 +56,11 @@ func (v *BaseSimplVisitor) VisitBoolExpr(ctx *BoolExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseSimplVisitor) VisitLamdaExpr(ctx *LamdaExprContext) interface{} {
+func (v *BaseSimplVisitor) VisitCallExpr(ctx *CallExprContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseSimplVisitor) VisitPrintExpr(ctx *PrintExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

@@ -14,12 +14,6 @@ type SimplListener interface {
 	// EnterStrExpr is called when entering the strExpr production.
 	EnterStrExpr(c *StrExprContext)
 
-	// EnterApplyExpr is called when entering the applyExpr production.
-	EnterApplyExpr(c *ApplyExprContext)
-
-	// EnterFunExpr is called when entering the funExpr production.
-	EnterFunExpr(c *FunExprContext)
-
 	// EnterIfElseExpr is called when entering the ifElseExpr production.
 	EnterIfElseExpr(c *IfElseExprContext)
 
@@ -29,17 +23,20 @@ type SimplListener interface {
 	// EnterMultExpr is called when entering the multExpr production.
 	EnterMultExpr(c *MultExprContext)
 
-	// EnterNumExpr is called when entering the numExpr production.
-	EnterNumExpr(c *NumExprContext)
-
 	// EnterParenExpr is called when entering the parenExpr production.
 	EnterParenExpr(c *ParenExprContext)
 
-	// EnterLetExpr is called when entering the letExpr production.
-	EnterLetExpr(c *LetExprContext)
+	// EnterNumExpr is called when entering the numExpr production.
+	EnterNumExpr(c *NumExprContext)
+
+	// EnterVarExpr is called when entering the varExpr production.
+	EnterVarExpr(c *VarExprContext)
 
 	// EnterAddExpr is called when entering the addExpr production.
 	EnterAddExpr(c *AddExprContext)
+
+	// EnterLambdaExpr is called when entering the lambdaExpr production.
+	EnterLambdaExpr(c *LambdaExprContext)
 
 	// EnterDivExpr is called when entering the divExpr production.
 	EnterDivExpr(c *DivExprContext)
@@ -47,8 +44,11 @@ type SimplListener interface {
 	// EnterBoolExpr is called when entering the boolExpr production.
 	EnterBoolExpr(c *BoolExprContext)
 
-	// EnterLamdaExpr is called when entering the lamdaExpr production.
-	EnterLamdaExpr(c *LamdaExprContext)
+	// EnterCallExpr is called when entering the callExpr production.
+	EnterCallExpr(c *CallExprContext)
+
+	// EnterPrintExpr is called when entering the printExpr production.
+	EnterPrintExpr(c *PrintExprContext)
 
 	// EnterIdExpr is called when entering the idExpr production.
 	EnterIdExpr(c *IdExprContext)
@@ -62,12 +62,6 @@ type SimplListener interface {
 	// ExitStrExpr is called when exiting the strExpr production.
 	ExitStrExpr(c *StrExprContext)
 
-	// ExitApplyExpr is called when exiting the applyExpr production.
-	ExitApplyExpr(c *ApplyExprContext)
-
-	// ExitFunExpr is called when exiting the funExpr production.
-	ExitFunExpr(c *FunExprContext)
-
 	// ExitIfElseExpr is called when exiting the ifElseExpr production.
 	ExitIfElseExpr(c *IfElseExprContext)
 
@@ -77,17 +71,20 @@ type SimplListener interface {
 	// ExitMultExpr is called when exiting the multExpr production.
 	ExitMultExpr(c *MultExprContext)
 
-	// ExitNumExpr is called when exiting the numExpr production.
-	ExitNumExpr(c *NumExprContext)
-
 	// ExitParenExpr is called when exiting the parenExpr production.
 	ExitParenExpr(c *ParenExprContext)
 
-	// ExitLetExpr is called when exiting the letExpr production.
-	ExitLetExpr(c *LetExprContext)
+	// ExitNumExpr is called when exiting the numExpr production.
+	ExitNumExpr(c *NumExprContext)
+
+	// ExitVarExpr is called when exiting the varExpr production.
+	ExitVarExpr(c *VarExprContext)
 
 	// ExitAddExpr is called when exiting the addExpr production.
 	ExitAddExpr(c *AddExprContext)
+
+	// ExitLambdaExpr is called when exiting the lambdaExpr production.
+	ExitLambdaExpr(c *LambdaExprContext)
 
 	// ExitDivExpr is called when exiting the divExpr production.
 	ExitDivExpr(c *DivExprContext)
@@ -95,8 +92,11 @@ type SimplListener interface {
 	// ExitBoolExpr is called when exiting the boolExpr production.
 	ExitBoolExpr(c *BoolExprContext)
 
-	// ExitLamdaExpr is called when exiting the lamdaExpr production.
-	ExitLamdaExpr(c *LamdaExprContext)
+	// ExitCallExpr is called when exiting the callExpr production.
+	ExitCallExpr(c *CallExprContext)
+
+	// ExitPrintExpr is called when exiting the printExpr production.
+	ExitPrintExpr(c *PrintExprContext)
 
 	// ExitIdExpr is called when exiting the idExpr production.
 	ExitIdExpr(c *IdExprContext)

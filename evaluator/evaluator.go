@@ -15,9 +15,21 @@ type Evaluator struct {
 	stack stack.Stack
 }
 
-// VisitApplyExpr evaluates a apply expression
-func (v *Evaluator) VisitApplyExpr(ctx *parser.ApplyExprContext) interface{} {
-	fmt.Println("apply")
+// VisitProgram evaluates a program
+func (v *Evaluator) VisitProgram(ctx *parser.ProgramContext) interface{} {
+	fmt.Println("program")
+	for _, expr := range ctx.AllExpr() {
+		result := expr.Accept(v)
+		if result != nil {
+			fmt.Println(result)
+		}
+	}
+	return nil
+}
+
+// VisitCallExpr evaluates a apply expression
+func (v *Evaluator) VisitCallExpr(ctx *parser.CallExprContext) interface{} {
+	fmt.Println("call")
 	fun := ctx.GetFun().Accept(v)
 	if fun != nil {
 		f := fun.(FunValue)
@@ -34,21 +46,6 @@ func (v *Evaluator) VisitApplyExpr(ctx *parser.ApplyExprContext) interface{} {
 		return result
 	}
 	return nil
-}
-
-// VisitFunExpr evaluates a function expression
-func (v *Evaluator) VisitFunExpr(ctx *parser.FunExprContext) interface{} {
-	fmt.Println("fun")
-	env := make(map[string]interface{})
-	id := ctx.GetId().GetText()
-	arg := ctx.GetArg().GetText()
-	body := ctx.GetBody()
-	env[id] = FunValue{arg, body, v.stack}
-	v.stack.Push(env)
-	result := ctx.GetCall().Accept(v)
-	v.stack.Pop()
-	return result
-
 }
 
 // VisitMultExpr evaluates a multiplication expression
@@ -86,19 +83,6 @@ func (v *Evaluator) VisitStrExpr(ctx *parser.StrExprContext) interface{} {
 func (v *Evaluator) VisitParenExpr(ctx *parser.ParenExprContext) interface{} {
 	fmt.Println("paren")
 	return ctx.Expr().Accept(v)
-}
-
-// VisitLetExpr evaluates a let expression
-func (v *Evaluator) VisitLetExpr(ctx *parser.LetExprContext) interface{} {
-	fmt.Println("let")
-	env := make(map[string]interface{})
-	id := ctx.GetId().GetText()
-	value := ctx.GetValue().Accept(v)
-	env[id] = value
-	v.stack.Push(env)
-	result := ctx.GetExpression().Accept(v)
-	v.stack.Pop()
-	return result
 }
 
 // VisitAddExpr evaluates a add expression
@@ -145,7 +129,7 @@ func (v *Evaluator) VisitBoolExpr(ctx *parser.BoolExprContext) interface{} {
 
 // VisitIfElseExpr evaluates an if then else expression
 func (v *Evaluator) VisitIfElseExpr(ctx *parser.IfElseExprContext) interface{} {
-	fmt.Println("if else")
+	fmt.Println("ifelse")
 	con := ctx.GetCon().Accept(v)
 	if con.(bool) {
 		return ctx.GetT().Accept(v)
@@ -192,10 +176,27 @@ func (v *Evaluator) VisitEqualExpr(ctx *parser.EqualExprContext) interface{} {
 	return nil
 }
 
-// VisitLamdaExpr evaluates a lambda expression
-func (v *Evaluator) VisitLamdaExpr(ctx *parser.LamdaExprContext) interface{} {
-	fmt.Println("lambda")
+// VisitLambdaExpr evaluates a lambda expression
+func (v *Evaluator) VisitLambdaExpr(ctx *parser.LambdaExprContext) interface{} {
+	fmt.Println("lamdba")
 	arg := ctx.GetArg().GetText()
 	body := ctx.GetBody()
 	return FunValue{arg, body, v.stack}
+}
+
+// VisitVarExpr evaluates a var expression
+func (v *Evaluator) VisitVarExpr(ctx *parser.VarExprContext) interface{} {
+	fmt.Println("var")
+	env := make(map[string]interface{})
+	id := ctx.GetId().GetText()
+	value := ctx.GetValue().Accept(v)
+	env[id] = value
+	v.stack.Push(env)
+	return nil
+}
+
+// VisitPrintExpr evaluates a print expression
+func (v *Evaluator) VisitPrintExpr(ctx *parser.PrintExprContext) interface{} {
+	fmt.Println("print")
+	return ctx.Expr().Accept(v)
 }
