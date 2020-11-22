@@ -23,6 +23,9 @@ type SimplVisitor interface {
 	// Visit a parse tree produced by SimplParser#multExpr.
 	VisitMultExpr(ctx *MultExprContext) interface{}
 
+	// Visit a parse tree produced by SimplParser#commentExpr.
+	VisitCommentExpr(ctx *CommentExprContext) interface{}
+
 	// Visit a parse tree produced by SimplParser#parenExpr.
 	VisitParenExpr(ctx *ParenExprContext) interface{}
 
@@ -46,9 +49,6 @@ type SimplVisitor interface {
 
 	// Visit a parse tree produced by SimplParser#callExpr.
 	VisitCallExpr(ctx *CallExprContext) interface{}
-
-	// Visit a parse tree produced by SimplParser#printExpr.
-	VisitPrintExpr(ctx *PrintExprContext) interface{}
 
 	// Visit a parse tree produced by SimplParser#idExpr.
 	VisitIdExpr(ctx *IdExprContext) interface{}

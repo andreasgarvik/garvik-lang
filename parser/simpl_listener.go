@@ -23,6 +23,9 @@ type SimplListener interface {
 	// EnterMultExpr is called when entering the multExpr production.
 	EnterMultExpr(c *MultExprContext)
 
+	// EnterCommentExpr is called when entering the commentExpr production.
+	EnterCommentExpr(c *CommentExprContext)
+
 	// EnterParenExpr is called when entering the parenExpr production.
 	EnterParenExpr(c *ParenExprContext)
 
@@ -47,9 +50,6 @@ type SimplListener interface {
 	// EnterCallExpr is called when entering the callExpr production.
 	EnterCallExpr(c *CallExprContext)
 
-	// EnterPrintExpr is called when entering the printExpr production.
-	EnterPrintExpr(c *PrintExprContext)
-
 	// EnterIdExpr is called when entering the idExpr production.
 	EnterIdExpr(c *IdExprContext)
 
@@ -70,6 +70,9 @@ type SimplListener interface {
 
 	// ExitMultExpr is called when exiting the multExpr production.
 	ExitMultExpr(c *MultExprContext)
+
+	// ExitCommentExpr is called when exiting the commentExpr production.
+	ExitCommentExpr(c *CommentExprContext)
 
 	// ExitParenExpr is called when exiting the parenExpr production.
 	ExitParenExpr(c *ParenExprContext)
@@ -94,9 +97,6 @@ type SimplListener interface {
 
 	// ExitCallExpr is called when exiting the callExpr production.
 	ExitCallExpr(c *CallExprContext)
-
-	// ExitPrintExpr is called when exiting the printExpr production.
-	ExitPrintExpr(c *PrintExprContext)
 
 	// ExitIdExpr is called when exiting the idExpr production.
 	ExitIdExpr(c *IdExprContext)

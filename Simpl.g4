@@ -17,8 +17,8 @@ expr:
 	| left = expr '-' right = expr						# subExpr
 	| left = expr '+' right = expr						# addExpr
 	| arg = expr '->' body = expr						# lambdaExpr
+	| '//' expr											# commentExpr
 	| '(' expr ')'										# parenExpr
-	| 'print' expr										# printExpr
 	| 'var' id = expr '=' value = expr					# varExpr
 	| 'if' con = expr 'then' t = expr 'else' f = expr	# ifElseExpr
 	| BOOL												# boolExpr

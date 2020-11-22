@@ -28,6 +28,10 @@ func (v *BaseSimplVisitor) VisitMultExpr(ctx *MultExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseSimplVisitor) VisitCommentExpr(ctx *CommentExprContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseSimplVisitor) VisitParenExpr(ctx *ParenExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -57,10 +61,6 @@ func (v *BaseSimplVisitor) VisitBoolExpr(ctx *BoolExprContext) interface{} {
 }
 
 func (v *BaseSimplVisitor) VisitCallExpr(ctx *CallExprContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseSimplVisitor) VisitPrintExpr(ctx *PrintExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

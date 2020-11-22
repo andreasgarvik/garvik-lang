@@ -30,7 +30,7 @@ public class SimplParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'=='", "'('", "')'", "'/'", "'*'", "'-'", "'+'", "'->'", "'print'", 
+			null, "'=='", "'('", "')'", "'/'", "'*'", "'-'", "'+'", "'->'", "'//'", 
 			"'var'", "'='", "'if'", "'then'", "'else'"
 		};
 	}
@@ -188,6 +188,12 @@ public class SimplParser extends Parser {
 		}
 		public MultExprContext(ExprContext ctx) { copyFrom(ctx); }
 	}
+	public static class CommentExprContext extends ExprContext {
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public CommentExprContext(ExprContext ctx) { copyFrom(ctx); }
+	}
 	public static class ParenExprContext extends ExprContext {
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
@@ -257,12 +263,6 @@ public class SimplParser extends Parser {
 		}
 		public CallExprContext(ExprContext ctx) { copyFrom(ctx); }
 	}
-	public static class PrintExprContext extends ExprContext {
-		public ExprContext expr() {
-			return getRuleContext(ExprContext.class,0);
-		}
-		public PrintExprContext(ExprContext ctx) { copyFrom(ctx); }
-	}
 	public static class IdExprContext extends ExprContext {
 		public TerminalNode ID() { return getToken(SimplParser.ID, 0); }
 		public IdExprContext(ExprContext ctx) { copyFrom(ctx); }
@@ -297,29 +297,29 @@ public class SimplParser extends Parser {
 			setState(33);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
+			case T__8:
+				{
+				_localctx = new CommentExprContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+
+				setState(11);
+				match(T__8);
+				setState(12);
+				expr(8);
+				}
+				break;
 			case T__1:
 				{
 				_localctx = new ParenExprContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-
-				setState(11);
-				match(T__1);
-				setState(12);
-				expr(0);
 				setState(13);
-				match(T__2);
-				}
-				break;
-			case T__8:
-				{
-				_localctx = new PrintExprContext(_localctx);
-				_ctx = _localctx;
-				_prevctx = _localctx;
+				match(T__1);
+				setState(14);
+				expr(0);
 				setState(15);
-				match(T__8);
-				setState(16);
-				expr(7);
+				match(T__2);
 				}
 				break;
 			case T__9:
@@ -554,12 +554,12 @@ public class SimplParser extends Parser {
 		"\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3"+
 		"\3\3\3\3\3\3\3\3\3\7\3=\n\3\f\3\16\3@\13\3\3\3\2\3\4\4\2\4\2\2\2N\2\t"+
 		"\3\2\2\2\4#\3\2\2\2\6\b\5\4\3\2\7\6\3\2\2\2\b\13\3\2\2\2\t\7\3\2\2\2\t"+
-		"\n\3\2\2\2\n\3\3\2\2\2\13\t\3\2\2\2\f\r\b\3\1\2\r\16\7\4\2\2\16\17\5\4"+
-		"\3\2\17\20\7\5\2\2\20$\3\2\2\2\21\22\7\13\2\2\22$\5\4\3\t\23\24\7\f\2"+
+		"\n\3\2\2\2\n\3\3\2\2\2\13\t\3\2\2\2\f\r\b\3\1\2\r\16\7\13\2\2\16$\5\4"+
+		"\3\n\17\20\7\4\2\2\20\21\5\4\3\2\21\22\7\5\2\2\22$\3\2\2\2\23\24\7\f\2"+
 		"\2\24\25\5\4\3\2\25\26\7\r\2\2\26\27\5\4\3\b\27$\3\2\2\2\30\31\7\16\2"+
 		"\2\31\32\5\4\3\2\32\33\7\17\2\2\33\34\5\4\3\2\34\35\7\20\2\2\35\36\5\4"+
 		"\3\7\36$\3\2\2\2\37$\7\21\2\2 $\7\22\2\2!$\7\23\2\2\"$\7\24\2\2#\f\3\2"+
-		"\2\2#\21\3\2\2\2#\23\3\2\2\2#\30\3\2\2\2#\37\3\2\2\2# \3\2\2\2#!\3\2\2"+
+		"\2\2#\17\3\2\2\2#\23\3\2\2\2#\30\3\2\2\2#\37\3\2\2\2# \3\2\2\2#!\3\2\2"+
 		"\2#\"\3\2\2\2$>\3\2\2\2%&\f\21\2\2&\'\7\3\2\2\'=\5\4\3\22()\f\17\2\2)"+
 		"*\7\6\2\2*=\5\4\3\20+,\f\16\2\2,-\7\7\2\2-=\5\4\3\17./\f\r\2\2/\60\7\b"+
 		"\2\2\60=\5\4\3\16\61\62\f\f\2\2\62\63\7\t\2\2\63=\5\4\3\r\64\65\f\13\2"+
