@@ -14,6 +14,9 @@ type SimplListener interface {
 	// EnterStrExpr is called when entering the strExpr production.
 	EnterStrExpr(c *StrExprContext)
 
+	// EnterDotExpr is called when entering the dotExpr production.
+	EnterDotExpr(c *DotExprContext)
+
 	// EnterIfElseExpr is called when entering the ifElseExpr production.
 	EnterIfElseExpr(c *IfElseExprContext)
 
@@ -32,14 +35,20 @@ type SimplListener interface {
 	// EnterNumExpr is called when entering the numExpr production.
 	EnterNumExpr(c *NumExprContext)
 
-	// EnterVarExpr is called when entering the varExpr production.
-	EnterVarExpr(c *VarExprContext)
+	// EnterCommaExpr is called when entering the commaExpr production.
+	EnterCommaExpr(c *CommaExprContext)
 
 	// EnterAddExpr is called when entering the addExpr production.
 	EnterAddExpr(c *AddExprContext)
 
 	// EnterLambdaExpr is called when entering the lambdaExpr production.
 	EnterLambdaExpr(c *LambdaExprContext)
+
+	// EnterStructExpr is called when entering the structExpr production.
+	EnterStructExpr(c *StructExprContext)
+
+	// EnterLookupExpr is called when entering the lookupExpr production.
+	EnterLookupExpr(c *LookupExprContext)
 
 	// EnterDivExpr is called when entering the divExpr production.
 	EnterDivExpr(c *DivExprContext)
@@ -49,6 +58,12 @@ type SimplListener interface {
 
 	// EnterCallExpr is called when entering the callExpr production.
 	EnterCallExpr(c *CallExprContext)
+
+	// EnterListExpr is called when entering the listExpr production.
+	EnterListExpr(c *ListExprContext)
+
+	// EnterAssignExpr is called when entering the assignExpr production.
+	EnterAssignExpr(c *AssignExprContext)
 
 	// EnterIdExpr is called when entering the idExpr production.
 	EnterIdExpr(c *IdExprContext)
@@ -61,6 +76,9 @@ type SimplListener interface {
 
 	// ExitStrExpr is called when exiting the strExpr production.
 	ExitStrExpr(c *StrExprContext)
+
+	// ExitDotExpr is called when exiting the dotExpr production.
+	ExitDotExpr(c *DotExprContext)
 
 	// ExitIfElseExpr is called when exiting the ifElseExpr production.
 	ExitIfElseExpr(c *IfElseExprContext)
@@ -80,14 +98,20 @@ type SimplListener interface {
 	// ExitNumExpr is called when exiting the numExpr production.
 	ExitNumExpr(c *NumExprContext)
 
-	// ExitVarExpr is called when exiting the varExpr production.
-	ExitVarExpr(c *VarExprContext)
+	// ExitCommaExpr is called when exiting the commaExpr production.
+	ExitCommaExpr(c *CommaExprContext)
 
 	// ExitAddExpr is called when exiting the addExpr production.
 	ExitAddExpr(c *AddExprContext)
 
 	// ExitLambdaExpr is called when exiting the lambdaExpr production.
 	ExitLambdaExpr(c *LambdaExprContext)
+
+	// ExitStructExpr is called when exiting the structExpr production.
+	ExitStructExpr(c *StructExprContext)
+
+	// ExitLookupExpr is called when exiting the lookupExpr production.
+	ExitLookupExpr(c *LookupExprContext)
 
 	// ExitDivExpr is called when exiting the divExpr production.
 	ExitDivExpr(c *DivExprContext)
@@ -97,6 +121,12 @@ type SimplListener interface {
 
 	// ExitCallExpr is called when exiting the callExpr production.
 	ExitCallExpr(c *CallExprContext)
+
+	// ExitListExpr is called when exiting the listExpr production.
+	ExitListExpr(c *ListExprContext)
+
+	// ExitAssignExpr is called when exiting the assignExpr production.
+	ExitAssignExpr(c *AssignExprContext)
 
 	// ExitIdExpr is called when exiting the idExpr production.
 	ExitIdExpr(c *IdExprContext)

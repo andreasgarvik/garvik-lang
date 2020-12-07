@@ -9,6 +9,10 @@ import (
 	"github.com/golang-collections/collections/stack"
 )
 
+// videre:
+// lists
+// structs
+
 // An Evaluator will evaluate the tree
 type Evaluator struct {
 	*parser.BaseSimplVisitor
@@ -170,8 +174,8 @@ func (v *Evaluator) VisitLambdaExpr(ctx *parser.LambdaExprContext) interface{} {
 	return FunValue{arg, body, v.stack}
 }
 
-// VisitVarExpr evaluates a var expression
-func (v *Evaluator) VisitVarExpr(ctx *parser.VarExprContext) interface{} {
+// VisitAssignExpr evaluates a var expression
+func (v *Evaluator) VisitAssignExpr(ctx *parser.AssignExprContext) interface{} {
 	env := make(map[string]interface{})
 	id := ctx.GetId().GetText()
 	value := ctx.GetValue().Accept(v)
@@ -183,4 +187,52 @@ func (v *Evaluator) VisitVarExpr(ctx *parser.VarExprContext) interface{} {
 // VisitCommentExpr skips a comment
 func (v *Evaluator) VisitCommentExpr(ctx *parser.CommentExprContext) interface{} {
 	return nil
+}
+
+// VisitStructExpr evaluates a struct expression
+func (v *Evaluator) VisitStructExpr(ctx *parser.StructExprContext) interface{} {
+	return ctx.AllExpr()
+}
+
+// VisitDotExpr evaluates a dot expression
+func (v *Evaluator) VisitDotExpr(ctx *parser.DotExprContext) interface{} {
+	id := ctx.GetId().Accept(v)
+	if id != nil {
+		s := id.([]parser.IExprContext)
+		temp := v.stack
+		v.stack = stack.Stack{}
+		for _, expr := range s {
+			expr.Accept(v)
+		}
+		f := ctx.GetField().Accept(v)
+		v.stack = temp
+		return f
+	}
+	return nil
+}
+
+// VisitListExpr evaluates a list expression
+func (v *Evaluator) VisitListExpr(ctx *parser.ListExprContext) interface{} {
+	return ctx.Expr().Accept(v)
+}
+
+// VisitLookupExpr evaluates a lookup expression
+func (v *Evaluator) VisitLookupExpr(ctx *parser.LookupExprContext) interface{} {
+	id := ctx.GetId().Accept(v).([]int)
+	key := ctx.GetKey().Accept(v).(int)
+	return id[key]
+}
+
+// VisitCommaExpr evaluates a comma expression
+func (v *Evaluator) VisitCommaExpr(ctx *parser.CommaExprContext) interface{} {
+	left := ctx.GetLeft().Accept(v)
+	right := ctx.GetRight().Accept(v)
+	ll, ok := left.([]int)
+	r := right.(int)
+	if ok {
+		return append(ll, r)
+	} else {
+		li := left.(int)
+		return []int{li, r}
+	}
 }

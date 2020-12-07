@@ -16,6 +16,10 @@ func (v *BaseSimplVisitor) VisitStrExpr(ctx *StrExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseSimplVisitor) VisitDotExpr(ctx *DotExprContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseSimplVisitor) VisitIfElseExpr(ctx *IfElseExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -40,7 +44,7 @@ func (v *BaseSimplVisitor) VisitNumExpr(ctx *NumExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseSimplVisitor) VisitVarExpr(ctx *VarExprContext) interface{} {
+func (v *BaseSimplVisitor) VisitCommaExpr(ctx *CommaExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -49,6 +53,14 @@ func (v *BaseSimplVisitor) VisitAddExpr(ctx *AddExprContext) interface{} {
 }
 
 func (v *BaseSimplVisitor) VisitLambdaExpr(ctx *LambdaExprContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseSimplVisitor) VisitStructExpr(ctx *StructExprContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseSimplVisitor) VisitLookupExpr(ctx *LookupExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -61,6 +73,14 @@ func (v *BaseSimplVisitor) VisitBoolExpr(ctx *BoolExprContext) interface{} {
 }
 
 func (v *BaseSimplVisitor) VisitCallExpr(ctx *CallExprContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseSimplVisitor) VisitListExpr(ctx *ListExprContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseSimplVisitor) VisitAssignExpr(ctx *AssignExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

@@ -14,6 +14,9 @@ type SimplVisitor interface {
 	// Visit a parse tree produced by SimplParser#strExpr.
 	VisitStrExpr(ctx *StrExprContext) interface{}
 
+	// Visit a parse tree produced by SimplParser#dotExpr.
+	VisitDotExpr(ctx *DotExprContext) interface{}
+
 	// Visit a parse tree produced by SimplParser#ifElseExpr.
 	VisitIfElseExpr(ctx *IfElseExprContext) interface{}
 
@@ -32,14 +35,20 @@ type SimplVisitor interface {
 	// Visit a parse tree produced by SimplParser#numExpr.
 	VisitNumExpr(ctx *NumExprContext) interface{}
 
-	// Visit a parse tree produced by SimplParser#varExpr.
-	VisitVarExpr(ctx *VarExprContext) interface{}
+	// Visit a parse tree produced by SimplParser#commaExpr.
+	VisitCommaExpr(ctx *CommaExprContext) interface{}
 
 	// Visit a parse tree produced by SimplParser#addExpr.
 	VisitAddExpr(ctx *AddExprContext) interface{}
 
 	// Visit a parse tree produced by SimplParser#lambdaExpr.
 	VisitLambdaExpr(ctx *LambdaExprContext) interface{}
+
+	// Visit a parse tree produced by SimplParser#structExpr.
+	VisitStructExpr(ctx *StructExprContext) interface{}
+
+	// Visit a parse tree produced by SimplParser#lookupExpr.
+	VisitLookupExpr(ctx *LookupExprContext) interface{}
 
 	// Visit a parse tree produced by SimplParser#divExpr.
 	VisitDivExpr(ctx *DivExprContext) interface{}
@@ -49,6 +58,12 @@ type SimplVisitor interface {
 
 	// Visit a parse tree produced by SimplParser#callExpr.
 	VisitCallExpr(ctx *CallExprContext) interface{}
+
+	// Visit a parse tree produced by SimplParser#listExpr.
+	VisitListExpr(ctx *ListExprContext) interface{}
+
+	// Visit a parse tree produced by SimplParser#assignExpr.
+	VisitAssignExpr(ctx *AssignExprContext) interface{}
 
 	// Visit a parse tree produced by SimplParser#idExpr.
 	VisitIdExpr(ctx *IdExprContext) interface{}
