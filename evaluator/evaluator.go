@@ -9,10 +9,6 @@ import (
 	"github.com/golang-collections/collections/stack"
 )
 
-// videre:
-// lists
-// structs
-
 // An Evaluator will evaluate the tree
 type Evaluator struct {
 	*parser.BaseSimplVisitor
@@ -218,9 +214,13 @@ func (v *Evaluator) VisitListExpr(ctx *parser.ListExprContext) interface{} {
 
 // VisitLookupExpr evaluates a lookup expression
 func (v *Evaluator) VisitLookupExpr(ctx *parser.LookupExprContext) interface{} {
-	id := ctx.GetId().Accept(v).([]int)
-	key := ctx.GetKey().Accept(v).(int)
-	return id[key]
+	id := ctx.GetId().Accept(v)
+	if id != nil {
+		list := id.([]int)
+		key := ctx.GetKey().Accept(v).(int)
+		return list[key]
+	}
+	return nil
 }
 
 // VisitCommaExpr evaluates a comma expression
@@ -231,8 +231,7 @@ func (v *Evaluator) VisitCommaExpr(ctx *parser.CommaExprContext) interface{} {
 	r := right.(int)
 	if ok {
 		return append(ll, r)
-	} else {
-		li := left.(int)
-		return []int{li, r}
 	}
+	li := left.(int)
+	return []int{li, r}
 }

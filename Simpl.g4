@@ -11,6 +11,7 @@ program: expr*;
 
 expr:
 	left = expr '==' right = expr						# equalExpr
+	| id = expr '[' key = expr ']'						# lookupExpr
 	| fun = expr '(' arg = expr ')'						# callExpr
 	| left = expr '/' right = expr						# divExpr
 	| left = expr '*' right = expr						# multExpr
@@ -19,13 +20,11 @@ expr:
 	| arg = expr '->' body = expr						# lambdaExpr
 	| id = expr '=' value = expr						# assignExpr
 	| id = expr '.' field = expr						# dotExpr
-	| id = expr '[' key = expr ']'						# lookupExpr
 	| left = expr ',' right = expr						# commaExpr
 	| '//' expr											# commentExpr
+	| '[' expr ']'										# listExpr
 	| '(' expr ')'										# parenExpr
 	| '{' expr* '}'										# structExpr
-	| '[' expr ']'										# listExpr
-	| id = expr '.' value = expr						# dotExpr
 	| 'if' con = expr 'then' t = expr 'else' f = expr	# ifElseExpr
 	| BOOL												# boolExpr
 	| ID												# idExpr
