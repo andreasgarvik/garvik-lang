@@ -30,8 +30,8 @@ public class SimplParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'=='", "'['", "']'", "'('", "')'", "'/'", "'*'", "'-'", "'+'", 
-			"'->'", "'='", "'.'", "','", "'//'", "'{'", "'}'", "'if'", "'then'", 
+			null, "'=='", "'.'", "'['", "']'", "'('", "')'", "'/'", "'*'", "'-'", 
+			"'+'", "'->'", "'='", "','", "'//'", "'{'", "'}'", "'if'", "'then'", 
 			"'else'"
 		};
 	}
@@ -117,7 +117,7 @@ public class SimplParser extends Parser {
 			setState(7);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__1) | (1L << T__3) | (1L << T__13) | (1L << T__14) | (1L << T__16) | (1L << BOOL) | (1L << ID) | (1L << NUM) | (1L << STR))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << T__4) | (1L << T__13) | (1L << T__14) | (1L << T__16) | (1L << BOOL) | (1L << ID) | (1L << NUM) | (1L << STR))) != 0)) {
 				{
 				{
 				setState(4);
@@ -360,30 +360,30 @@ public class SimplParser extends Parser {
 				expr(9);
 				}
 				break;
-			case T__1:
+			case T__2:
 				{
 				_localctx = new ListExprContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 				setState(13);
-				match(T__1);
+				match(T__2);
 				setState(14);
 				expr(0);
 				setState(15);
-				match(T__2);
+				match(T__3);
 				}
 				break;
-			case T__3:
+			case T__4:
 				{
 				_localctx = new ParenExprContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 				setState(17);
-				match(T__3);
+				match(T__4);
 				setState(18);
 				expr(0);
 				setState(19);
-				match(T__4);
+				match(T__5);
 				}
 				break;
 			case T__14:
@@ -396,7 +396,7 @@ public class SimplParser extends Parser {
 				setState(25);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__1) | (1L << T__3) | (1L << T__13) | (1L << T__14) | (1L << T__16) | (1L << BOOL) | (1L << ID) | (1L << NUM) | (1L << STR))) != 0)) {
+				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << T__4) | (1L << T__13) | (1L << T__14) | (1L << T__16) | (1L << BOOL) | (1L << ID) | (1L << NUM) | (1L << STR))) != 0)) {
 					{
 					{
 					setState(22);
@@ -496,93 +496,93 @@ public class SimplParser extends Parser {
 						break;
 					case 2:
 						{
-						_localctx = new DivExprContext(new ExprContext(_parentctx, _parentState));
-						((DivExprContext)_localctx).left = _prevctx;
+						_localctx = new DotExprContext(new ExprContext(_parentctx, _parentState));
+						((DotExprContext)_localctx).id = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(45);
-						if (!(precpred(_ctx, 17))) throw new FailedPredicateException(this, "precpred(_ctx, 17)");
+						if (!(precpred(_ctx, 19))) throw new FailedPredicateException(this, "precpred(_ctx, 19)");
 						setState(46);
-						match(T__5);
+						match(T__1);
 						setState(47);
-						((DivExprContext)_localctx).right = expr(18);
+						((DotExprContext)_localctx).field = expr(20);
 						}
 						break;
 					case 3:
 						{
-						_localctx = new MultExprContext(new ExprContext(_parentctx, _parentState));
-						((MultExprContext)_localctx).left = _prevctx;
+						_localctx = new DivExprContext(new ExprContext(_parentctx, _parentState));
+						((DivExprContext)_localctx).left = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(48);
 						if (!(precpred(_ctx, 16))) throw new FailedPredicateException(this, "precpred(_ctx, 16)");
 						setState(49);
 						match(T__6);
 						setState(50);
-						((MultExprContext)_localctx).right = expr(17);
+						((DivExprContext)_localctx).right = expr(17);
 						}
 						break;
 					case 4:
 						{
-						_localctx = new SubExprContext(new ExprContext(_parentctx, _parentState));
-						((SubExprContext)_localctx).left = _prevctx;
+						_localctx = new MultExprContext(new ExprContext(_parentctx, _parentState));
+						((MultExprContext)_localctx).left = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(51);
 						if (!(precpred(_ctx, 15))) throw new FailedPredicateException(this, "precpred(_ctx, 15)");
 						setState(52);
 						match(T__7);
 						setState(53);
-						((SubExprContext)_localctx).right = expr(16);
+						((MultExprContext)_localctx).right = expr(16);
 						}
 						break;
 					case 5:
 						{
-						_localctx = new AddExprContext(new ExprContext(_parentctx, _parentState));
-						((AddExprContext)_localctx).left = _prevctx;
+						_localctx = new SubExprContext(new ExprContext(_parentctx, _parentState));
+						((SubExprContext)_localctx).left = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(54);
 						if (!(precpred(_ctx, 14))) throw new FailedPredicateException(this, "precpred(_ctx, 14)");
 						setState(55);
 						match(T__8);
 						setState(56);
-						((AddExprContext)_localctx).right = expr(15);
+						((SubExprContext)_localctx).right = expr(15);
 						}
 						break;
 					case 6:
 						{
-						_localctx = new LambdaExprContext(new ExprContext(_parentctx, _parentState));
-						((LambdaExprContext)_localctx).arg = _prevctx;
+						_localctx = new AddExprContext(new ExprContext(_parentctx, _parentState));
+						((AddExprContext)_localctx).left = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(57);
 						if (!(precpred(_ctx, 13))) throw new FailedPredicateException(this, "precpred(_ctx, 13)");
 						setState(58);
 						match(T__9);
 						setState(59);
-						((LambdaExprContext)_localctx).body = expr(14);
+						((AddExprContext)_localctx).right = expr(14);
 						}
 						break;
 					case 7:
 						{
-						_localctx = new AssignExprContext(new ExprContext(_parentctx, _parentState));
-						((AssignExprContext)_localctx).id = _prevctx;
+						_localctx = new LambdaExprContext(new ExprContext(_parentctx, _parentState));
+						((LambdaExprContext)_localctx).arg = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(60);
 						if (!(precpred(_ctx, 12))) throw new FailedPredicateException(this, "precpred(_ctx, 12)");
 						setState(61);
 						match(T__10);
 						setState(62);
-						((AssignExprContext)_localctx).value = expr(13);
+						((LambdaExprContext)_localctx).body = expr(13);
 						}
 						break;
 					case 8:
 						{
-						_localctx = new DotExprContext(new ExprContext(_parentctx, _parentState));
-						((DotExprContext)_localctx).id = _prevctx;
+						_localctx = new AssignExprContext(new ExprContext(_parentctx, _parentState));
+						((AssignExprContext)_localctx).id = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(63);
 						if (!(precpred(_ctx, 11))) throw new FailedPredicateException(this, "precpred(_ctx, 11)");
 						setState(64);
 						match(T__11);
 						setState(65);
-						((DotExprContext)_localctx).field = expr(12);
+						((AssignExprContext)_localctx).value = expr(12);
 						}
 						break;
 					case 9:
@@ -604,13 +604,13 @@ public class SimplParser extends Parser {
 						((LookupExprContext)_localctx).id = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(69);
-						if (!(precpred(_ctx, 19))) throw new FailedPredicateException(this, "precpred(_ctx, 19)");
+						if (!(precpred(_ctx, 18))) throw new FailedPredicateException(this, "precpred(_ctx, 18)");
 						setState(70);
-						match(T__1);
+						match(T__2);
 						setState(71);
 						((LookupExprContext)_localctx).key = expr(0);
 						setState(72);
-						match(T__2);
+						match(T__3);
 						}
 						break;
 					case 11:
@@ -619,13 +619,13 @@ public class SimplParser extends Parser {
 						((CallExprContext)_localctx).fun = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(74);
-						if (!(precpred(_ctx, 18))) throw new FailedPredicateException(this, "precpred(_ctx, 18)");
+						if (!(precpred(_ctx, 17))) throw new FailedPredicateException(this, "precpred(_ctx, 17)");
 						setState(75);
-						match(T__3);
+						match(T__4);
 						setState(76);
 						((CallExprContext)_localctx).arg = expr(0);
 						setState(77);
-						match(T__4);
+						match(T__5);
 						}
 						break;
 					}
@@ -660,7 +660,7 @@ public class SimplParser extends Parser {
 		case 0:
 			return precpred(_ctx, 20);
 		case 1:
-			return precpred(_ctx, 17);
+			return precpred(_ctx, 19);
 		case 2:
 			return precpred(_ctx, 16);
 		case 3:
@@ -676,9 +676,9 @@ public class SimplParser extends Parser {
 		case 8:
 			return precpred(_ctx, 10);
 		case 9:
-			return precpred(_ctx, 19);
-		case 10:
 			return precpred(_ctx, 18);
+		case 10:
+			return precpred(_ctx, 17);
 		}
 		return true;
 	}
@@ -692,19 +692,19 @@ public class SimplParser extends Parser {
 		"\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\7\3R\n\3\f\3\16\3U\13\3\3\3\2"+
 		"\3\4\4\2\4\2\2\2i\2\t\3\2\2\2\4*\3\2\2\2\6\b\5\4\3\2\7\6\3\2\2\2\b\13"+
 		"\3\2\2\2\t\7\3\2\2\2\t\n\3\2\2\2\n\3\3\2\2\2\13\t\3\2\2\2\f\r\b\3\1\2"+
-		"\r\16\7\20\2\2\16+\5\4\3\13\17\20\7\4\2\2\20\21\5\4\3\2\21\22\7\5\2\2"+
-		"\22+\3\2\2\2\23\24\7\6\2\2\24\25\5\4\3\2\25\26\7\7\2\2\26+\3\2\2\2\27"+
+		"\r\16\7\20\2\2\16+\5\4\3\13\17\20\7\5\2\2\20\21\5\4\3\2\21\22\7\6\2\2"+
+		"\22+\3\2\2\2\23\24\7\7\2\2\24\25\5\4\3\2\25\26\7\b\2\2\26+\3\2\2\2\27"+
 		"\33\7\21\2\2\30\32\5\4\3\2\31\30\3\2\2\2\32\35\3\2\2\2\33\31\3\2\2\2\33"+
 		"\34\3\2\2\2\34\36\3\2\2\2\35\33\3\2\2\2\36+\7\22\2\2\37 \7\23\2\2 !\5"+
 		"\4\3\2!\"\7\24\2\2\"#\5\4\3\2#$\7\25\2\2$%\5\4\3\7%+\3\2\2\2&+\7\26\2"+
 		"\2\'+\7\27\2\2(+\7\30\2\2)+\7\31\2\2*\f\3\2\2\2*\17\3\2\2\2*\23\3\2\2"+
 		"\2*\27\3\2\2\2*\37\3\2\2\2*&\3\2\2\2*\'\3\2\2\2*(\3\2\2\2*)\3\2\2\2+S"+
-		"\3\2\2\2,-\f\26\2\2-.\7\3\2\2.R\5\4\3\27/\60\f\23\2\2\60\61\7\b\2\2\61"+
-		"R\5\4\3\24\62\63\f\22\2\2\63\64\7\t\2\2\64R\5\4\3\23\65\66\f\21\2\2\66"+
+		"\3\2\2\2,-\f\26\2\2-.\7\3\2\2.R\5\4\3\27/\60\f\25\2\2\60\61\7\4\2\2\61"+
+		"R\5\4\3\26\62\63\f\22\2\2\63\64\7\t\2\2\64R\5\4\3\23\65\66\f\21\2\2\66"+
 		"\67\7\n\2\2\67R\5\4\3\2289\f\20\2\29:\7\13\2\2:R\5\4\3\21;<\f\17\2\2<"+
 		"=\7\f\2\2=R\5\4\3\20>?\f\16\2\2?@\7\r\2\2@R\5\4\3\17AB\f\r\2\2BC\7\16"+
-		"\2\2CR\5\4\3\16DE\f\f\2\2EF\7\17\2\2FR\5\4\3\rGH\f\25\2\2HI\7\4\2\2IJ"+
-		"\5\4\3\2JK\7\5\2\2KR\3\2\2\2LM\f\24\2\2MN\7\6\2\2NO\5\4\3\2OP\7\7\2\2"+
+		"\2\2CR\5\4\3\16DE\f\f\2\2EF\7\17\2\2FR\5\4\3\rGH\f\24\2\2HI\7\5\2\2IJ"+
+		"\5\4\3\2JK\7\6\2\2KR\3\2\2\2LM\f\23\2\2MN\7\7\2\2NO\5\4\3\2OP\7\b\2\2"+
 		"PR\3\2\2\2Q,\3\2\2\2Q/\3\2\2\2Q\62\3\2\2\2Q\65\3\2\2\2Q8\3\2\2\2Q;\3\2"+
 		"\2\2Q>\3\2\2\2QA\3\2\2\2QD\3\2\2\2QG\3\2\2\2QL\3\2\2\2RU\3\2\2\2SQ\3\2"+
 		"\2\2ST\3\2\2\2T\5\3\2\2\2US\3\2\2\2\7\t\33*QS";
