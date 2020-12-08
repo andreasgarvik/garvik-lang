@@ -1,4 +1,4 @@
-# inf225-lang
+# Programming language creation project
 My own little programming language :sparkles:
 
 ```
