@@ -1,6 +1,8 @@
 # Programming language creation project
 My own little programming language :sparkles:
 
+## Features
+
 ```
 // "Functions"
 f = x -> x(2)
@@ -43,4 +45,9 @@ f(s)
 fib = x -> if x == 0 then 0 else if x == 1 then 1 else fib(x-1) + fib(x-2)
 fib(10)
 // 55
+```
+
+## How to run
+```
+go run main.go *file*
 ```
