@@ -17,6 +17,9 @@ type SimplListener interface {
 	// EnterDotExpr is called when entering the dotExpr production.
 	EnterDotExpr(c *DotExprContext)
 
+	// EnterLenExpr is called when entering the lenExpr production.
+	EnterLenExpr(c *LenExprContext)
+
 	// EnterIfElseExpr is called when entering the ifElseExpr production.
 	EnterIfElseExpr(c *IfElseExprContext)
 
@@ -53,6 +56,9 @@ type SimplListener interface {
 	// EnterDivExpr is called when entering the divExpr production.
 	EnterDivExpr(c *DivExprContext)
 
+	// EnterLookupAssignExpr is called when entering the lookupAssignExpr production.
+	EnterLookupAssignExpr(c *LookupAssignExprContext)
+
 	// EnterBoolExpr is called when entering the boolExpr production.
 	EnterBoolExpr(c *BoolExprContext)
 
@@ -79,6 +85,9 @@ type SimplListener interface {
 
 	// ExitDotExpr is called when exiting the dotExpr production.
 	ExitDotExpr(c *DotExprContext)
+
+	// ExitLenExpr is called when exiting the lenExpr production.
+	ExitLenExpr(c *LenExprContext)
 
 	// ExitIfElseExpr is called when exiting the ifElseExpr production.
 	ExitIfElseExpr(c *IfElseExprContext)
@@ -115,6 +124,9 @@ type SimplListener interface {
 
 	// ExitDivExpr is called when exiting the divExpr production.
 	ExitDivExpr(c *DivExprContext)
+
+	// ExitLookupAssignExpr is called when exiting the lookupAssignExpr production.
+	ExitLookupAssignExpr(c *LookupAssignExprContext)
 
 	// ExitBoolExpr is called when exiting the boolExpr production.
 	ExitBoolExpr(c *BoolExprContext)

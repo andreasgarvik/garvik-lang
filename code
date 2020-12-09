@@ -1,4 +1,4 @@
-// "Closure"
+// "Lexical scoping"
 // a = 5
 // fun = x -> x + a
 // a = 6
@@ -12,6 +12,9 @@
 // f = x -> x(2)
 // f(x -> x * 2)
 
+// f = (x,y,z) -> x + y + z
+// f(1,2,3)
+
 // "Lists"
 // l = [1,2,3]
 // l[1]
@@ -20,13 +23,15 @@
 // s = { a = 5 }
 // s.a
 
-f = x -> x.b - x.a
-s = {
-  a = 2
-  b = 3
-}
-f(s)
+// f = x -> x.b - x.a
+// s = { a = 2 b = 3 }
+// f(s)
 
 // x = [1,2,3,4,5]
 // f = a -> a[0]
 // f(x)
+
+//map = x -> if x.c == 0 then x.l else map(x)
+
+f = (x,y,z) -> x + y + z
+f(1,2,3)

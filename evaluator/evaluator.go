@@ -32,9 +32,17 @@ func (v *Evaluator) VisitCallExpr(ctx *parser.CallExprContext) interface{} {
 	if fun != nil {
 		f := fun.(FunValue)
 		env := make(map[string]interface{})
-		p := ctx.GetArg().Accept(v)
 		env[ctx.GetFun().GetText()] = f
-		env[f.Arg.(string)] = p
+		args := ctx.GetArgs().Accept(v)
+		argsList, ok := ctx.GetArgs().Accept(v).([]int)
+		if !ok {
+			arg := args.(int)
+			env[f.Params[0]] = arg
+		} else {
+			for i, param := range f.Params {
+				env[param] = argsList[i]
+			}
+		}
 		temp := v.stack
 		v.stack = f.Env
 		v.stack.Push(env)
@@ -165,9 +173,14 @@ func (v *Evaluator) VisitEqualExpr(ctx *parser.EqualExprContext) interface{} {
 
 // VisitLambdaExpr evaluates a lambda expression
 func (v *Evaluator) VisitLambdaExpr(ctx *parser.LambdaExprContext) interface{} {
-	arg := ctx.GetArg().GetText()
+	params := ctx.GetParams().Accept(v)
 	body := ctx.GetBody()
-	return FunValue{arg, body, v.stack}
+	if params != nil {
+		paramList := params.([]string)
+		return FunValue{paramList, body, v.stack}
+	}
+	arg := ctx.GetParams().GetText()
+	return FunValue{[]string{arg}, body, v.stack}
 }
 
 // VisitAssignExpr evaluates a var expression
@@ -227,11 +240,51 @@ func (v *Evaluator) VisitLookupExpr(ctx *parser.LookupExprContext) interface{} {
 func (v *Evaluator) VisitCommaExpr(ctx *parser.CommaExprContext) interface{} {
 	left := ctx.GetLeft().Accept(v)
 	right := ctx.GetRight().Accept(v)
-	ll, ok := left.([]int)
-	r := right.(int)
-	if ok {
-		return append(ll, r)
+	if left != nil && right != nil {
+		ll, ok := left.([]int)
+		r := right.(int)
+		if ok {
+			return append(ll, r)
+		}
+		li := left.(int)
+		return []int{li, r}
 	}
-	li := left.(int)
-	return []int{li, r}
+
+	if left != nil {
+		ll, ok := left.([]string)
+		if ok {
+			return append(ll, ctx.GetRight().GetText())
+		}
+		return []string{ctx.GetLeft().GetText(), ctx.GetRight().GetText()}
+	}
+
+	return []string{ctx.GetLeft().GetText(), ctx.GetRight().GetText()}
 }
+
+// VisitLenExpr evaluates a lenght of list expression
+func (v *Evaluator) VisitLenExpr(ctx *parser.LenExprContext) interface{} {
+	id := ctx.GetId().Accept(v)
+	if id != nil {
+		list := id.([]int)
+		return len(list)
+	}
+	return nil
+}
+
+// VisitLookupAssignExpr evaluates a lookup assignment expression
+/*func (v *Evaluator) VisitLookupAssignExpr(ctx *parser.LookupAssignExprContext) interface{} {
+	env := make(map[string]interface{})
+	id := ctx.GetId().Accept(v)
+	fmt.Println(id)
+	if id != nil {
+		list := id.([]int)
+		key := ctx.GetKey().Accept(v).(int)
+		value := ctx.GetValue().Accept(v).(int)
+		l := ctx.GetId().GetText()
+		list[key] = value
+		env[l] = list
+		v.stack.Push(env)
+		return nil
+	}
+	return nil
+}*/

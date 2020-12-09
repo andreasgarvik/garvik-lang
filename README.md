@@ -1,4 +1,5 @@
 # Programming language creation project
+
 My own little programming language :sparkles:
 
 ## Features
@@ -9,12 +10,9 @@ f = x -> x(2)
 f(x -> x * 2)
 // 4
 
-// "Closure"
-a = 5
-fun = x -> x + a
-a = 6
-fun(5)
-// 10
+f = (x,y,z) -> x + y + z
+f(1,2,3)
+// 6
 
 // "Lists"
 l = [1,2,3]
@@ -48,6 +46,7 @@ fib(10)
 ```
 
 ## How to run
+
 ```
 go run main.go *file*
 ```

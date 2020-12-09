@@ -39,6 +39,12 @@ func (s *BaseSimplListener) EnterDotExpr(ctx *DotExprContext) {}
 // ExitDotExpr is called when production dotExpr is exited.
 func (s *BaseSimplListener) ExitDotExpr(ctx *DotExprContext) {}
 
+// EnterLenExpr is called when production lenExpr is entered.
+func (s *BaseSimplListener) EnterLenExpr(ctx *LenExprContext) {}
+
+// ExitLenExpr is called when production lenExpr is exited.
+func (s *BaseSimplListener) ExitLenExpr(ctx *LenExprContext) {}
+
 // EnterIfElseExpr is called when production ifElseExpr is entered.
 func (s *BaseSimplListener) EnterIfElseExpr(ctx *IfElseExprContext) {}
 
@@ -110,6 +116,12 @@ func (s *BaseSimplListener) EnterDivExpr(ctx *DivExprContext) {}
 
 // ExitDivExpr is called when production divExpr is exited.
 func (s *BaseSimplListener) ExitDivExpr(ctx *DivExprContext) {}
+
+// EnterLookupAssignExpr is called when production lookupAssignExpr is entered.
+func (s *BaseSimplListener) EnterLookupAssignExpr(ctx *LookupAssignExprContext) {}
+
+// ExitLookupAssignExpr is called when production lookupAssignExpr is exited.
+func (s *BaseSimplListener) ExitLookupAssignExpr(ctx *LookupAssignExprContext) {}
 
 // EnterBoolExpr is called when production boolExpr is entered.
 func (s *BaseSimplListener) EnterBoolExpr(ctx *BoolExprContext) {}

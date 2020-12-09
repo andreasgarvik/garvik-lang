@@ -17,6 +17,9 @@ type SimplVisitor interface {
 	// Visit a parse tree produced by SimplParser#dotExpr.
 	VisitDotExpr(ctx *DotExprContext) interface{}
 
+	// Visit a parse tree produced by SimplParser#lenExpr.
+	VisitLenExpr(ctx *LenExprContext) interface{}
+
 	// Visit a parse tree produced by SimplParser#ifElseExpr.
 	VisitIfElseExpr(ctx *IfElseExprContext) interface{}
 
@@ -52,6 +55,9 @@ type SimplVisitor interface {
 
 	// Visit a parse tree produced by SimplParser#divExpr.
 	VisitDivExpr(ctx *DivExprContext) interface{}
+
+	// Visit a parse tree produced by SimplParser#lookupAssignExpr.
+	VisitLookupAssignExpr(ctx *LookupAssignExprContext) interface{}
 
 	// Visit a parse tree produced by SimplParser#boolExpr.
 	VisitBoolExpr(ctx *BoolExprContext) interface{}

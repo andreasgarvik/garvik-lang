@@ -13,12 +13,13 @@ expr:
 	left = expr '==' right = expr						# equalExpr
 	| id = expr '.' field = expr						# dotExpr
 	| id = expr '[' key = expr ']'						# lookupExpr
-	| fun = expr '(' arg = expr ')'						# callExpr
+	| id = expr '[' key = expr ']' '=' value = expr		# lookupAssignExpr
+	| fun = expr '(' args = expr ')'					# callExpr
 	| left = expr '/' right = expr						# divExpr
 	| left = expr '*' right = expr						# multExpr
 	| left = expr '-' right = expr						# subExpr
 	| left = expr '+' right = expr						# addExpr
-	| arg = expr '->' body = expr						# lambdaExpr
+	| params = expr '->' body = expr					# lambdaExpr
 	| id = expr '=' value = expr						# assignExpr
 	| left = expr ',' right = expr						# commaExpr
 	| '//' expr											# commentExpr
@@ -26,6 +27,7 @@ expr:
 	| '(' expr ')'										# parenExpr
 	| '{' expr* '}'										# structExpr
 	| 'if' con = expr 'then' t = expr 'else' f = expr	# ifElseExpr
+	| 'len' id = expr									# lenExpr
 	| BOOL												# boolExpr
 	| ID												# idExpr
 	| NUM												# numExpr
