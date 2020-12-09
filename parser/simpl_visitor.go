@@ -38,9 +38,6 @@ type SimplVisitor interface {
 	// Visit a parse tree produced by SimplParser#numExpr.
 	VisitNumExpr(ctx *NumExprContext) interface{}
 
-	// Visit a parse tree produced by SimplParser#commaExpr.
-	VisitCommaExpr(ctx *CommaExprContext) interface{}
-
 	// Visit a parse tree produced by SimplParser#addExpr.
 	VisitAddExpr(ctx *AddExprContext) interface{}
 

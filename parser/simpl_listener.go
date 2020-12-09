@@ -38,9 +38,6 @@ type SimplListener interface {
 	// EnterNumExpr is called when entering the numExpr production.
 	EnterNumExpr(c *NumExprContext)
 
-	// EnterCommaExpr is called when entering the commaExpr production.
-	EnterCommaExpr(c *CommaExprContext)
-
 	// EnterAddExpr is called when entering the addExpr production.
 	EnterAddExpr(c *AddExprContext)
 
@@ -106,9 +103,6 @@ type SimplListener interface {
 
 	// ExitNumExpr is called when exiting the numExpr production.
 	ExitNumExpr(c *NumExprContext)
-
-	// ExitCommaExpr is called when exiting the commaExpr production.
-	ExitCommaExpr(c *CommaExprContext)
 
 	// ExitAddExpr is called when exiting the addExpr production.
 	ExitAddExpr(c *AddExprContext)

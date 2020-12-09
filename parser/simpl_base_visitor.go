@@ -48,10 +48,6 @@ func (v *BaseSimplVisitor) VisitNumExpr(ctx *NumExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseSimplVisitor) VisitCommaExpr(ctx *CommaExprContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
 func (v *BaseSimplVisitor) VisitAddExpr(ctx *AddExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }

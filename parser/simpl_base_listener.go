@@ -81,12 +81,6 @@ func (s *BaseSimplListener) EnterNumExpr(ctx *NumExprContext) {}
 // ExitNumExpr is called when production numExpr is exited.
 func (s *BaseSimplListener) ExitNumExpr(ctx *NumExprContext) {}
 
-// EnterCommaExpr is called when production commaExpr is entered.
-func (s *BaseSimplListener) EnterCommaExpr(ctx *CommaExprContext) {}
-
-// ExitCommaExpr is called when production commaExpr is exited.
-func (s *BaseSimplListener) ExitCommaExpr(ctx *CommaExprContext) {}
-
 // EnterAddExpr is called when production addExpr is entered.
 func (s *BaseSimplListener) EnterAddExpr(ctx *AddExprContext) {}
 

@@ -31,18 +31,9 @@ func (v *Evaluator) VisitCallExpr(ctx *parser.CallExprContext) interface{} {
 	fun := ctx.GetFun().Accept(v)
 	if fun != nil {
 		f := fun.(FunValue)
-		env := make(map[string]interface{})
+		env := make(map[interface{}]interface{})
 		env[ctx.GetFun().GetText()] = f
-		args := ctx.GetArgs().Accept(v)
-		argsList, ok := ctx.GetArgs().Accept(v).([]int)
-		if !ok {
-			arg := args.(int)
-			env[f.Params[0]] = arg
-		} else {
-			for i, param := range f.Params {
-				env[param] = argsList[i]
-			}
-		}
+		env[f.Param] = ctx.GetArg().Accept(v)
 		temp := v.stack
 		v.stack = f.Env
 		v.stack.Push(env)
@@ -102,7 +93,7 @@ func (v *Evaluator) VisitAddExpr(ctx *parser.AddExprContext) interface{} {
 // VisitIdExpr evaluates a ID expression
 func (v *Evaluator) VisitIdExpr(ctx *parser.IdExprContext) interface{} {
 	if v.stack.Len() != 0 {
-		s := v.stack.Peek().(map[string]interface{})
+		s := v.stack.Peek().(map[interface{}]interface{})
 		value, ok := s[ctx.ID().GetText()]
 		if !ok {
 			m := v.stack.Pop()
@@ -173,19 +164,14 @@ func (v *Evaluator) VisitEqualExpr(ctx *parser.EqualExprContext) interface{} {
 
 // VisitLambdaExpr evaluates a lambda expression
 func (v *Evaluator) VisitLambdaExpr(ctx *parser.LambdaExprContext) interface{} {
-	params := ctx.GetParams().Accept(v)
+	param := ctx.GetParam().GetText()
 	body := ctx.GetBody()
-	if params != nil {
-		paramList := params.([]string)
-		return FunValue{paramList, body, v.stack}
-	}
-	arg := ctx.GetParams().GetText()
-	return FunValue{[]string{arg}, body, v.stack}
+	return FunValue{param, body, v.stack}
 }
 
 // VisitAssignExpr evaluates a var expression
 func (v *Evaluator) VisitAssignExpr(ctx *parser.AssignExprContext) interface{} {
-	env := make(map[string]interface{})
+	env := make(map[interface{}]interface{})
 	id := ctx.GetId().GetText()
 	value := ctx.GetValue().Accept(v)
 	env[id] = value
@@ -222,64 +208,43 @@ func (v *Evaluator) VisitDotExpr(ctx *parser.DotExprContext) interface{} {
 
 // VisitListExpr evaluates a list expression
 func (v *Evaluator) VisitListExpr(ctx *parser.ListExprContext) interface{} {
-	return ctx.Expr().Accept(v)
+	var list []interface{}
+	for _, expr := range ctx.AllExpr() {
+		list = append(list, expr.Accept(v))
+	}
+	return list
 }
 
 // VisitLookupExpr evaluates a lookup expression
 func (v *Evaluator) VisitLookupExpr(ctx *parser.LookupExprContext) interface{} {
 	id := ctx.GetId().Accept(v)
 	if id != nil {
-		list := id.([]int)
+		list := id.([]interface{})
 		key := ctx.GetKey().Accept(v).(int)
 		return list[key]
 	}
 	return nil
 }
 
-// VisitCommaExpr evaluates a comma expression
-func (v *Evaluator) VisitCommaExpr(ctx *parser.CommaExprContext) interface{} {
-	left := ctx.GetLeft().Accept(v)
-	right := ctx.GetRight().Accept(v)
-	if left != nil && right != nil {
-		ll, ok := left.([]int)
-		r := right.(int)
-		if ok {
-			return append(ll, r)
-		}
-		li := left.(int)
-		return []int{li, r}
-	}
-
-	if left != nil {
-		ll, ok := left.([]string)
-		if ok {
-			return append(ll, ctx.GetRight().GetText())
-		}
-		return []string{ctx.GetLeft().GetText(), ctx.GetRight().GetText()}
-	}
-
-	return []string{ctx.GetLeft().GetText(), ctx.GetRight().GetText()}
-}
-
 // VisitLenExpr evaluates a lenght of list expression
 func (v *Evaluator) VisitLenExpr(ctx *parser.LenExprContext) interface{} {
 	id := ctx.GetId().Accept(v)
 	if id != nil {
-		list := id.([]int)
+		list := id.([]interface{})
 		return len(list)
 	}
 	return nil
 }
 
 // VisitLookupAssignExpr evaluates a lookup assignment expression
-/*func (v *Evaluator) VisitLookupAssignExpr(ctx *parser.LookupAssignExprContext) interface{} {
-	env := make(map[string]interface{})
+func (v *Evaluator) VisitLookupAssignExpr(ctx *parser.LookupAssignExprContext) interface{} {
+	env := make(map[interface{}]interface{})
 	id := ctx.GetId().Accept(v)
 	fmt.Println(id)
 	if id != nil {
-		list := id.([]int)
+		list := id.([]interface{})
 		key := ctx.GetKey().Accept(v).(int)
-		value := ctx.GetValue().Accept(v).(int)
+		value := ctx.GetValue().Accept(v)
 		l := ctx.GetId().GetText()
 		list[key] = value
 		env[l] = list
@@ -287,4 +252,4 @@ func (v *Evaluator) VisitLenExpr(ctx *parser.LenExprContext) interface{} {
 		return nil
 	}
 	return nil
-}*/
+}
