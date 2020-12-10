@@ -238,18 +238,13 @@ func (v *Evaluator) VisitLenExpr(ctx *parser.LenExprContext) interface{} {
 
 // VisitLookupAssignExpr evaluates a lookup assignment expression
 func (v *Evaluator) VisitLookupAssignExpr(ctx *parser.LookupAssignExprContext) interface{} {
-	env := make(map[interface{}]interface{})
 	id := ctx.GetId().Accept(v)
-	fmt.Println(id)
 	if id != nil {
 		list := id.([]interface{})
 		key := ctx.GetKey().Accept(v).(int)
 		value := ctx.GetValue().Accept(v)
-		l := ctx.GetId().GetText()
 		list[key] = value
-		env[l] = list
-		v.stack.Push(env)
-		return nil
+		return list
 	}
 	return nil
 }
