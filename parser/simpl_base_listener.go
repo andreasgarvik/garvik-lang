@@ -75,6 +75,12 @@ func (s *BaseSimplListener) EnterParenExpr(ctx *ParenExprContext) {}
 // ExitParenExpr is called when production parenExpr is exited.
 func (s *BaseSimplListener) ExitParenExpr(ctx *ParenExprContext) {}
 
+// EnterLetExpr is called when production letExpr is entered.
+func (s *BaseSimplListener) EnterLetExpr(ctx *LetExprContext) {}
+
+// ExitLetExpr is called when production letExpr is exited.
+func (s *BaseSimplListener) ExitLetExpr(ctx *LetExprContext) {}
+
 // EnterNumExpr is called when production numExpr is entered.
 func (s *BaseSimplListener) EnterNumExpr(ctx *NumExprContext) {}
 

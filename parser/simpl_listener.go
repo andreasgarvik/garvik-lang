@@ -35,6 +35,9 @@ type SimplListener interface {
 	// EnterParenExpr is called when entering the parenExpr production.
 	EnterParenExpr(c *ParenExprContext)
 
+	// EnterLetExpr is called when entering the letExpr production.
+	EnterLetExpr(c *LetExprContext)
+
 	// EnterNumExpr is called when entering the numExpr production.
 	EnterNumExpr(c *NumExprContext)
 
@@ -100,6 +103,9 @@ type SimplListener interface {
 
 	// ExitParenExpr is called when exiting the parenExpr production.
 	ExitParenExpr(c *ParenExprContext)
+
+	// ExitLetExpr is called when exiting the letExpr production.
+	ExitLetExpr(c *LetExprContext)
 
 	// ExitNumExpr is called when exiting the numExpr production.
 	ExitNumExpr(c *NumExprContext)

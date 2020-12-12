@@ -35,6 +35,9 @@ type SimplVisitor interface {
 	// Visit a parse tree produced by SimplParser#parenExpr.
 	VisitParenExpr(ctx *ParenExprContext) interface{}
 
+	// Visit a parse tree produced by SimplParser#letExpr.
+	VisitLetExpr(ctx *LetExprContext) interface{}
+
 	// Visit a parse tree produced by SimplParser#numExpr.
 	VisitNumExpr(ctx *NumExprContext) interface{}
 

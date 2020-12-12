@@ -45,6 +45,18 @@ func (v *Evaluator) VisitCallExpr(ctx *parser.CallExprContext) interface{} {
 	return nil
 }
 
+// VisitLetExpr evaluates a let expression
+func (v *Evaluator) VisitLetExpr(ctx *parser.LetExprContext) interface{} {
+	env := make(map[interface{}]interface{})
+	id := ctx.GetId().GetText()
+	value := ctx.GetValue().Accept(v)
+	env[id] = value
+	v.stack.Push(env)
+	result := ctx.GetExpression().Accept(v)
+	v.stack.Pop()
+	return result
+}
+
 // VisitMultExpr evaluates a multiplication expression
 func (v *Evaluator) VisitMultExpr(ctx *parser.MultExprContext) interface{} {
 	left := ctx.GetLeft().Accept(v)

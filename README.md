@@ -6,9 +6,18 @@ My own little programming language :sparkles:
 
 ```
 // "Functions"
+a = 5
+f = a -> b * a
+f(6)
+// 30
+
 f = x -> x(2)
 f(x -> x * 2)
 // 4
+
+// "Let Expression"
+let x = 2 + 3 in x * x
+// 25
 
 // "Lists"
 l = [1,2,3]
@@ -24,21 +33,27 @@ f = l -> l[0] + l[1] + l[2]
 f(x)
 // 6
 
-l = [2, x -> x * 2,[1,2,3]]
+l = [4, x -> x + 2,[1,2,3]]
 times = x ->
-  if x[0] == 0
-    then x[2]
+  let c = x[0] in
+  let f = x[1] in
+  let l = x[2] in
+  if c == 0
+    then l
   else
-    times([x[0] - 1, x[1], [x[1](x[2][0]),x[1](x[2][1]),x[1](x[2][2])]])
+    times([c - 1, f, [f(l[0]),f(l[1]),f(l[2])]])
 times(l)
-// [4,8,12]
+// [9 10 11]
 
 l = [0, x -> x * 2,[1,2,3]]
 map = x ->
-  if x[0] == len x[2]
-    then x[2]
+  let c = x[0] in
+  let f = x[1] in
+  let l = x[2] in
+  if c == len l
+    then l
   else
-    map([x[0] + 1, x[1], x[2][x[0]] = (x[1](x[2][x[0]]))])
+    map([c + 1, f, l[c] = (f(l[c]))])
 map(l)
 // [2,4,6]
 
@@ -48,18 +63,26 @@ s.a
 // 5
 
 // "Passing structs
-f = x -> x.b - x.a
+f = x -> x.f(x.b - x.a) + x.l[1]
 s = {
-  a = 2
-  b = 3
+  a = 10
+  b = 20
+  f = x -> x / 2
+  l = [1,2,3]
 }
 f(s)
-// 1
+// 7
 
 f = x -> x[0].f(x[1])
-s = { a = 2 f = x -> x + a}
+s = { a = 5 f = x -> x + a}
 f([s, 5])
-// 7
+// 10
+
+// "Lexical scoping"
+// a = 5
+// fun = x -> x + a
+// a = 6
+// fun(5)
 
 // "Fibonacci"
 fib = x -> if x == 0 then 0 else if x == 1 then 1 else fib(x-1) + fib(x-2)

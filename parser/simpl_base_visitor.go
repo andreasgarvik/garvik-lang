@@ -44,6 +44,10 @@ func (v *BaseSimplVisitor) VisitParenExpr(ctx *ParenExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseSimplVisitor) VisitLetExpr(ctx *LetExprContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseSimplVisitor) VisitNumExpr(ctx *NumExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
