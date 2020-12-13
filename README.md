@@ -1,6 +1,6 @@
-# Programming language creation project
+# My own little programming language :sparkles:
 
-My own little programming language :sparkles:
+Evaluated using ANTLR and Golang :rocket:
 
 ## Features
 
