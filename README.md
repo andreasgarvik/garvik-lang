@@ -100,7 +100,7 @@ c[0]
 l = [1,2,3]
 l[3]
 // list index out of bounds
-l + 4
+l + 5
 // l is not a number
 ```
 
