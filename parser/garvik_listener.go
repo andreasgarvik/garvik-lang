@@ -23,6 +23,9 @@ type GarvikListener interface {
 	// EnterIfElseExpr is called when entering the ifElseExpr production.
 	EnterIfElseExpr(c *IfElseExprContext)
 
+	// EnterLessExpr is called when entering the lessExpr production.
+	EnterLessExpr(c *LessExprContext)
+
 	// EnterSubExpr is called when entering the subExpr production.
 	EnterSubExpr(c *SubExprContext)
 
@@ -40,6 +43,9 @@ type GarvikListener interface {
 
 	// EnterNumExpr is called when entering the numExpr production.
 	EnterNumExpr(c *NumExprContext)
+
+	// EnterGreaterExpr is called when entering the greaterExpr production.
+	EnterGreaterExpr(c *GreaterExprContext)
 
 	// EnterAddExpr is called when entering the addExpr production.
 	EnterAddExpr(c *AddExprContext)
@@ -92,6 +98,9 @@ type GarvikListener interface {
 	// ExitIfElseExpr is called when exiting the ifElseExpr production.
 	ExitIfElseExpr(c *IfElseExprContext)
 
+	// ExitLessExpr is called when exiting the lessExpr production.
+	ExitLessExpr(c *LessExprContext)
+
 	// ExitSubExpr is called when exiting the subExpr production.
 	ExitSubExpr(c *SubExprContext)
 
@@ -109,6 +118,9 @@ type GarvikListener interface {
 
 	// ExitNumExpr is called when exiting the numExpr production.
 	ExitNumExpr(c *NumExprContext)
+
+	// ExitGreaterExpr is called when exiting the greaterExpr production.
+	ExitGreaterExpr(c *GreaterExprContext)
 
 	// ExitAddExpr is called when exiting the addExpr production.
 	ExitAddExpr(c *AddExprContext)

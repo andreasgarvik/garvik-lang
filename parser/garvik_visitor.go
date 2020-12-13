@@ -23,6 +23,9 @@ type GarvikVisitor interface {
 	// Visit a parse tree produced by GarvikParser#ifElseExpr.
 	VisitIfElseExpr(ctx *IfElseExprContext) interface{}
 
+	// Visit a parse tree produced by GarvikParser#lessExpr.
+	VisitLessExpr(ctx *LessExprContext) interface{}
+
 	// Visit a parse tree produced by GarvikParser#subExpr.
 	VisitSubExpr(ctx *SubExprContext) interface{}
 
@@ -40,6 +43,9 @@ type GarvikVisitor interface {
 
 	// Visit a parse tree produced by GarvikParser#numExpr.
 	VisitNumExpr(ctx *NumExprContext) interface{}
+
+	// Visit a parse tree produced by GarvikParser#greaterExpr.
+	VisitGreaterExpr(ctx *GreaterExprContext) interface{}
 
 	// Visit a parse tree produced by GarvikParser#addExpr.
 	VisitAddExpr(ctx *AddExprContext) interface{}

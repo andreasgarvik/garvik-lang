@@ -247,6 +247,56 @@ func (v *Evaluator) VisitEqualExpr(ctx *parser.EqualExprContext) interface{} {
 	return fmt.Sprintf("%s and %s is not defined", ctx.GetLeft().GetText(), ctx.GetRight().GetText())
 }
 
+// VisitLessExpr evaluates a less then expression
+func (v *Evaluator) VisitLessExpr(ctx *parser.LessExprContext) interface{} {
+	left := ctx.GetLeft().Accept(v)
+	right := ctx.GetRight().Accept(v)
+	if left != nil && right != nil {
+		l, ok := left.(int)
+		if ok {
+			r, ok := right.(int)
+			if ok {
+				return l < r
+			}
+			return fmt.Sprintf("%s is not a number", ctx.GetRight().GetText())
+		}
+		return fmt.Sprintf("%s is not a number", ctx.GetLeft().GetText())
+	}
+	if left == nil && right != nil {
+		return fmt.Sprintf("%s is not defined", ctx.GetLeft().GetText())
+	}
+
+	if left != nil && right == nil {
+		return fmt.Sprintf("%s is not defined", ctx.GetRight().GetText())
+	}
+	return fmt.Sprintf("%s and %s is not defined", ctx.GetLeft().GetText(), ctx.GetRight().GetText())
+}
+
+// VisitGreaterExpr evaluates a greater then expression
+func (v *Evaluator) VisitGreaterExpr(ctx *parser.GreaterExprContext) interface{} {
+	left := ctx.GetLeft().Accept(v)
+	right := ctx.GetRight().Accept(v)
+	if left != nil && right != nil {
+		l, ok := left.(int)
+		if ok {
+			r, ok := right.(int)
+			if ok {
+				return l > r
+			}
+			return fmt.Sprintf("%s is not a number", ctx.GetRight().GetText())
+		}
+		return fmt.Sprintf("%s is not a number", ctx.GetLeft().GetText())
+	}
+	if left == nil && right != nil {
+		return fmt.Sprintf("%s is not defined", ctx.GetLeft().GetText())
+	}
+
+	if left != nil && right == nil {
+		return fmt.Sprintf("%s is not defined", ctx.GetRight().GetText())
+	}
+	return fmt.Sprintf("%s and %s is not defined", ctx.GetLeft().GetText(), ctx.GetRight().GetText())
+}
+
 // VisitLambdaExpr evaluates a lambda expression
 func (v *Evaluator) VisitLambdaExpr(ctx *parser.LambdaExprContext) interface{} {
 	param := ctx.GetParam().GetText()

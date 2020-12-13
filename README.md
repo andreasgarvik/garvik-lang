@@ -85,9 +85,9 @@ f([s, 5])
 // fun(5)
 
 // "Fibonacci"
-fib = x -> if x == 0 then 0 else if x == 1 then 1 else fib(x-1) + fib(x-2)
+fib = x -> if x < 2 then 1 else fib(x-1) + fib(x-2)
 fib(10)
-// 55
+// 89
 
 // "Error messages"
 a = b

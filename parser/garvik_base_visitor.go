@@ -28,6 +28,10 @@ func (v *BaseGarvikVisitor) VisitIfElseExpr(ctx *IfElseExprContext) interface{} 
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseGarvikVisitor) VisitLessExpr(ctx *LessExprContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseGarvikVisitor) VisitSubExpr(ctx *SubExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -49,6 +53,10 @@ func (v *BaseGarvikVisitor) VisitLetExpr(ctx *LetExprContext) interface{} {
 }
 
 func (v *BaseGarvikVisitor) VisitNumExpr(ctx *NumExprContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGarvikVisitor) VisitGreaterExpr(ctx *GreaterExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

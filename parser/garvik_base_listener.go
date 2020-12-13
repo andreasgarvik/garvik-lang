@@ -51,6 +51,12 @@ func (s *BaseGarvikListener) EnterIfElseExpr(ctx *IfElseExprContext) {}
 // ExitIfElseExpr is called when production ifElseExpr is exited.
 func (s *BaseGarvikListener) ExitIfElseExpr(ctx *IfElseExprContext) {}
 
+// EnterLessExpr is called when production lessExpr is entered.
+func (s *BaseGarvikListener) EnterLessExpr(ctx *LessExprContext) {}
+
+// ExitLessExpr is called when production lessExpr is exited.
+func (s *BaseGarvikListener) ExitLessExpr(ctx *LessExprContext) {}
+
 // EnterSubExpr is called when production subExpr is entered.
 func (s *BaseGarvikListener) EnterSubExpr(ctx *SubExprContext) {}
 
@@ -86,6 +92,12 @@ func (s *BaseGarvikListener) EnterNumExpr(ctx *NumExprContext) {}
 
 // ExitNumExpr is called when production numExpr is exited.
 func (s *BaseGarvikListener) ExitNumExpr(ctx *NumExprContext) {}
+
+// EnterGreaterExpr is called when production greaterExpr is entered.
+func (s *BaseGarvikListener) EnterGreaterExpr(ctx *GreaterExprContext) {}
+
+// ExitGreaterExpr is called when production greaterExpr is exited.
+func (s *BaseGarvikListener) ExitGreaterExpr(ctx *GreaterExprContext) {}
 
 // EnterAddExpr is called when production addExpr is entered.
 func (s *BaseGarvikListener) EnterAddExpr(ctx *AddExprContext) {}

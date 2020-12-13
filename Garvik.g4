@@ -11,6 +11,8 @@ program: expr*;
 
 expr:
 	left = expr '==' right = expr								# equalExpr
+	| left = expr '<' right = expr								# lessExpr
+	| left = expr '>' right = expr								# greaterExpr
 	| id = expr '.' field = expr								# dotExpr
 	| id = expr '[' key = expr ']'								# lookupExpr
 	| id = expr '[' key = expr ']' '=' value = expr				# lookupAssignExpr
