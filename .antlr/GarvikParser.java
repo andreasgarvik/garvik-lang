@@ -19,7 +19,7 @@ public class GarvikParser extends Parser {
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
 		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, T__16=17, 
 		T__17=18, T__18=19, T__19=20, T__20=21, T__21=22, T__22=23, T__23=24, 
-		BOOL=25, ID=26, NUM=27, STR=28, WS=29;
+		T__24=25, BOOL=26, ID=27, NUM=28, STR=29, WS=30;
 	public static final int
 		RULE_program = 0, RULE_expr = 1;
 	private static String[] makeRuleNames() {
@@ -31,9 +31,9 @@ public class GarvikParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'=='", "'<'", "'>'", "'.'", "'['", "']'", "'='", "'('", "')'", 
-			"'/'", "'*'", "'-'", "'+'", "'->'", "'//'", "','", "'{'", "'}'", "'if'", 
-			"'then'", "'else'", "'let'", "'in'", "'len'"
+			null, "'=='", "'<'", "'>'", "'.'", "'='", "'['", "']'", "'('", "')'", 
+			"'/'", "'*'", "'-'", "'+'", "'->'", "':'", "'//'", "','", "'{'", "'}'", 
+			"'if'", "'then'", "'else'", "'let'", "'in'", "'len'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
@@ -41,7 +41,7 @@ public class GarvikParser extends Parser {
 		return new String[] {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
 			null, null, null, null, null, null, null, null, null, null, null, null, 
-			null, "BOOL", "ID", "NUM", "STR", "WS"
+			null, null, "BOOL", "ID", "NUM", "STR", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -118,7 +118,7 @@ public class GarvikParser extends Parser {
 			setState(7);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__4) | (1L << T__7) | (1L << T__14) | (1L << T__16) | (1L << T__18) | (1L << T__21) | (1L << T__23) | (1L << BOOL) | (1L << ID) | (1L << NUM) | (1L << STR))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__5) | (1L << T__7) | (1L << T__15) | (1L << T__17) | (1L << T__19) | (1L << T__22) | (1L << T__24) | (1L << BOOL) | (1L << ID) | (1L << NUM) | (1L << STR))) != 0)) {
 				{
 				{
 				setState(4);
@@ -175,29 +175,6 @@ public class GarvikParser extends Parser {
 		}
 		public LenExprContext(ExprContext ctx) { copyFrom(ctx); }
 	}
-	public static class IfElseExprContext extends ExprContext {
-		public ExprContext con;
-		public ExprContext t;
-		public ExprContext f;
-		public List<ExprContext> expr() {
-			return getRuleContexts(ExprContext.class);
-		}
-		public ExprContext expr(int i) {
-			return getRuleContext(ExprContext.class,i);
-		}
-		public IfElseExprContext(ExprContext ctx) { copyFrom(ctx); }
-	}
-	public static class LessExprContext extends ExprContext {
-		public ExprContext left;
-		public ExprContext right;
-		public List<ExprContext> expr() {
-			return getRuleContexts(ExprContext.class);
-		}
-		public ExprContext expr(int i) {
-			return getRuleContext(ExprContext.class,i);
-		}
-		public LessExprContext(ExprContext ctx) { copyFrom(ctx); }
-	}
 	public static class SubExprContext extends ExprContext {
 		public ExprContext left;
 		public ExprContext right;
@@ -208,23 +185,6 @@ public class GarvikParser extends Parser {
 			return getRuleContext(ExprContext.class,i);
 		}
 		public SubExprContext(ExprContext ctx) { copyFrom(ctx); }
-	}
-	public static class MultExprContext extends ExprContext {
-		public ExprContext left;
-		public ExprContext right;
-		public List<ExprContext> expr() {
-			return getRuleContexts(ExprContext.class);
-		}
-		public ExprContext expr(int i) {
-			return getRuleContext(ExprContext.class,i);
-		}
-		public MultExprContext(ExprContext ctx) { copyFrom(ctx); }
-	}
-	public static class CommentExprContext extends ExprContext {
-		public ExprContext expr() {
-			return getRuleContext(ExprContext.class,0);
-		}
-		public CommentExprContext(ExprContext ctx) { copyFrom(ctx); }
 	}
 	public static class ParenExprContext extends ExprContext {
 		public ExprContext expr() {
@@ -244,10 +204,6 @@ public class GarvikParser extends Parser {
 		}
 		public LetExprContext(ExprContext ctx) { copyFrom(ctx); }
 	}
-	public static class NumExprContext extends ExprContext {
-		public TerminalNode NUM() { return getToken(GarvikParser.NUM, 0); }
-		public NumExprContext(ExprContext ctx) { copyFrom(ctx); }
-	}
 	public static class GreaterExprContext extends ExprContext {
 		public ExprContext left;
 		public ExprContext right;
@@ -258,17 +214,6 @@ public class GarvikParser extends Parser {
 			return getRuleContext(ExprContext.class,i);
 		}
 		public GreaterExprContext(ExprContext ctx) { copyFrom(ctx); }
-	}
-	public static class AddExprContext extends ExprContext {
-		public ExprContext left;
-		public ExprContext right;
-		public List<ExprContext> expr() {
-			return getRuleContexts(ExprContext.class);
-		}
-		public ExprContext expr(int i) {
-			return getRuleContext(ExprContext.class,i);
-		}
-		public AddExprContext(ExprContext ctx) { copyFrom(ctx); }
 	}
 	public static class LambdaExprContext extends ExprContext {
 		public ExprContext param;
@@ -289,17 +234,6 @@ public class GarvikParser extends Parser {
 			return getRuleContext(ExprContext.class,i);
 		}
 		public StructExprContext(ExprContext ctx) { copyFrom(ctx); }
-	}
-	public static class LookupExprContext extends ExprContext {
-		public ExprContext id;
-		public ExprContext key;
-		public List<ExprContext> expr() {
-			return getRuleContexts(ExprContext.class);
-		}
-		public ExprContext expr(int i) {
-			return getRuleContext(ExprContext.class,i);
-		}
-		public LookupExprContext(ExprContext ctx) { copyFrom(ctx); }
 	}
 	public static class DivExprContext extends ExprContext {
 		public ExprContext left;
@@ -323,10 +257,6 @@ public class GarvikParser extends Parser {
 			return getRuleContext(ExprContext.class,i);
 		}
 		public LookupAssignExprContext(ExprContext ctx) { copyFrom(ctx); }
-	}
-	public static class BoolExprContext extends ExprContext {
-		public TerminalNode BOOL() { return getToken(GarvikParser.BOOL, 0); }
-		public BoolExprContext(ExprContext ctx) { copyFrom(ctx); }
 	}
 	public static class CallExprContext extends ExprContext {
 		public ExprContext fun;
@@ -358,6 +288,99 @@ public class GarvikParser extends Parser {
 			return getRuleContext(ExprContext.class,i);
 		}
 		public AssignExprContext(ExprContext ctx) { copyFrom(ctx); }
+	}
+	public static class IfElseExprContext extends ExprContext {
+		public ExprContext con;
+		public ExprContext t;
+		public ExprContext f;
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public IfElseExprContext(ExprContext ctx) { copyFrom(ctx); }
+	}
+	public static class LessExprContext extends ExprContext {
+		public ExprContext left;
+		public ExprContext right;
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public LessExprContext(ExprContext ctx) { copyFrom(ctx); }
+	}
+	public static class DotAssignExprContext extends ExprContext {
+		public ExprContext id;
+		public ExprContext field;
+		public ExprContext value;
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public DotAssignExprContext(ExprContext ctx) { copyFrom(ctx); }
+	}
+	public static class MultExprContext extends ExprContext {
+		public ExprContext left;
+		public ExprContext right;
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public MultExprContext(ExprContext ctx) { copyFrom(ctx); }
+	}
+	public static class FieldExprContext extends ExprContext {
+		public ExprContext id;
+		public ExprContext field;
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public FieldExprContext(ExprContext ctx) { copyFrom(ctx); }
+	}
+	public static class CommentExprContext extends ExprContext {
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public CommentExprContext(ExprContext ctx) { copyFrom(ctx); }
+	}
+	public static class NumExprContext extends ExprContext {
+		public TerminalNode NUM() { return getToken(GarvikParser.NUM, 0); }
+		public NumExprContext(ExprContext ctx) { copyFrom(ctx); }
+	}
+	public static class AddExprContext extends ExprContext {
+		public ExprContext left;
+		public ExprContext right;
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public AddExprContext(ExprContext ctx) { copyFrom(ctx); }
+	}
+	public static class LookupExprContext extends ExprContext {
+		public ExprContext id;
+		public ExprContext key;
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public LookupExprContext(ExprContext ctx) { copyFrom(ctx); }
+	}
+	public static class BoolExprContext extends ExprContext {
+		public TerminalNode BOOL() { return getToken(GarvikParser.BOOL, 0); }
+		public BoolExprContext(ExprContext ctx) { copyFrom(ctx); }
 	}
 	public static class IdExprContext extends ExprContext {
 		public TerminalNode ID() { return getToken(GarvikParser.ID, 0); }
@@ -394,35 +417,35 @@ public class GarvikParser extends Parser {
 			setState(56);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
-			case T__14:
+			case T__15:
 				{
 				_localctx = new CommentExprContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 
 				setState(11);
-				match(T__14);
+				match(T__15);
 				setState(12);
 				expr(11);
 				}
 				break;
-			case T__4:
+			case T__5:
 				{
 				_localctx = new ListExprContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 				setState(13);
-				match(T__4);
+				match(T__5);
 				setState(14);
 				expr(0);
 				setState(19);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				while (_la==T__15) {
+				while (_la==T__16) {
 					{
 					{
 					setState(15);
-					match(T__15);
+					match(T__16);
 					setState(16);
 					expr(0);
 					}
@@ -432,7 +455,7 @@ public class GarvikParser extends Parser {
 					_la = _input.LA(1);
 				}
 				setState(22);
-				match(T__5);
+				match(T__6);
 				}
 				break;
 			case T__7:
@@ -448,17 +471,17 @@ public class GarvikParser extends Parser {
 				match(T__8);
 				}
 				break;
-			case T__16:
+			case T__17:
 				{
 				_localctx = new StructExprContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 				setState(28);
-				match(T__16);
+				match(T__17);
 				setState(32);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__4) | (1L << T__7) | (1L << T__14) | (1L << T__16) | (1L << T__18) | (1L << T__21) | (1L << T__23) | (1L << BOOL) | (1L << ID) | (1L << NUM) | (1L << STR))) != 0)) {
+				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__5) | (1L << T__7) | (1L << T__15) | (1L << T__17) | (1L << T__19) | (1L << T__22) | (1L << T__24) | (1L << BOOL) | (1L << ID) | (1L << NUM) | (1L << STR))) != 0)) {
 					{
 					{
 					setState(29);
@@ -470,54 +493,54 @@ public class GarvikParser extends Parser {
 					_la = _input.LA(1);
 				}
 				setState(35);
-				match(T__17);
+				match(T__18);
 				}
 				break;
-			case T__18:
+			case T__19:
 				{
 				_localctx = new IfElseExprContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 				setState(36);
-				match(T__18);
+				match(T__19);
 				setState(37);
 				((IfElseExprContext)_localctx).con = expr(0);
 				setState(38);
-				match(T__19);
+				match(T__20);
 				setState(39);
 				((IfElseExprContext)_localctx).t = expr(0);
 				setState(40);
-				match(T__20);
+				match(T__21);
 				setState(41);
 				((IfElseExprContext)_localctx).f = expr(7);
 				}
 				break;
-			case T__21:
+			case T__22:
 				{
 				_localctx = new LetExprContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 				setState(43);
-				match(T__21);
+				match(T__22);
 				setState(44);
 				((LetExprContext)_localctx).id = expr(0);
 				setState(45);
-				match(T__6);
+				match(T__4);
 				setState(46);
 				((LetExprContext)_localctx).value = expr(0);
 				setState(47);
-				match(T__22);
+				match(T__23);
 				setState(48);
 				((LetExprContext)_localctx).expression = expr(6);
 				}
 				break;
-			case T__23:
+			case T__24:
 				{
 				_localctx = new LenExprContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 				setState(50);
-				match(T__23);
+				match(T__24);
 				setState(51);
 				((LenExprContext)_localctx).id = expr(5);
 				}
@@ -562,7 +585,7 @@ public class GarvikParser extends Parser {
 				throw new NoViableAltException(this);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(107);
+			setState(116);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
@@ -570,7 +593,7 @@ public class GarvikParser extends Parser {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(105);
+					setState(114);
 					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
 					case 1:
@@ -579,11 +602,11 @@ public class GarvikParser extends Parser {
 						((EqualExprContext)_localctx).left = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(58);
-						if (!(precpred(_ctx, 24))) throw new FailedPredicateException(this, "precpred(_ctx, 24)");
+						if (!(precpred(_ctx, 26))) throw new FailedPredicateException(this, "precpred(_ctx, 26)");
 						setState(59);
 						match(T__0);
 						setState(60);
-						((EqualExprContext)_localctx).right = expr(25);
+						((EqualExprContext)_localctx).right = expr(27);
 						}
 						break;
 					case 2:
@@ -592,11 +615,11 @@ public class GarvikParser extends Parser {
 						((LessExprContext)_localctx).left = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(61);
-						if (!(precpred(_ctx, 23))) throw new FailedPredicateException(this, "precpred(_ctx, 23)");
+						if (!(precpred(_ctx, 25))) throw new FailedPredicateException(this, "precpred(_ctx, 25)");
 						setState(62);
 						match(T__1);
 						setState(63);
-						((LessExprContext)_localctx).right = expr(24);
+						((LessExprContext)_localctx).right = expr(26);
 						}
 						break;
 					case 3:
@@ -605,157 +628,187 @@ public class GarvikParser extends Parser {
 						((GreaterExprContext)_localctx).left = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(64);
-						if (!(precpred(_ctx, 22))) throw new FailedPredicateException(this, "precpred(_ctx, 22)");
+						if (!(precpred(_ctx, 24))) throw new FailedPredicateException(this, "precpred(_ctx, 24)");
 						setState(65);
 						match(T__2);
 						setState(66);
-						((GreaterExprContext)_localctx).right = expr(23);
+						((GreaterExprContext)_localctx).right = expr(25);
 						}
 						break;
 					case 4:
 						{
-						_localctx = new DotExprContext(new ExprContext(_parentctx, _parentState));
-						((DotExprContext)_localctx).id = _prevctx;
+						_localctx = new DotAssignExprContext(new ExprContext(_parentctx, _parentState));
+						((DotAssignExprContext)_localctx).id = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(67);
-						if (!(precpred(_ctx, 21))) throw new FailedPredicateException(this, "precpred(_ctx, 21)");
+						if (!(precpred(_ctx, 23))) throw new FailedPredicateException(this, "precpred(_ctx, 23)");
 						setState(68);
 						match(T__3);
 						setState(69);
-						((DotExprContext)_localctx).field = expr(22);
+						((DotAssignExprContext)_localctx).field = expr(0);
+						setState(70);
+						match(T__4);
+						setState(71);
+						((DotAssignExprContext)_localctx).value = expr(24);
 						}
 						break;
 					case 5:
 						{
-						_localctx = new LookupAssignExprContext(new ExprContext(_parentctx, _parentState));
-						((LookupAssignExprContext)_localctx).id = _prevctx;
+						_localctx = new DotExprContext(new ExprContext(_parentctx, _parentState));
+						((DotExprContext)_localctx).id = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(70);
-						if (!(precpred(_ctx, 19))) throw new FailedPredicateException(this, "precpred(_ctx, 19)");
-						setState(71);
-						match(T__4);
-						setState(72);
-						((LookupAssignExprContext)_localctx).key = expr(0);
 						setState(73);
-						match(T__5);
+						if (!(precpred(_ctx, 22))) throw new FailedPredicateException(this, "precpred(_ctx, 22)");
 						setState(74);
-						match(T__6);
+						match(T__3);
 						setState(75);
-						((LookupAssignExprContext)_localctx).value = expr(20);
+						((DotExprContext)_localctx).field = expr(23);
 						}
 						break;
 					case 6:
 						{
-						_localctx = new DivExprContext(new ExprContext(_parentctx, _parentState));
-						((DivExprContext)_localctx).left = _prevctx;
+						_localctx = new LookupAssignExprContext(new ExprContext(_parentctx, _parentState));
+						((LookupAssignExprContext)_localctx).id = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
+						setState(76);
+						if (!(precpred(_ctx, 21))) throw new FailedPredicateException(this, "precpred(_ctx, 21)");
 						setState(77);
-						if (!(precpred(_ctx, 17))) throw new FailedPredicateException(this, "precpred(_ctx, 17)");
+						match(T__5);
 						setState(78);
-						match(T__9);
+						((LookupAssignExprContext)_localctx).key = expr(0);
 						setState(79);
-						((DivExprContext)_localctx).right = expr(18);
+						match(T__6);
+						setState(80);
+						match(T__4);
+						setState(81);
+						((LookupAssignExprContext)_localctx).value = expr(22);
 						}
 						break;
 					case 7:
 						{
-						_localctx = new MultExprContext(new ExprContext(_parentctx, _parentState));
-						((MultExprContext)_localctx).left = _prevctx;
+						_localctx = new DivExprContext(new ExprContext(_parentctx, _parentState));
+						((DivExprContext)_localctx).left = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(80);
-						if (!(precpred(_ctx, 16))) throw new FailedPredicateException(this, "precpred(_ctx, 16)");
-						setState(81);
-						match(T__10);
-						setState(82);
-						((MultExprContext)_localctx).right = expr(17);
+						setState(83);
+						if (!(precpred(_ctx, 18))) throw new FailedPredicateException(this, "precpred(_ctx, 18)");
+						setState(84);
+						match(T__9);
+						setState(85);
+						((DivExprContext)_localctx).right = expr(19);
 						}
 						break;
 					case 8:
 						{
-						_localctx = new SubExprContext(new ExprContext(_parentctx, _parentState));
-						((SubExprContext)_localctx).left = _prevctx;
+						_localctx = new MultExprContext(new ExprContext(_parentctx, _parentState));
+						((MultExprContext)_localctx).left = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(83);
-						if (!(precpred(_ctx, 15))) throw new FailedPredicateException(this, "precpred(_ctx, 15)");
-						setState(84);
-						match(T__11);
-						setState(85);
-						((SubExprContext)_localctx).right = expr(16);
+						setState(86);
+						if (!(precpred(_ctx, 17))) throw new FailedPredicateException(this, "precpred(_ctx, 17)");
+						setState(87);
+						match(T__10);
+						setState(88);
+						((MultExprContext)_localctx).right = expr(18);
 						}
 						break;
 					case 9:
 						{
-						_localctx = new AddExprContext(new ExprContext(_parentctx, _parentState));
-						((AddExprContext)_localctx).left = _prevctx;
+						_localctx = new SubExprContext(new ExprContext(_parentctx, _parentState));
+						((SubExprContext)_localctx).left = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(86);
-						if (!(precpred(_ctx, 14))) throw new FailedPredicateException(this, "precpred(_ctx, 14)");
-						setState(87);
-						match(T__12);
-						setState(88);
-						((AddExprContext)_localctx).right = expr(15);
+						setState(89);
+						if (!(precpred(_ctx, 16))) throw new FailedPredicateException(this, "precpred(_ctx, 16)");
+						setState(90);
+						match(T__11);
+						setState(91);
+						((SubExprContext)_localctx).right = expr(17);
 						}
 						break;
 					case 10:
 						{
-						_localctx = new LambdaExprContext(new ExprContext(_parentctx, _parentState));
-						((LambdaExprContext)_localctx).param = _prevctx;
+						_localctx = new AddExprContext(new ExprContext(_parentctx, _parentState));
+						((AddExprContext)_localctx).left = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(89);
-						if (!(precpred(_ctx, 13))) throw new FailedPredicateException(this, "precpred(_ctx, 13)");
-						setState(90);
-						match(T__13);
-						setState(91);
-						((LambdaExprContext)_localctx).body = expr(14);
+						setState(92);
+						if (!(precpred(_ctx, 15))) throw new FailedPredicateException(this, "precpred(_ctx, 15)");
+						setState(93);
+						match(T__12);
+						setState(94);
+						((AddExprContext)_localctx).right = expr(16);
 						}
 						break;
 					case 11:
 						{
-						_localctx = new AssignExprContext(new ExprContext(_parentctx, _parentState));
-						((AssignExprContext)_localctx).id = _prevctx;
+						_localctx = new LambdaExprContext(new ExprContext(_parentctx, _parentState));
+						((LambdaExprContext)_localctx).param = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(92);
-						if (!(precpred(_ctx, 12))) throw new FailedPredicateException(this, "precpred(_ctx, 12)");
-						setState(93);
-						match(T__6);
-						setState(94);
-						((AssignExprContext)_localctx).value = expr(13);
+						setState(95);
+						if (!(precpred(_ctx, 14))) throw new FailedPredicateException(this, "precpred(_ctx, 14)");
+						setState(96);
+						match(T__13);
+						setState(97);
+						((LambdaExprContext)_localctx).body = expr(15);
 						}
 						break;
 					case 12:
 						{
-						_localctx = new LookupExprContext(new ExprContext(_parentctx, _parentState));
-						((LookupExprContext)_localctx).id = _prevctx;
+						_localctx = new FieldExprContext(new ExprContext(_parentctx, _parentState));
+						((FieldExprContext)_localctx).id = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(95);
-						if (!(precpred(_ctx, 20))) throw new FailedPredicateException(this, "precpred(_ctx, 20)");
-						setState(96);
-						match(T__4);
-						setState(97);
-						((LookupExprContext)_localctx).key = expr(0);
 						setState(98);
-						match(T__5);
+						if (!(precpred(_ctx, 13))) throw new FailedPredicateException(this, "precpred(_ctx, 13)");
+						setState(99);
+						match(T__14);
+						setState(100);
+						((FieldExprContext)_localctx).field = expr(14);
 						}
 						break;
 					case 13:
 						{
+						_localctx = new AssignExprContext(new ExprContext(_parentctx, _parentState));
+						((AssignExprContext)_localctx).id = _prevctx;
+						pushNewRecursionContext(_localctx, _startState, RULE_expr);
+						setState(101);
+						if (!(precpred(_ctx, 12))) throw new FailedPredicateException(this, "precpred(_ctx, 12)");
+						setState(102);
+						match(T__4);
+						setState(103);
+						((AssignExprContext)_localctx).value = expr(13);
+						}
+						break;
+					case 14:
+						{
+						_localctx = new LookupExprContext(new ExprContext(_parentctx, _parentState));
+						((LookupExprContext)_localctx).id = _prevctx;
+						pushNewRecursionContext(_localctx, _startState, RULE_expr);
+						setState(104);
+						if (!(precpred(_ctx, 20))) throw new FailedPredicateException(this, "precpred(_ctx, 20)");
+						setState(105);
+						match(T__5);
+						setState(106);
+						((LookupExprContext)_localctx).key = expr(0);
+						setState(107);
+						match(T__6);
+						}
+						break;
+					case 15:
+						{
 						_localctx = new CallExprContext(new ExprContext(_parentctx, _parentState));
 						((CallExprContext)_localctx).fun = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(100);
-						if (!(precpred(_ctx, 18))) throw new FailedPredicateException(this, "precpred(_ctx, 18)");
-						setState(101);
+						setState(109);
+						if (!(precpred(_ctx, 19))) throw new FailedPredicateException(this, "precpred(_ctx, 19)");
+						setState(110);
 						match(T__7);
-						setState(102);
+						setState(111);
 						((CallExprContext)_localctx).arg = expr(0);
-						setState(103);
+						setState(112);
 						match(T__8);
 						}
 						break;
 					}
 					} 
 				}
-				setState(109);
+				setState(118);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
 			}
@@ -782,66 +835,72 @@ public class GarvikParser extends Parser {
 	private boolean expr_sempred(ExprContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 0:
-			return precpred(_ctx, 24);
+			return precpred(_ctx, 26);
 		case 1:
-			return precpred(_ctx, 23);
+			return precpred(_ctx, 25);
 		case 2:
-			return precpred(_ctx, 22);
+			return precpred(_ctx, 24);
 		case 3:
-			return precpred(_ctx, 21);
+			return precpred(_ctx, 23);
 		case 4:
-			return precpred(_ctx, 19);
+			return precpred(_ctx, 22);
 		case 5:
-			return precpred(_ctx, 17);
+			return precpred(_ctx, 21);
 		case 6:
-			return precpred(_ctx, 16);
-		case 7:
-			return precpred(_ctx, 15);
-		case 8:
-			return precpred(_ctx, 14);
-		case 9:
-			return precpred(_ctx, 13);
-		case 10:
-			return precpred(_ctx, 12);
-		case 11:
-			return precpred(_ctx, 20);
-		case 12:
 			return precpred(_ctx, 18);
+		case 7:
+			return precpred(_ctx, 17);
+		case 8:
+			return precpred(_ctx, 16);
+		case 9:
+			return precpred(_ctx, 15);
+		case 10:
+			return precpred(_ctx, 14);
+		case 11:
+			return precpred(_ctx, 13);
+		case 12:
+			return precpred(_ctx, 12);
+		case 13:
+			return precpred(_ctx, 20);
+		case 14:
+			return precpred(_ctx, 19);
 		}
 		return true;
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\37q\4\2\t\2\4\3\t"+
-		"\3\3\2\7\2\b\n\2\f\2\16\2\13\13\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\7\3\24\n"+
-		"\3\f\3\16\3\27\13\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\7\3!\n\3\f\3\16\3"+
-		"$\13\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3"+
-		"\3\3\3\3\3\3\3\3\3\3\5\3;\n\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3 z\4\2\t\2\4\3\t\3"+
+		"\3\2\7\2\b\n\2\f\2\16\2\13\13\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\7\3\24\n\3"+
+		"\f\3\16\3\27\13\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\7\3!\n\3\f\3\16\3$\13"+
+		"\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3"+
+		"\3\3\3\3\3\3\3\3\5\3;\n\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3"+
 		"\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3"+
 		"\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3"+
-		"\3\3\3\3\7\3l\n\3\f\3\16\3o\13\3\3\3\2\3\4\4\2\4\2\2\2\u0088\2\t\3\2\2"+
-		"\2\4:\3\2\2\2\6\b\5\4\3\2\7\6\3\2\2\2\b\13\3\2\2\2\t\7\3\2\2\2\t\n\3\2"+
-		"\2\2\n\3\3\2\2\2\13\t\3\2\2\2\f\r\b\3\1\2\r\16\7\21\2\2\16;\5\4\3\r\17"+
-		"\20\7\7\2\2\20\25\5\4\3\2\21\22\7\22\2\2\22\24\5\4\3\2\23\21\3\2\2\2\24"+
-		"\27\3\2\2\2\25\23\3\2\2\2\25\26\3\2\2\2\26\30\3\2\2\2\27\25\3\2\2\2\30"+
-		"\31\7\b\2\2\31;\3\2\2\2\32\33\7\n\2\2\33\34\5\4\3\2\34\35\7\13\2\2\35"+
-		";\3\2\2\2\36\"\7\23\2\2\37!\5\4\3\2 \37\3\2\2\2!$\3\2\2\2\" \3\2\2\2\""+
-		"#\3\2\2\2#%\3\2\2\2$\"\3\2\2\2%;\7\24\2\2&\'\7\25\2\2\'(\5\4\3\2()\7\26"+
-		"\2\2)*\5\4\3\2*+\7\27\2\2+,\5\4\3\t,;\3\2\2\2-.\7\30\2\2./\5\4\3\2/\60"+
-		"\7\t\2\2\60\61\5\4\3\2\61\62\7\31\2\2\62\63\5\4\3\b\63;\3\2\2\2\64\65"+
-		"\7\32\2\2\65;\5\4\3\7\66;\7\33\2\2\67;\7\34\2\28;\7\35\2\29;\7\36\2\2"+
-		":\f\3\2\2\2:\17\3\2\2\2:\32\3\2\2\2:\36\3\2\2\2:&\3\2\2\2:-\3\2\2\2:\64"+
-		"\3\2\2\2:\66\3\2\2\2:\67\3\2\2\2:8\3\2\2\2:9\3\2\2\2;m\3\2\2\2<=\f\32"+
-		"\2\2=>\7\3\2\2>l\5\4\3\33?@\f\31\2\2@A\7\4\2\2Al\5\4\3\32BC\f\30\2\2C"+
-		"D\7\5\2\2Dl\5\4\3\31EF\f\27\2\2FG\7\6\2\2Gl\5\4\3\30HI\f\25\2\2IJ\7\7"+
-		"\2\2JK\5\4\3\2KL\7\b\2\2LM\7\t\2\2MN\5\4\3\26Nl\3\2\2\2OP\f\23\2\2PQ\7"+
-		"\f\2\2Ql\5\4\3\24RS\f\22\2\2ST\7\r\2\2Tl\5\4\3\23UV\f\21\2\2VW\7\16\2"+
-		"\2Wl\5\4\3\22XY\f\20\2\2YZ\7\17\2\2Zl\5\4\3\21[\\\f\17\2\2\\]\7\20\2\2"+
-		"]l\5\4\3\20^_\f\16\2\2_`\7\t\2\2`l\5\4\3\17ab\f\26\2\2bc\7\7\2\2cd\5\4"+
-		"\3\2de\7\b\2\2el\3\2\2\2fg\f\24\2\2gh\7\n\2\2hi\5\4\3\2ij\7\13\2\2jl\3"+
-		"\2\2\2k<\3\2\2\2k?\3\2\2\2kB\3\2\2\2kE\3\2\2\2kH\3\2\2\2kO\3\2\2\2kR\3"+
-		"\2\2\2kU\3\2\2\2kX\3\2\2\2k[\3\2\2\2k^\3\2\2\2ka\3\2\2\2kf\3\2\2\2lo\3"+
-		"\2\2\2mk\3\2\2\2mn\3\2\2\2n\5\3\2\2\2om\3\2\2\2\b\t\25\":km";
+		"\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\7\3u\n\3\f\3\16\3x\13\3\3\3\2"+
+		"\3\4\4\2\4\2\2\2\u0093\2\t\3\2\2\2\4:\3\2\2\2\6\b\5\4\3\2\7\6\3\2\2\2"+
+		"\b\13\3\2\2\2\t\7\3\2\2\2\t\n\3\2\2\2\n\3\3\2\2\2\13\t\3\2\2\2\f\r\b\3"+
+		"\1\2\r\16\7\22\2\2\16;\5\4\3\r\17\20\7\b\2\2\20\25\5\4\3\2\21\22\7\23"+
+		"\2\2\22\24\5\4\3\2\23\21\3\2\2\2\24\27\3\2\2\2\25\23\3\2\2\2\25\26\3\2"+
+		"\2\2\26\30\3\2\2\2\27\25\3\2\2\2\30\31\7\t\2\2\31;\3\2\2\2\32\33\7\n\2"+
+		"\2\33\34\5\4\3\2\34\35\7\13\2\2\35;\3\2\2\2\36\"\7\24\2\2\37!\5\4\3\2"+
+		" \37\3\2\2\2!$\3\2\2\2\" \3\2\2\2\"#\3\2\2\2#%\3\2\2\2$\"\3\2\2\2%;\7"+
+		"\25\2\2&\'\7\26\2\2\'(\5\4\3\2()\7\27\2\2)*\5\4\3\2*+\7\30\2\2+,\5\4\3"+
+		"\t,;\3\2\2\2-.\7\31\2\2./\5\4\3\2/\60\7\7\2\2\60\61\5\4\3\2\61\62\7\32"+
+		"\2\2\62\63\5\4\3\b\63;\3\2\2\2\64\65\7\33\2\2\65;\5\4\3\7\66;\7\34\2\2"+
+		"\67;\7\35\2\28;\7\36\2\29;\7\37\2\2:\f\3\2\2\2:\17\3\2\2\2:\32\3\2\2\2"+
+		":\36\3\2\2\2:&\3\2\2\2:-\3\2\2\2:\64\3\2\2\2:\66\3\2\2\2:\67\3\2\2\2:"+
+		"8\3\2\2\2:9\3\2\2\2;v\3\2\2\2<=\f\34\2\2=>\7\3\2\2>u\5\4\3\35?@\f\33\2"+
+		"\2@A\7\4\2\2Au\5\4\3\34BC\f\32\2\2CD\7\5\2\2Du\5\4\3\33EF\f\31\2\2FG\7"+
+		"\6\2\2GH\5\4\3\2HI\7\7\2\2IJ\5\4\3\32Ju\3\2\2\2KL\f\30\2\2LM\7\6\2\2M"+
+		"u\5\4\3\31NO\f\27\2\2OP\7\b\2\2PQ\5\4\3\2QR\7\t\2\2RS\7\7\2\2ST\5\4\3"+
+		"\30Tu\3\2\2\2UV\f\24\2\2VW\7\f\2\2Wu\5\4\3\25XY\f\23\2\2YZ\7\r\2\2Zu\5"+
+		"\4\3\24[\\\f\22\2\2\\]\7\16\2\2]u\5\4\3\23^_\f\21\2\2_`\7\17\2\2`u\5\4"+
+		"\3\22ab\f\20\2\2bc\7\20\2\2cu\5\4\3\21de\f\17\2\2ef\7\21\2\2fu\5\4\3\20"+
+		"gh\f\16\2\2hi\7\7\2\2iu\5\4\3\17jk\f\26\2\2kl\7\b\2\2lm\5\4\3\2mn\7\t"+
+		"\2\2nu\3\2\2\2op\f\25\2\2pq\7\n\2\2qr\5\4\3\2rs\7\13\2\2su\3\2\2\2t<\3"+
+		"\2\2\2t?\3\2\2\2tB\3\2\2\2tE\3\2\2\2tK\3\2\2\2tN\3\2\2\2tU\3\2\2\2tX\3"+
+		"\2\2\2t[\3\2\2\2t^\3\2\2\2ta\3\2\2\2td\3\2\2\2tg\3\2\2\2tj\3\2\2\2to\3"+
+		"\2\2\2ux\3\2\2\2vt\3\2\2\2vw\3\2\2\2w\5\3\2\2\2xv\3\2\2\2\b\t\25\":tv";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

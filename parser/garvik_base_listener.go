@@ -45,35 +45,11 @@ func (s *BaseGarvikListener) EnterLenExpr(ctx *LenExprContext) {}
 // ExitLenExpr is called when production lenExpr is exited.
 func (s *BaseGarvikListener) ExitLenExpr(ctx *LenExprContext) {}
 
-// EnterIfElseExpr is called when production ifElseExpr is entered.
-func (s *BaseGarvikListener) EnterIfElseExpr(ctx *IfElseExprContext) {}
-
-// ExitIfElseExpr is called when production ifElseExpr is exited.
-func (s *BaseGarvikListener) ExitIfElseExpr(ctx *IfElseExprContext) {}
-
-// EnterLessExpr is called when production lessExpr is entered.
-func (s *BaseGarvikListener) EnterLessExpr(ctx *LessExprContext) {}
-
-// ExitLessExpr is called when production lessExpr is exited.
-func (s *BaseGarvikListener) ExitLessExpr(ctx *LessExprContext) {}
-
 // EnterSubExpr is called when production subExpr is entered.
 func (s *BaseGarvikListener) EnterSubExpr(ctx *SubExprContext) {}
 
 // ExitSubExpr is called when production subExpr is exited.
 func (s *BaseGarvikListener) ExitSubExpr(ctx *SubExprContext) {}
-
-// EnterMultExpr is called when production multExpr is entered.
-func (s *BaseGarvikListener) EnterMultExpr(ctx *MultExprContext) {}
-
-// ExitMultExpr is called when production multExpr is exited.
-func (s *BaseGarvikListener) ExitMultExpr(ctx *MultExprContext) {}
-
-// EnterCommentExpr is called when production commentExpr is entered.
-func (s *BaseGarvikListener) EnterCommentExpr(ctx *CommentExprContext) {}
-
-// ExitCommentExpr is called when production commentExpr is exited.
-func (s *BaseGarvikListener) ExitCommentExpr(ctx *CommentExprContext) {}
 
 // EnterParenExpr is called when production parenExpr is entered.
 func (s *BaseGarvikListener) EnterParenExpr(ctx *ParenExprContext) {}
@@ -87,23 +63,11 @@ func (s *BaseGarvikListener) EnterLetExpr(ctx *LetExprContext) {}
 // ExitLetExpr is called when production letExpr is exited.
 func (s *BaseGarvikListener) ExitLetExpr(ctx *LetExprContext) {}
 
-// EnterNumExpr is called when production numExpr is entered.
-func (s *BaseGarvikListener) EnterNumExpr(ctx *NumExprContext) {}
-
-// ExitNumExpr is called when production numExpr is exited.
-func (s *BaseGarvikListener) ExitNumExpr(ctx *NumExprContext) {}
-
 // EnterGreaterExpr is called when production greaterExpr is entered.
 func (s *BaseGarvikListener) EnterGreaterExpr(ctx *GreaterExprContext) {}
 
 // ExitGreaterExpr is called when production greaterExpr is exited.
 func (s *BaseGarvikListener) ExitGreaterExpr(ctx *GreaterExprContext) {}
-
-// EnterAddExpr is called when production addExpr is entered.
-func (s *BaseGarvikListener) EnterAddExpr(ctx *AddExprContext) {}
-
-// ExitAddExpr is called when production addExpr is exited.
-func (s *BaseGarvikListener) ExitAddExpr(ctx *AddExprContext) {}
 
 // EnterLambdaExpr is called when production lambdaExpr is entered.
 func (s *BaseGarvikListener) EnterLambdaExpr(ctx *LambdaExprContext) {}
@@ -117,12 +81,6 @@ func (s *BaseGarvikListener) EnterStructExpr(ctx *StructExprContext) {}
 // ExitStructExpr is called when production structExpr is exited.
 func (s *BaseGarvikListener) ExitStructExpr(ctx *StructExprContext) {}
 
-// EnterLookupExpr is called when production lookupExpr is entered.
-func (s *BaseGarvikListener) EnterLookupExpr(ctx *LookupExprContext) {}
-
-// ExitLookupExpr is called when production lookupExpr is exited.
-func (s *BaseGarvikListener) ExitLookupExpr(ctx *LookupExprContext) {}
-
 // EnterDivExpr is called when production divExpr is entered.
 func (s *BaseGarvikListener) EnterDivExpr(ctx *DivExprContext) {}
 
@@ -134,12 +92,6 @@ func (s *BaseGarvikListener) EnterLookupAssignExpr(ctx *LookupAssignExprContext)
 
 // ExitLookupAssignExpr is called when production lookupAssignExpr is exited.
 func (s *BaseGarvikListener) ExitLookupAssignExpr(ctx *LookupAssignExprContext) {}
-
-// EnterBoolExpr is called when production boolExpr is entered.
-func (s *BaseGarvikListener) EnterBoolExpr(ctx *BoolExprContext) {}
-
-// ExitBoolExpr is called when production boolExpr is exited.
-func (s *BaseGarvikListener) ExitBoolExpr(ctx *BoolExprContext) {}
 
 // EnterCallExpr is called when production callExpr is entered.
 func (s *BaseGarvikListener) EnterCallExpr(ctx *CallExprContext) {}
@@ -158,6 +110,66 @@ func (s *BaseGarvikListener) EnterAssignExpr(ctx *AssignExprContext) {}
 
 // ExitAssignExpr is called when production assignExpr is exited.
 func (s *BaseGarvikListener) ExitAssignExpr(ctx *AssignExprContext) {}
+
+// EnterIfElseExpr is called when production ifElseExpr is entered.
+func (s *BaseGarvikListener) EnterIfElseExpr(ctx *IfElseExprContext) {}
+
+// ExitIfElseExpr is called when production ifElseExpr is exited.
+func (s *BaseGarvikListener) ExitIfElseExpr(ctx *IfElseExprContext) {}
+
+// EnterLessExpr is called when production lessExpr is entered.
+func (s *BaseGarvikListener) EnterLessExpr(ctx *LessExprContext) {}
+
+// ExitLessExpr is called when production lessExpr is exited.
+func (s *BaseGarvikListener) ExitLessExpr(ctx *LessExprContext) {}
+
+// EnterDotAssignExpr is called when production dotAssignExpr is entered.
+func (s *BaseGarvikListener) EnterDotAssignExpr(ctx *DotAssignExprContext) {}
+
+// ExitDotAssignExpr is called when production dotAssignExpr is exited.
+func (s *BaseGarvikListener) ExitDotAssignExpr(ctx *DotAssignExprContext) {}
+
+// EnterMultExpr is called when production multExpr is entered.
+func (s *BaseGarvikListener) EnterMultExpr(ctx *MultExprContext) {}
+
+// ExitMultExpr is called when production multExpr is exited.
+func (s *BaseGarvikListener) ExitMultExpr(ctx *MultExprContext) {}
+
+// EnterFieldExpr is called when production fieldExpr is entered.
+func (s *BaseGarvikListener) EnterFieldExpr(ctx *FieldExprContext) {}
+
+// ExitFieldExpr is called when production fieldExpr is exited.
+func (s *BaseGarvikListener) ExitFieldExpr(ctx *FieldExprContext) {}
+
+// EnterCommentExpr is called when production commentExpr is entered.
+func (s *BaseGarvikListener) EnterCommentExpr(ctx *CommentExprContext) {}
+
+// ExitCommentExpr is called when production commentExpr is exited.
+func (s *BaseGarvikListener) ExitCommentExpr(ctx *CommentExprContext) {}
+
+// EnterNumExpr is called when production numExpr is entered.
+func (s *BaseGarvikListener) EnterNumExpr(ctx *NumExprContext) {}
+
+// ExitNumExpr is called when production numExpr is exited.
+func (s *BaseGarvikListener) ExitNumExpr(ctx *NumExprContext) {}
+
+// EnterAddExpr is called when production addExpr is entered.
+func (s *BaseGarvikListener) EnterAddExpr(ctx *AddExprContext) {}
+
+// ExitAddExpr is called when production addExpr is exited.
+func (s *BaseGarvikListener) ExitAddExpr(ctx *AddExprContext) {}
+
+// EnterLookupExpr is called when production lookupExpr is entered.
+func (s *BaseGarvikListener) EnterLookupExpr(ctx *LookupExprContext) {}
+
+// ExitLookupExpr is called when production lookupExpr is exited.
+func (s *BaseGarvikListener) ExitLookupExpr(ctx *LookupExprContext) {}
+
+// EnterBoolExpr is called when production boolExpr is entered.
+func (s *BaseGarvikListener) EnterBoolExpr(ctx *BoolExprContext) {}
+
+// ExitBoolExpr is called when production boolExpr is exited.
+func (s *BaseGarvikListener) ExitBoolExpr(ctx *BoolExprContext) {}
 
 // EnterIdExpr is called when production idExpr is entered.
 func (s *BaseGarvikListener) EnterIdExpr(ctx *IdExprContext) {}

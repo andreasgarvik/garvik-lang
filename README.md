@@ -23,11 +23,12 @@ let x = 2 + 3 in x * x
 l = [1,2,3]
 l[1]
 // 2
+
 m = [[1,2,3],[4,5,6]]
 m[1][1]
 // 5
 
-// "Passing lists
+// "Passing lists"
 x = [1,2,3]
 f = l -> l[0] + l[1] + l[2]
 f(x)
@@ -58,31 +59,47 @@ map(l)
 // [2,4,6]
 
 // "Structs"
-s = { a = 5 }
+s = { a: 5 }
 s.a
 // 5
 
-// "Passing structs
+// "Passing structs"
 f = x -> x.f(x.b - x.a) + x.l[1]
+li = [1,2,3]
 s = {
-  a = 10
-  b = 20
-  f = x -> x / 2
-  l = [1,2,3]
+  a: 10
+  b: 20
+  f: x -> x / 2
+  l: li
 }
+li = [1]
 f(s)
 // 7
 
-f = x -> x[0].f(x[1])
-s = { a = 5 f = x -> x + a}
+f = x -> x[0].g(x[1])
+s = {
+  a: 5
+  f: x -> x + a
+  g: f
+}
 f([s, 5])
 // 10
 
+obj = {
+  i: 2
+  GetI: _ -> obj.i
+  SetI: i -> obj.i = i
+}
+obj.SetI(3)
+obj.GetI(_)
+// 3
+
 // "Lexical scoping"
-// a = 5
-// fun = x -> x + a
-// a = 6
-// fun(5)
+a = 1
+fun = x -> x + a
+a = 2
+fun(3)
+// 4
 
 // "Fibonacci"
 fib = x -> if x < 2 then 1 else fib(x-1) + fib(x-2)

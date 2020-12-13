@@ -20,20 +20,8 @@ type GarvikListener interface {
 	// EnterLenExpr is called when entering the lenExpr production.
 	EnterLenExpr(c *LenExprContext)
 
-	// EnterIfElseExpr is called when entering the ifElseExpr production.
-	EnterIfElseExpr(c *IfElseExprContext)
-
-	// EnterLessExpr is called when entering the lessExpr production.
-	EnterLessExpr(c *LessExprContext)
-
 	// EnterSubExpr is called when entering the subExpr production.
 	EnterSubExpr(c *SubExprContext)
-
-	// EnterMultExpr is called when entering the multExpr production.
-	EnterMultExpr(c *MultExprContext)
-
-	// EnterCommentExpr is called when entering the commentExpr production.
-	EnterCommentExpr(c *CommentExprContext)
 
 	// EnterParenExpr is called when entering the parenExpr production.
 	EnterParenExpr(c *ParenExprContext)
@@ -41,14 +29,8 @@ type GarvikListener interface {
 	// EnterLetExpr is called when entering the letExpr production.
 	EnterLetExpr(c *LetExprContext)
 
-	// EnterNumExpr is called when entering the numExpr production.
-	EnterNumExpr(c *NumExprContext)
-
 	// EnterGreaterExpr is called when entering the greaterExpr production.
 	EnterGreaterExpr(c *GreaterExprContext)
-
-	// EnterAddExpr is called when entering the addExpr production.
-	EnterAddExpr(c *AddExprContext)
 
 	// EnterLambdaExpr is called when entering the lambdaExpr production.
 	EnterLambdaExpr(c *LambdaExprContext)
@@ -56,17 +38,11 @@ type GarvikListener interface {
 	// EnterStructExpr is called when entering the structExpr production.
 	EnterStructExpr(c *StructExprContext)
 
-	// EnterLookupExpr is called when entering the lookupExpr production.
-	EnterLookupExpr(c *LookupExprContext)
-
 	// EnterDivExpr is called when entering the divExpr production.
 	EnterDivExpr(c *DivExprContext)
 
 	// EnterLookupAssignExpr is called when entering the lookupAssignExpr production.
 	EnterLookupAssignExpr(c *LookupAssignExprContext)
-
-	// EnterBoolExpr is called when entering the boolExpr production.
-	EnterBoolExpr(c *BoolExprContext)
 
 	// EnterCallExpr is called when entering the callExpr production.
 	EnterCallExpr(c *CallExprContext)
@@ -76,6 +52,36 @@ type GarvikListener interface {
 
 	// EnterAssignExpr is called when entering the assignExpr production.
 	EnterAssignExpr(c *AssignExprContext)
+
+	// EnterIfElseExpr is called when entering the ifElseExpr production.
+	EnterIfElseExpr(c *IfElseExprContext)
+
+	// EnterLessExpr is called when entering the lessExpr production.
+	EnterLessExpr(c *LessExprContext)
+
+	// EnterDotAssignExpr is called when entering the dotAssignExpr production.
+	EnterDotAssignExpr(c *DotAssignExprContext)
+
+	// EnterMultExpr is called when entering the multExpr production.
+	EnterMultExpr(c *MultExprContext)
+
+	// EnterFieldExpr is called when entering the fieldExpr production.
+	EnterFieldExpr(c *FieldExprContext)
+
+	// EnterCommentExpr is called when entering the commentExpr production.
+	EnterCommentExpr(c *CommentExprContext)
+
+	// EnterNumExpr is called when entering the numExpr production.
+	EnterNumExpr(c *NumExprContext)
+
+	// EnterAddExpr is called when entering the addExpr production.
+	EnterAddExpr(c *AddExprContext)
+
+	// EnterLookupExpr is called when entering the lookupExpr production.
+	EnterLookupExpr(c *LookupExprContext)
+
+	// EnterBoolExpr is called when entering the boolExpr production.
+	EnterBoolExpr(c *BoolExprContext)
 
 	// EnterIdExpr is called when entering the idExpr production.
 	EnterIdExpr(c *IdExprContext)
@@ -95,20 +101,8 @@ type GarvikListener interface {
 	// ExitLenExpr is called when exiting the lenExpr production.
 	ExitLenExpr(c *LenExprContext)
 
-	// ExitIfElseExpr is called when exiting the ifElseExpr production.
-	ExitIfElseExpr(c *IfElseExprContext)
-
-	// ExitLessExpr is called when exiting the lessExpr production.
-	ExitLessExpr(c *LessExprContext)
-
 	// ExitSubExpr is called when exiting the subExpr production.
 	ExitSubExpr(c *SubExprContext)
-
-	// ExitMultExpr is called when exiting the multExpr production.
-	ExitMultExpr(c *MultExprContext)
-
-	// ExitCommentExpr is called when exiting the commentExpr production.
-	ExitCommentExpr(c *CommentExprContext)
 
 	// ExitParenExpr is called when exiting the parenExpr production.
 	ExitParenExpr(c *ParenExprContext)
@@ -116,14 +110,8 @@ type GarvikListener interface {
 	// ExitLetExpr is called when exiting the letExpr production.
 	ExitLetExpr(c *LetExprContext)
 
-	// ExitNumExpr is called when exiting the numExpr production.
-	ExitNumExpr(c *NumExprContext)
-
 	// ExitGreaterExpr is called when exiting the greaterExpr production.
 	ExitGreaterExpr(c *GreaterExprContext)
-
-	// ExitAddExpr is called when exiting the addExpr production.
-	ExitAddExpr(c *AddExprContext)
 
 	// ExitLambdaExpr is called when exiting the lambdaExpr production.
 	ExitLambdaExpr(c *LambdaExprContext)
@@ -131,17 +119,11 @@ type GarvikListener interface {
 	// ExitStructExpr is called when exiting the structExpr production.
 	ExitStructExpr(c *StructExprContext)
 
-	// ExitLookupExpr is called when exiting the lookupExpr production.
-	ExitLookupExpr(c *LookupExprContext)
-
 	// ExitDivExpr is called when exiting the divExpr production.
 	ExitDivExpr(c *DivExprContext)
 
 	// ExitLookupAssignExpr is called when exiting the lookupAssignExpr production.
 	ExitLookupAssignExpr(c *LookupAssignExprContext)
-
-	// ExitBoolExpr is called when exiting the boolExpr production.
-	ExitBoolExpr(c *BoolExprContext)
 
 	// ExitCallExpr is called when exiting the callExpr production.
 	ExitCallExpr(c *CallExprContext)
@@ -151,6 +133,36 @@ type GarvikListener interface {
 
 	// ExitAssignExpr is called when exiting the assignExpr production.
 	ExitAssignExpr(c *AssignExprContext)
+
+	// ExitIfElseExpr is called when exiting the ifElseExpr production.
+	ExitIfElseExpr(c *IfElseExprContext)
+
+	// ExitLessExpr is called when exiting the lessExpr production.
+	ExitLessExpr(c *LessExprContext)
+
+	// ExitDotAssignExpr is called when exiting the dotAssignExpr production.
+	ExitDotAssignExpr(c *DotAssignExprContext)
+
+	// ExitMultExpr is called when exiting the multExpr production.
+	ExitMultExpr(c *MultExprContext)
+
+	// ExitFieldExpr is called when exiting the fieldExpr production.
+	ExitFieldExpr(c *FieldExprContext)
+
+	// ExitCommentExpr is called when exiting the commentExpr production.
+	ExitCommentExpr(c *CommentExprContext)
+
+	// ExitNumExpr is called when exiting the numExpr production.
+	ExitNumExpr(c *NumExprContext)
+
+	// ExitAddExpr is called when exiting the addExpr production.
+	ExitAddExpr(c *AddExprContext)
+
+	// ExitLookupExpr is called when exiting the lookupExpr production.
+	ExitLookupExpr(c *LookupExprContext)
+
+	// ExitBoolExpr is called when exiting the boolExpr production.
+	ExitBoolExpr(c *BoolExprContext)
 
 	// ExitIdExpr is called when exiting the idExpr production.
 	ExitIdExpr(c *IdExprContext)

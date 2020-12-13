@@ -1,7 +1,7 @@
 grammar Garvik;
 
 BOOL: 'true' | 'false'; // match boolean
-ID: [a-z]+; // match identifiers
+ID: [a-zA-Z_]+; // match identifiers
 NUM: [0-9]+; // match integers
 STR:
 	'"' ('\\' [btnfr"'\\] | ~[\r\n\\"])* '"'; // match string literal
@@ -13,15 +13,17 @@ expr:
 	left = expr '==' right = expr								# equalExpr
 	| left = expr '<' right = expr								# lessExpr
 	| left = expr '>' right = expr								# greaterExpr
+	| id = expr '.' field = expr '=' value = expr				# dotAssignExpr
 	| id = expr '.' field = expr								# dotExpr
-	| id = expr '[' key = expr ']'								# lookupExpr
 	| id = expr '[' key = expr ']' '=' value = expr				# lookupAssignExpr
+	| id = expr '[' key = expr ']'								# lookupExpr
 	| fun = expr '(' arg = expr ')'								# callExpr
 	| left = expr '/' right = expr								# divExpr
 	| left = expr '*' right = expr								# multExpr
 	| left = expr '-' right = expr								# subExpr
 	| left = expr '+' right = expr								# addExpr
 	| param = expr '->' body = expr								# lambdaExpr
+	| id = expr ':' field = expr								# fieldExpr
 	| id = expr '=' value = expr								# assignExpr
 	| '//' expr													# commentExpr
 	| '[' expr (',' expr)* ']'									# listExpr

@@ -13,16 +13,26 @@ import (
 type Evaluator struct {
 	*parser.BaseGarvikVisitor
 	stack stack.Stack
+	heap  map[interface{}]interface{}
 }
 
 // VisitProgram evaluates a program
 func (v *Evaluator) VisitProgram(ctx *parser.ProgramContext) interface{} {
+	v.heap = make(map[interface{}]interface{})
 	for _, expr := range ctx.AllExpr() {
 		result := expr.Accept(v)
 		if result != nil {
 			fun, ok := result.(FunValue)
 			if ok {
 				fmt.Printf("%s -> %s \n", fun.Param, fun.Body.GetText())
+			}
+			s, ok := result.(StructValue)
+			if ok {
+				fmt.Printf("%s = { ", expr.GetText())
+				for id, value := range s.fields {
+					fmt.Printf("%s: %v", id, value)
+				}
+				fmt.Printf(" } \n")
 			} else {
 				fmt.Println(result)
 			}
@@ -138,6 +148,12 @@ func (v *Evaluator) VisitAddExpr(ctx *parser.AddExprContext) interface{} {
 
 // VisitIdExpr evaluates a ID expression
 func (v *Evaluator) VisitIdExpr(ctx *parser.IdExprContext) interface{} {
+	id := ctx.ID().GetText()
+	hv, ok := v.heap[id]
+	if ok {
+		return hv
+	}
+
 	if v.stack.Len() != 0 {
 		s := v.stack.Peek().(map[interface{}]interface{})
 		value, ok := s[ctx.ID().GetText()]
@@ -310,10 +326,15 @@ func (v *Evaluator) VisitLambdaExpr(ctx *parser.LambdaExprContext) interface{} {
 
 // VisitAssignExpr evaluates a var expression
 func (v *Evaluator) VisitAssignExpr(ctx *parser.AssignExprContext) interface{} {
-	env := make(map[interface{}]interface{})
 	id := ctx.GetId().GetText()
 	value := ctx.GetValue().Accept(v)
 	if value != nil {
+		s, ok := value.(StructValue)
+		if ok {
+			v.heap[id] = s
+			return nil
+		}
+		env := make(map[interface{}]interface{})
 		env[id] = value
 		v.stack.Push(env)
 		return nil
@@ -328,21 +349,40 @@ func (v *Evaluator) VisitCommentExpr(ctx *parser.CommentExprContext) interface{}
 
 // VisitStructExpr evaluates a struct expression
 func (v *Evaluator) VisitStructExpr(ctx *parser.StructExprContext) interface{} {
-	return ctx.AllExpr()
+	env := make(map[interface{}]interface{})
+	fields := make(map[interface{}]interface{})
+	for _, expr := range ctx.AllExpr() {
+		v.stack.Push(env)
+		e := expr.Accept(v)
+		v.stack.Pop()
+		f, ok := e.(FieldValue)
+		if ok {
+			env[f.ID] = f.Value
+			fields[f.ID] = f.Value
+		} else {
+			fmt.Printf("%s is not a field \n", expr.GetText())
+		}
+	}
+	return StructValue{fields}
+}
+
+// VisitFieldExpr evaluates a field expression
+func (v *Evaluator) VisitFieldExpr(ctx *parser.FieldExprContext) interface{} {
+	id := ctx.GetId().GetText()
+	field := ctx.GetField().Accept(v)
+	return FieldValue{id, field}
 }
 
 // VisitDotExpr evaluates a dot expression
 func (v *Evaluator) VisitDotExpr(ctx *parser.DotExprContext) interface{} {
 	id := ctx.GetId().Accept(v)
 	if id != nil {
-		s, ok := id.([]parser.IExprContext)
+		s, ok := id.(StructValue)
 		if ok {
-			for _, expr := range s {
-				expr.Accept(v)
-			}
-			f := ctx.GetField().Accept(v)
-			if f != nil {
-				return f
+			f := ctx.GetField().GetText()
+			field, ok := s.fields[f]
+			if ok {
+				return field
 			}
 			return fmt.Sprintf("%s is not a field of %s", ctx.GetField().GetText(), ctx.GetId().GetText())
 		}
@@ -414,6 +454,24 @@ func (v *Evaluator) VisitLookupAssignExpr(ctx *parser.LookupAssignExprContext) i
 			return fmt.Sprintf("%s is not a number", ctx.GetKey().GetText())
 		}
 		return fmt.Sprintf("%s is not a list", ctx.GetId().GetText())
+	}
+	return fmt.Sprintf("%s is not defined", ctx.GetId().GetText())
+}
+
+// VisitDotAssignExpr evaluates a dot lookup assignment expression
+func (v *Evaluator) VisitDotAssignExpr(ctx *parser.DotAssignExprContext) interface{} {
+	id := ctx.GetId().Accept(v)
+	if id != nil {
+		s, ok := id.(StructValue)
+		if ok {
+			f := ctx.GetField().GetText()
+			key := ctx.GetId().GetText()
+			value := ctx.GetValue().Accept(v)
+			s.fields[f] = value
+			v.heap[key] = s
+			return nil
+		}
+		return fmt.Sprintf("%s is not a struct", ctx.GetId().GetText())
 	}
 	return fmt.Sprintf("%s is not defined", ctx.GetId().GetText())
 }

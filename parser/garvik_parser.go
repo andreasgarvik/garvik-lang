@@ -16,7 +16,7 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 31, 113,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 32, 122,
 	4, 2, 9, 2, 4, 3, 9, 3, 3, 2, 7, 2, 8, 10, 2, 12, 2, 14, 2, 11, 11, 2,
 	3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 7, 3, 20, 10, 3, 12, 3, 14, 3,
 	23, 11, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 7, 3, 33, 10,
@@ -26,59 +26,63 @@ var parserATN = []uint16{
 	3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
 	3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
 	3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-	3, 3, 3, 3, 3, 3, 3, 7, 3, 108, 10, 3, 12, 3, 14, 3, 111, 11, 3, 3, 3,
-	2, 3, 4, 4, 2, 4, 2, 2, 2, 136, 2, 9, 3, 2, 2, 2, 4, 58, 3, 2, 2, 2, 6,
-	8, 5, 4, 3, 2, 7, 6, 3, 2, 2, 2, 8, 11, 3, 2, 2, 2, 9, 7, 3, 2, 2, 2, 9,
-	10, 3, 2, 2, 2, 10, 3, 3, 2, 2, 2, 11, 9, 3, 2, 2, 2, 12, 13, 8, 3, 1,
-	2, 13, 14, 7, 17, 2, 2, 14, 59, 5, 4, 3, 13, 15, 16, 7, 7, 2, 2, 16, 21,
-	5, 4, 3, 2, 17, 18, 7, 18, 2, 2, 18, 20, 5, 4, 3, 2, 19, 17, 3, 2, 2, 2,
-	20, 23, 3, 2, 2, 2, 21, 19, 3, 2, 2, 2, 21, 22, 3, 2, 2, 2, 22, 24, 3,
-	2, 2, 2, 23, 21, 3, 2, 2, 2, 24, 25, 7, 8, 2, 2, 25, 59, 3, 2, 2, 2, 26,
-	27, 7, 10, 2, 2, 27, 28, 5, 4, 3, 2, 28, 29, 7, 11, 2, 2, 29, 59, 3, 2,
-	2, 2, 30, 34, 7, 19, 2, 2, 31, 33, 5, 4, 3, 2, 32, 31, 3, 2, 2, 2, 33,
-	36, 3, 2, 2, 2, 34, 32, 3, 2, 2, 2, 34, 35, 3, 2, 2, 2, 35, 37, 3, 2, 2,
-	2, 36, 34, 3, 2, 2, 2, 37, 59, 7, 20, 2, 2, 38, 39, 7, 21, 2, 2, 39, 40,
-	5, 4, 3, 2, 40, 41, 7, 22, 2, 2, 41, 42, 5, 4, 3, 2, 42, 43, 7, 23, 2,
-	2, 43, 44, 5, 4, 3, 9, 44, 59, 3, 2, 2, 2, 45, 46, 7, 24, 2, 2, 46, 47,
-	5, 4, 3, 2, 47, 48, 7, 9, 2, 2, 48, 49, 5, 4, 3, 2, 49, 50, 7, 25, 2, 2,
-	50, 51, 5, 4, 3, 8, 51, 59, 3, 2, 2, 2, 52, 53, 7, 26, 2, 2, 53, 59, 5,
-	4, 3, 7, 54, 59, 7, 27, 2, 2, 55, 59, 7, 28, 2, 2, 56, 59, 7, 29, 2, 2,
-	57, 59, 7, 30, 2, 2, 58, 12, 3, 2, 2, 2, 58, 15, 3, 2, 2, 2, 58, 26, 3,
-	2, 2, 2, 58, 30, 3, 2, 2, 2, 58, 38, 3, 2, 2, 2, 58, 45, 3, 2, 2, 2, 58,
-	52, 3, 2, 2, 2, 58, 54, 3, 2, 2, 2, 58, 55, 3, 2, 2, 2, 58, 56, 3, 2, 2,
-	2, 58, 57, 3, 2, 2, 2, 59, 109, 3, 2, 2, 2, 60, 61, 12, 26, 2, 2, 61, 62,
-	7, 3, 2, 2, 62, 108, 5, 4, 3, 27, 63, 64, 12, 25, 2, 2, 64, 65, 7, 4, 2,
-	2, 65, 108, 5, 4, 3, 26, 66, 67, 12, 24, 2, 2, 67, 68, 7, 5, 2, 2, 68,
-	108, 5, 4, 3, 25, 69, 70, 12, 23, 2, 2, 70, 71, 7, 6, 2, 2, 71, 108, 5,
-	4, 3, 24, 72, 73, 12, 21, 2, 2, 73, 74, 7, 7, 2, 2, 74, 75, 5, 4, 3, 2,
-	75, 76, 7, 8, 2, 2, 76, 77, 7, 9, 2, 2, 77, 78, 5, 4, 3, 22, 78, 108, 3,
-	2, 2, 2, 79, 80, 12, 19, 2, 2, 80, 81, 7, 12, 2, 2, 81, 108, 5, 4, 3, 20,
-	82, 83, 12, 18, 2, 2, 83, 84, 7, 13, 2, 2, 84, 108, 5, 4, 3, 19, 85, 86,
-	12, 17, 2, 2, 86, 87, 7, 14, 2, 2, 87, 108, 5, 4, 3, 18, 88, 89, 12, 16,
-	2, 2, 89, 90, 7, 15, 2, 2, 90, 108, 5, 4, 3, 17, 91, 92, 12, 15, 2, 2,
-	92, 93, 7, 16, 2, 2, 93, 108, 5, 4, 3, 16, 94, 95, 12, 14, 2, 2, 95, 96,
-	7, 9, 2, 2, 96, 108, 5, 4, 3, 15, 97, 98, 12, 22, 2, 2, 98, 99, 7, 7, 2,
-	2, 99, 100, 5, 4, 3, 2, 100, 101, 7, 8, 2, 2, 101, 108, 3, 2, 2, 2, 102,
-	103, 12, 20, 2, 2, 103, 104, 7, 10, 2, 2, 104, 105, 5, 4, 3, 2, 105, 106,
-	7, 11, 2, 2, 106, 108, 3, 2, 2, 2, 107, 60, 3, 2, 2, 2, 107, 63, 3, 2,
-	2, 2, 107, 66, 3, 2, 2, 2, 107, 69, 3, 2, 2, 2, 107, 72, 3, 2, 2, 2, 107,
-	79, 3, 2, 2, 2, 107, 82, 3, 2, 2, 2, 107, 85, 3, 2, 2, 2, 107, 88, 3, 2,
-	2, 2, 107, 91, 3, 2, 2, 2, 107, 94, 3, 2, 2, 2, 107, 97, 3, 2, 2, 2, 107,
-	102, 3, 2, 2, 2, 108, 111, 3, 2, 2, 2, 109, 107, 3, 2, 2, 2, 109, 110,
-	3, 2, 2, 2, 110, 5, 3, 2, 2, 2, 111, 109, 3, 2, 2, 2, 8, 9, 21, 34, 58,
-	107, 109,
+	3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+	3, 7, 3, 117, 10, 3, 12, 3, 14, 3, 120, 11, 3, 3, 3, 2, 3, 4, 4, 2, 4,
+	2, 2, 2, 147, 2, 9, 3, 2, 2, 2, 4, 58, 3, 2, 2, 2, 6, 8, 5, 4, 3, 2, 7,
+	6, 3, 2, 2, 2, 8, 11, 3, 2, 2, 2, 9, 7, 3, 2, 2, 2, 9, 10, 3, 2, 2, 2,
+	10, 3, 3, 2, 2, 2, 11, 9, 3, 2, 2, 2, 12, 13, 8, 3, 1, 2, 13, 14, 7, 18,
+	2, 2, 14, 59, 5, 4, 3, 13, 15, 16, 7, 8, 2, 2, 16, 21, 5, 4, 3, 2, 17,
+	18, 7, 19, 2, 2, 18, 20, 5, 4, 3, 2, 19, 17, 3, 2, 2, 2, 20, 23, 3, 2,
+	2, 2, 21, 19, 3, 2, 2, 2, 21, 22, 3, 2, 2, 2, 22, 24, 3, 2, 2, 2, 23, 21,
+	3, 2, 2, 2, 24, 25, 7, 9, 2, 2, 25, 59, 3, 2, 2, 2, 26, 27, 7, 10, 2, 2,
+	27, 28, 5, 4, 3, 2, 28, 29, 7, 11, 2, 2, 29, 59, 3, 2, 2, 2, 30, 34, 7,
+	20, 2, 2, 31, 33, 5, 4, 3, 2, 32, 31, 3, 2, 2, 2, 33, 36, 3, 2, 2, 2, 34,
+	32, 3, 2, 2, 2, 34, 35, 3, 2, 2, 2, 35, 37, 3, 2, 2, 2, 36, 34, 3, 2, 2,
+	2, 37, 59, 7, 21, 2, 2, 38, 39, 7, 22, 2, 2, 39, 40, 5, 4, 3, 2, 40, 41,
+	7, 23, 2, 2, 41, 42, 5, 4, 3, 2, 42, 43, 7, 24, 2, 2, 43, 44, 5, 4, 3,
+	9, 44, 59, 3, 2, 2, 2, 45, 46, 7, 25, 2, 2, 46, 47, 5, 4, 3, 2, 47, 48,
+	7, 7, 2, 2, 48, 49, 5, 4, 3, 2, 49, 50, 7, 26, 2, 2, 50, 51, 5, 4, 3, 8,
+	51, 59, 3, 2, 2, 2, 52, 53, 7, 27, 2, 2, 53, 59, 5, 4, 3, 7, 54, 59, 7,
+	28, 2, 2, 55, 59, 7, 29, 2, 2, 56, 59, 7, 30, 2, 2, 57, 59, 7, 31, 2, 2,
+	58, 12, 3, 2, 2, 2, 58, 15, 3, 2, 2, 2, 58, 26, 3, 2, 2, 2, 58, 30, 3,
+	2, 2, 2, 58, 38, 3, 2, 2, 2, 58, 45, 3, 2, 2, 2, 58, 52, 3, 2, 2, 2, 58,
+	54, 3, 2, 2, 2, 58, 55, 3, 2, 2, 2, 58, 56, 3, 2, 2, 2, 58, 57, 3, 2, 2,
+	2, 59, 118, 3, 2, 2, 2, 60, 61, 12, 28, 2, 2, 61, 62, 7, 3, 2, 2, 62, 117,
+	5, 4, 3, 29, 63, 64, 12, 27, 2, 2, 64, 65, 7, 4, 2, 2, 65, 117, 5, 4, 3,
+	28, 66, 67, 12, 26, 2, 2, 67, 68, 7, 5, 2, 2, 68, 117, 5, 4, 3, 27, 69,
+	70, 12, 25, 2, 2, 70, 71, 7, 6, 2, 2, 71, 72, 5, 4, 3, 2, 72, 73, 7, 7,
+	2, 2, 73, 74, 5, 4, 3, 26, 74, 117, 3, 2, 2, 2, 75, 76, 12, 24, 2, 2, 76,
+	77, 7, 6, 2, 2, 77, 117, 5, 4, 3, 25, 78, 79, 12, 23, 2, 2, 79, 80, 7,
+	8, 2, 2, 80, 81, 5, 4, 3, 2, 81, 82, 7, 9, 2, 2, 82, 83, 7, 7, 2, 2, 83,
+	84, 5, 4, 3, 24, 84, 117, 3, 2, 2, 2, 85, 86, 12, 20, 2, 2, 86, 87, 7,
+	12, 2, 2, 87, 117, 5, 4, 3, 21, 88, 89, 12, 19, 2, 2, 89, 90, 7, 13, 2,
+	2, 90, 117, 5, 4, 3, 20, 91, 92, 12, 18, 2, 2, 92, 93, 7, 14, 2, 2, 93,
+	117, 5, 4, 3, 19, 94, 95, 12, 17, 2, 2, 95, 96, 7, 15, 2, 2, 96, 117, 5,
+	4, 3, 18, 97, 98, 12, 16, 2, 2, 98, 99, 7, 16, 2, 2, 99, 117, 5, 4, 3,
+	17, 100, 101, 12, 15, 2, 2, 101, 102, 7, 17, 2, 2, 102, 117, 5, 4, 3, 16,
+	103, 104, 12, 14, 2, 2, 104, 105, 7, 7, 2, 2, 105, 117, 5, 4, 3, 15, 106,
+	107, 12, 22, 2, 2, 107, 108, 7, 8, 2, 2, 108, 109, 5, 4, 3, 2, 109, 110,
+	7, 9, 2, 2, 110, 117, 3, 2, 2, 2, 111, 112, 12, 21, 2, 2, 112, 113, 7,
+	10, 2, 2, 113, 114, 5, 4, 3, 2, 114, 115, 7, 11, 2, 2, 115, 117, 3, 2,
+	2, 2, 116, 60, 3, 2, 2, 2, 116, 63, 3, 2, 2, 2, 116, 66, 3, 2, 2, 2, 116,
+	69, 3, 2, 2, 2, 116, 75, 3, 2, 2, 2, 116, 78, 3, 2, 2, 2, 116, 85, 3, 2,
+	2, 2, 116, 88, 3, 2, 2, 2, 116, 91, 3, 2, 2, 2, 116, 94, 3, 2, 2, 2, 116,
+	97, 3, 2, 2, 2, 116, 100, 3, 2, 2, 2, 116, 103, 3, 2, 2, 2, 116, 106, 3,
+	2, 2, 2, 116, 111, 3, 2, 2, 2, 117, 120, 3, 2, 2, 2, 118, 116, 3, 2, 2,
+	2, 118, 119, 3, 2, 2, 2, 119, 5, 3, 2, 2, 2, 120, 118, 3, 2, 2, 2, 8, 9,
+	21, 34, 58, 116, 118,
 }
 var deserializer = antlr.NewATNDeserializer(nil)
 var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
 
 var literalNames = []string{
-	"", "'=='", "'<'", "'>'", "'.'", "'['", "']'", "'='", "'('", "')'", "'/'",
-	"'*'", "'-'", "'+'", "'->'", "'//'", "','", "'{'", "'}'", "'if'", "'then'",
-	"'else'", "'let'", "'in'", "'len'",
+	"", "'=='", "'<'", "'>'", "'.'", "'='", "'['", "']'", "'('", "')'", "'/'",
+	"'*'", "'-'", "'+'", "'->'", "':'", "'//'", "','", "'{'", "'}'", "'if'",
+	"'then'", "'else'", "'let'", "'in'", "'len'",
 }
 var symbolicNames = []string{
 	"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-	"", "", "", "", "", "", "", "BOOL", "ID", "NUM", "STR", "WS",
+	"", "", "", "", "", "", "", "", "BOOL", "ID", "NUM", "STR", "WS",
 }
 
 var ruleNames = []string{
@@ -137,11 +141,12 @@ const (
 	GarvikParserT__21 = 22
 	GarvikParserT__22 = 23
 	GarvikParserT__23 = 24
-	GarvikParserBOOL  = 25
-	GarvikParserID    = 26
-	GarvikParserNUM   = 27
-	GarvikParserSTR   = 28
-	GarvikParserWS    = 29
+	GarvikParserT__24 = 25
+	GarvikParserBOOL  = 26
+	GarvikParserID    = 27
+	GarvikParserNUM   = 28
+	GarvikParserSTR   = 29
+	GarvikParserWS    = 30
 )
 
 // GarvikParser rules.
@@ -267,7 +272,7 @@ func (p *GarvikParser) Program() (localctx IProgramContext) {
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	for ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<GarvikParserT__4)|(1<<GarvikParserT__7)|(1<<GarvikParserT__14)|(1<<GarvikParserT__16)|(1<<GarvikParserT__18)|(1<<GarvikParserT__21)|(1<<GarvikParserT__23)|(1<<GarvikParserBOOL)|(1<<GarvikParserID)|(1<<GarvikParserNUM)|(1<<GarvikParserSTR))) != 0 {
+	for ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<GarvikParserT__5)|(1<<GarvikParserT__7)|(1<<GarvikParserT__15)|(1<<GarvikParserT__17)|(1<<GarvikParserT__19)|(1<<GarvikParserT__22)|(1<<GarvikParserT__24)|(1<<GarvikParserBOOL)|(1<<GarvikParserID)|(1<<GarvikParserNUM)|(1<<GarvikParserSTR))) != 0 {
 		{
 			p.SetState(4)
 			p.expr(0)
@@ -503,157 +508,6 @@ func (s *LenExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	}
 }
 
-type IfElseExprContext struct {
-	*ExprContext
-	con IExprContext
-	t   IExprContext
-	f   IExprContext
-}
-
-func NewIfElseExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *IfElseExprContext {
-	var p = new(IfElseExprContext)
-
-	p.ExprContext = NewEmptyExprContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*ExprContext))
-
-	return p
-}
-
-func (s *IfElseExprContext) GetCon() IExprContext { return s.con }
-
-func (s *IfElseExprContext) GetT() IExprContext { return s.t }
-
-func (s *IfElseExprContext) GetF() IExprContext { return s.f }
-
-func (s *IfElseExprContext) SetCon(v IExprContext) { s.con = v }
-
-func (s *IfElseExprContext) SetT(v IExprContext) { s.t = v }
-
-func (s *IfElseExprContext) SetF(v IExprContext) { s.f = v }
-
-func (s *IfElseExprContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *IfElseExprContext) AllExpr() []IExprContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
-	var tst = make([]IExprContext, len(ts))
-
-	for i, t := range ts {
-		if t != nil {
-			tst[i] = t.(IExprContext)
-		}
-	}
-
-	return tst
-}
-
-func (s *IfElseExprContext) Expr(i int) IExprContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IExprContext)
-}
-
-func (s *IfElseExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(GarvikListener); ok {
-		listenerT.EnterIfElseExpr(s)
-	}
-}
-
-func (s *IfElseExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(GarvikListener); ok {
-		listenerT.ExitIfElseExpr(s)
-	}
-}
-
-func (s *IfElseExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case GarvikVisitor:
-		return t.VisitIfElseExpr(s)
-
-	default:
-		return t.VisitChildren(s)
-	}
-}
-
-type LessExprContext struct {
-	*ExprContext
-	left  IExprContext
-	right IExprContext
-}
-
-func NewLessExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *LessExprContext {
-	var p = new(LessExprContext)
-
-	p.ExprContext = NewEmptyExprContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*ExprContext))
-
-	return p
-}
-
-func (s *LessExprContext) GetLeft() IExprContext { return s.left }
-
-func (s *LessExprContext) GetRight() IExprContext { return s.right }
-
-func (s *LessExprContext) SetLeft(v IExprContext) { s.left = v }
-
-func (s *LessExprContext) SetRight(v IExprContext) { s.right = v }
-
-func (s *LessExprContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *LessExprContext) AllExpr() []IExprContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
-	var tst = make([]IExprContext, len(ts))
-
-	for i, t := range ts {
-		if t != nil {
-			tst[i] = t.(IExprContext)
-		}
-	}
-
-	return tst
-}
-
-func (s *LessExprContext) Expr(i int) IExprContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IExprContext)
-}
-
-func (s *LessExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(GarvikListener); ok {
-		listenerT.EnterLessExpr(s)
-	}
-}
-
-func (s *LessExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(GarvikListener); ok {
-		listenerT.ExitLessExpr(s)
-	}
-}
-
-func (s *LessExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case GarvikVisitor:
-		return t.VisitLessExpr(s)
-
-	default:
-		return t.VisitChildren(s)
-	}
-}
-
 type SubExprContext struct {
 	*ExprContext
 	left  IExprContext
@@ -721,129 +575,6 @@ func (s *SubExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
 	case GarvikVisitor:
 		return t.VisitSubExpr(s)
-
-	default:
-		return t.VisitChildren(s)
-	}
-}
-
-type MultExprContext struct {
-	*ExprContext
-	left  IExprContext
-	right IExprContext
-}
-
-func NewMultExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *MultExprContext {
-	var p = new(MultExprContext)
-
-	p.ExprContext = NewEmptyExprContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*ExprContext))
-
-	return p
-}
-
-func (s *MultExprContext) GetLeft() IExprContext { return s.left }
-
-func (s *MultExprContext) GetRight() IExprContext { return s.right }
-
-func (s *MultExprContext) SetLeft(v IExprContext) { s.left = v }
-
-func (s *MultExprContext) SetRight(v IExprContext) { s.right = v }
-
-func (s *MultExprContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *MultExprContext) AllExpr() []IExprContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
-	var tst = make([]IExprContext, len(ts))
-
-	for i, t := range ts {
-		if t != nil {
-			tst[i] = t.(IExprContext)
-		}
-	}
-
-	return tst
-}
-
-func (s *MultExprContext) Expr(i int) IExprContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IExprContext)
-}
-
-func (s *MultExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(GarvikListener); ok {
-		listenerT.EnterMultExpr(s)
-	}
-}
-
-func (s *MultExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(GarvikListener); ok {
-		listenerT.ExitMultExpr(s)
-	}
-}
-
-func (s *MultExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case GarvikVisitor:
-		return t.VisitMultExpr(s)
-
-	default:
-		return t.VisitChildren(s)
-	}
-}
-
-type CommentExprContext struct {
-	*ExprContext
-}
-
-func NewCommentExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *CommentExprContext {
-	var p = new(CommentExprContext)
-
-	p.ExprContext = NewEmptyExprContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*ExprContext))
-
-	return p
-}
-
-func (s *CommentExprContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *CommentExprContext) Expr() IExprContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), 0)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IExprContext)
-}
-
-func (s *CommentExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(GarvikListener); ok {
-		listenerT.EnterCommentExpr(s)
-	}
-}
-
-func (s *CommentExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(GarvikListener); ok {
-		listenerT.ExitCommentExpr(s)
-	}
-}
-
-func (s *CommentExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case GarvikVisitor:
-		return t.VisitCommentExpr(s)
 
 	default:
 		return t.VisitChildren(s)
@@ -978,50 +709,6 @@ func (s *LetExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	}
 }
 
-type NumExprContext struct {
-	*ExprContext
-}
-
-func NewNumExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *NumExprContext {
-	var p = new(NumExprContext)
-
-	p.ExprContext = NewEmptyExprContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*ExprContext))
-
-	return p
-}
-
-func (s *NumExprContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *NumExprContext) NUM() antlr.TerminalNode {
-	return s.GetToken(GarvikParserNUM, 0)
-}
-
-func (s *NumExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(GarvikListener); ok {
-		listenerT.EnterNumExpr(s)
-	}
-}
-
-func (s *NumExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(GarvikListener); ok {
-		listenerT.ExitNumExpr(s)
-	}
-}
-
-func (s *NumExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case GarvikVisitor:
-		return t.VisitNumExpr(s)
-
-	default:
-		return t.VisitChildren(s)
-	}
-}
-
 type GreaterExprContext struct {
 	*ExprContext
 	left  IExprContext
@@ -1089,79 +776,6 @@ func (s *GreaterExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} 
 	switch t := visitor.(type) {
 	case GarvikVisitor:
 		return t.VisitGreaterExpr(s)
-
-	default:
-		return t.VisitChildren(s)
-	}
-}
-
-type AddExprContext struct {
-	*ExprContext
-	left  IExprContext
-	right IExprContext
-}
-
-func NewAddExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *AddExprContext {
-	var p = new(AddExprContext)
-
-	p.ExprContext = NewEmptyExprContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*ExprContext))
-
-	return p
-}
-
-func (s *AddExprContext) GetLeft() IExprContext { return s.left }
-
-func (s *AddExprContext) GetRight() IExprContext { return s.right }
-
-func (s *AddExprContext) SetLeft(v IExprContext) { s.left = v }
-
-func (s *AddExprContext) SetRight(v IExprContext) { s.right = v }
-
-func (s *AddExprContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *AddExprContext) AllExpr() []IExprContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
-	var tst = make([]IExprContext, len(ts))
-
-	for i, t := range ts {
-		if t != nil {
-			tst[i] = t.(IExprContext)
-		}
-	}
-
-	return tst
-}
-
-func (s *AddExprContext) Expr(i int) IExprContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IExprContext)
-}
-
-func (s *AddExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(GarvikListener); ok {
-		listenerT.EnterAddExpr(s)
-	}
-}
-
-func (s *AddExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(GarvikListener); ok {
-		listenerT.ExitAddExpr(s)
-	}
-}
-
-func (s *AddExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case GarvikVisitor:
-		return t.VisitAddExpr(s)
 
 	default:
 		return t.VisitChildren(s)
@@ -1298,79 +912,6 @@ func (s *StructExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
 	case GarvikVisitor:
 		return t.VisitStructExpr(s)
-
-	default:
-		return t.VisitChildren(s)
-	}
-}
-
-type LookupExprContext struct {
-	*ExprContext
-	id  IExprContext
-	key IExprContext
-}
-
-func NewLookupExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *LookupExprContext {
-	var p = new(LookupExprContext)
-
-	p.ExprContext = NewEmptyExprContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*ExprContext))
-
-	return p
-}
-
-func (s *LookupExprContext) GetId() IExprContext { return s.id }
-
-func (s *LookupExprContext) GetKey() IExprContext { return s.key }
-
-func (s *LookupExprContext) SetId(v IExprContext) { s.id = v }
-
-func (s *LookupExprContext) SetKey(v IExprContext) { s.key = v }
-
-func (s *LookupExprContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *LookupExprContext) AllExpr() []IExprContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
-	var tst = make([]IExprContext, len(ts))
-
-	for i, t := range ts {
-		if t != nil {
-			tst[i] = t.(IExprContext)
-		}
-	}
-
-	return tst
-}
-
-func (s *LookupExprContext) Expr(i int) IExprContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IExprContext)
-}
-
-func (s *LookupExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(GarvikListener); ok {
-		listenerT.EnterLookupExpr(s)
-	}
-}
-
-func (s *LookupExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(GarvikListener); ok {
-		listenerT.ExitLookupExpr(s)
-	}
-}
-
-func (s *LookupExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case GarvikVisitor:
-		return t.VisitLookupExpr(s)
 
 	default:
 		return t.VisitChildren(s)
@@ -1522,50 +1063,6 @@ func (s *LookupAssignExprContext) Accept(visitor antlr.ParseTreeVisitor) interfa
 	switch t := visitor.(type) {
 	case GarvikVisitor:
 		return t.VisitLookupAssignExpr(s)
-
-	default:
-		return t.VisitChildren(s)
-	}
-}
-
-type BoolExprContext struct {
-	*ExprContext
-}
-
-func NewBoolExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *BoolExprContext {
-	var p = new(BoolExprContext)
-
-	p.ExprContext = NewEmptyExprContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*ExprContext))
-
-	return p
-}
-
-func (s *BoolExprContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *BoolExprContext) BOOL() antlr.TerminalNode {
-	return s.GetToken(GarvikParserBOOL, 0)
-}
-
-func (s *BoolExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(GarvikListener); ok {
-		listenerT.EnterBoolExpr(s)
-	}
-}
-
-func (s *BoolExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(GarvikListener); ok {
-		listenerT.ExitBoolExpr(s)
-	}
-}
-
-func (s *BoolExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case GarvikVisitor:
-		return t.VisitBoolExpr(s)
 
 	default:
 		return t.VisitChildren(s)
@@ -1781,6 +1278,665 @@ func (s *AssignExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	}
 }
 
+type IfElseExprContext struct {
+	*ExprContext
+	con IExprContext
+	t   IExprContext
+	f   IExprContext
+}
+
+func NewIfElseExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *IfElseExprContext {
+	var p = new(IfElseExprContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *IfElseExprContext) GetCon() IExprContext { return s.con }
+
+func (s *IfElseExprContext) GetT() IExprContext { return s.t }
+
+func (s *IfElseExprContext) GetF() IExprContext { return s.f }
+
+func (s *IfElseExprContext) SetCon(v IExprContext) { s.con = v }
+
+func (s *IfElseExprContext) SetT(v IExprContext) { s.t = v }
+
+func (s *IfElseExprContext) SetF(v IExprContext) { s.f = v }
+
+func (s *IfElseExprContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *IfElseExprContext) AllExpr() []IExprContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
+	var tst = make([]IExprContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IExprContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *IfElseExprContext) Expr(i int) IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *IfElseExprContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(GarvikListener); ok {
+		listenerT.EnterIfElseExpr(s)
+	}
+}
+
+func (s *IfElseExprContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(GarvikListener); ok {
+		listenerT.ExitIfElseExpr(s)
+	}
+}
+
+func (s *IfElseExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case GarvikVisitor:
+		return t.VisitIfElseExpr(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+type LessExprContext struct {
+	*ExprContext
+	left  IExprContext
+	right IExprContext
+}
+
+func NewLessExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *LessExprContext {
+	var p = new(LessExprContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *LessExprContext) GetLeft() IExprContext { return s.left }
+
+func (s *LessExprContext) GetRight() IExprContext { return s.right }
+
+func (s *LessExprContext) SetLeft(v IExprContext) { s.left = v }
+
+func (s *LessExprContext) SetRight(v IExprContext) { s.right = v }
+
+func (s *LessExprContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *LessExprContext) AllExpr() []IExprContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
+	var tst = make([]IExprContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IExprContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *LessExprContext) Expr(i int) IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *LessExprContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(GarvikListener); ok {
+		listenerT.EnterLessExpr(s)
+	}
+}
+
+func (s *LessExprContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(GarvikListener); ok {
+		listenerT.ExitLessExpr(s)
+	}
+}
+
+func (s *LessExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case GarvikVisitor:
+		return t.VisitLessExpr(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+type DotAssignExprContext struct {
+	*ExprContext
+	id    IExprContext
+	field IExprContext
+	value IExprContext
+}
+
+func NewDotAssignExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *DotAssignExprContext {
+	var p = new(DotAssignExprContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *DotAssignExprContext) GetId() IExprContext { return s.id }
+
+func (s *DotAssignExprContext) GetField() IExprContext { return s.field }
+
+func (s *DotAssignExprContext) GetValue() IExprContext { return s.value }
+
+func (s *DotAssignExprContext) SetId(v IExprContext) { s.id = v }
+
+func (s *DotAssignExprContext) SetField(v IExprContext) { s.field = v }
+
+func (s *DotAssignExprContext) SetValue(v IExprContext) { s.value = v }
+
+func (s *DotAssignExprContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *DotAssignExprContext) AllExpr() []IExprContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
+	var tst = make([]IExprContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IExprContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *DotAssignExprContext) Expr(i int) IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *DotAssignExprContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(GarvikListener); ok {
+		listenerT.EnterDotAssignExpr(s)
+	}
+}
+
+func (s *DotAssignExprContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(GarvikListener); ok {
+		listenerT.ExitDotAssignExpr(s)
+	}
+}
+
+func (s *DotAssignExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case GarvikVisitor:
+		return t.VisitDotAssignExpr(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+type MultExprContext struct {
+	*ExprContext
+	left  IExprContext
+	right IExprContext
+}
+
+func NewMultExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *MultExprContext {
+	var p = new(MultExprContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *MultExprContext) GetLeft() IExprContext { return s.left }
+
+func (s *MultExprContext) GetRight() IExprContext { return s.right }
+
+func (s *MultExprContext) SetLeft(v IExprContext) { s.left = v }
+
+func (s *MultExprContext) SetRight(v IExprContext) { s.right = v }
+
+func (s *MultExprContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *MultExprContext) AllExpr() []IExprContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
+	var tst = make([]IExprContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IExprContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *MultExprContext) Expr(i int) IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *MultExprContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(GarvikListener); ok {
+		listenerT.EnterMultExpr(s)
+	}
+}
+
+func (s *MultExprContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(GarvikListener); ok {
+		listenerT.ExitMultExpr(s)
+	}
+}
+
+func (s *MultExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case GarvikVisitor:
+		return t.VisitMultExpr(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+type FieldExprContext struct {
+	*ExprContext
+	id    IExprContext
+	field IExprContext
+}
+
+func NewFieldExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *FieldExprContext {
+	var p = new(FieldExprContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *FieldExprContext) GetId() IExprContext { return s.id }
+
+func (s *FieldExprContext) GetField() IExprContext { return s.field }
+
+func (s *FieldExprContext) SetId(v IExprContext) { s.id = v }
+
+func (s *FieldExprContext) SetField(v IExprContext) { s.field = v }
+
+func (s *FieldExprContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *FieldExprContext) AllExpr() []IExprContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
+	var tst = make([]IExprContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IExprContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *FieldExprContext) Expr(i int) IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *FieldExprContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(GarvikListener); ok {
+		listenerT.EnterFieldExpr(s)
+	}
+}
+
+func (s *FieldExprContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(GarvikListener); ok {
+		listenerT.ExitFieldExpr(s)
+	}
+}
+
+func (s *FieldExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case GarvikVisitor:
+		return t.VisitFieldExpr(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+type CommentExprContext struct {
+	*ExprContext
+}
+
+func NewCommentExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *CommentExprContext {
+	var p = new(CommentExprContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *CommentExprContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *CommentExprContext) Expr() IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *CommentExprContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(GarvikListener); ok {
+		listenerT.EnterCommentExpr(s)
+	}
+}
+
+func (s *CommentExprContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(GarvikListener); ok {
+		listenerT.ExitCommentExpr(s)
+	}
+}
+
+func (s *CommentExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case GarvikVisitor:
+		return t.VisitCommentExpr(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+type NumExprContext struct {
+	*ExprContext
+}
+
+func NewNumExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *NumExprContext {
+	var p = new(NumExprContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *NumExprContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *NumExprContext) NUM() antlr.TerminalNode {
+	return s.GetToken(GarvikParserNUM, 0)
+}
+
+func (s *NumExprContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(GarvikListener); ok {
+		listenerT.EnterNumExpr(s)
+	}
+}
+
+func (s *NumExprContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(GarvikListener); ok {
+		listenerT.ExitNumExpr(s)
+	}
+}
+
+func (s *NumExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case GarvikVisitor:
+		return t.VisitNumExpr(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+type AddExprContext struct {
+	*ExprContext
+	left  IExprContext
+	right IExprContext
+}
+
+func NewAddExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *AddExprContext {
+	var p = new(AddExprContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *AddExprContext) GetLeft() IExprContext { return s.left }
+
+func (s *AddExprContext) GetRight() IExprContext { return s.right }
+
+func (s *AddExprContext) SetLeft(v IExprContext) { s.left = v }
+
+func (s *AddExprContext) SetRight(v IExprContext) { s.right = v }
+
+func (s *AddExprContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *AddExprContext) AllExpr() []IExprContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
+	var tst = make([]IExprContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IExprContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *AddExprContext) Expr(i int) IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *AddExprContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(GarvikListener); ok {
+		listenerT.EnterAddExpr(s)
+	}
+}
+
+func (s *AddExprContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(GarvikListener); ok {
+		listenerT.ExitAddExpr(s)
+	}
+}
+
+func (s *AddExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case GarvikVisitor:
+		return t.VisitAddExpr(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+type LookupExprContext struct {
+	*ExprContext
+	id  IExprContext
+	key IExprContext
+}
+
+func NewLookupExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *LookupExprContext {
+	var p = new(LookupExprContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *LookupExprContext) GetId() IExprContext { return s.id }
+
+func (s *LookupExprContext) GetKey() IExprContext { return s.key }
+
+func (s *LookupExprContext) SetId(v IExprContext) { s.id = v }
+
+func (s *LookupExprContext) SetKey(v IExprContext) { s.key = v }
+
+func (s *LookupExprContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *LookupExprContext) AllExpr() []IExprContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
+	var tst = make([]IExprContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IExprContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *LookupExprContext) Expr(i int) IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *LookupExprContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(GarvikListener); ok {
+		listenerT.EnterLookupExpr(s)
+	}
+}
+
+func (s *LookupExprContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(GarvikListener); ok {
+		listenerT.ExitLookupExpr(s)
+	}
+}
+
+func (s *LookupExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case GarvikVisitor:
+		return t.VisitLookupExpr(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+type BoolExprContext struct {
+	*ExprContext
+}
+
+func NewBoolExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *BoolExprContext {
+	var p = new(BoolExprContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *BoolExprContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *BoolExprContext) BOOL() antlr.TerminalNode {
+	return s.GetToken(GarvikParserBOOL, 0)
+}
+
+func (s *BoolExprContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(GarvikListener); ok {
+		listenerT.EnterBoolExpr(s)
+	}
+}
+
+func (s *BoolExprContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(GarvikListener); ok {
+		listenerT.ExitBoolExpr(s)
+	}
+}
+
+func (s *BoolExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case GarvikVisitor:
+		return t.VisitBoolExpr(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type IdExprContext struct {
 	*ExprContext
 }
@@ -1935,27 +2091,27 @@ func (p *GarvikParser) expr(_p int) (localctx IExprContext) {
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
-	case GarvikParserT__14:
+	case GarvikParserT__15:
 		localctx = NewCommentExprContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 
 		{
 			p.SetState(11)
-			p.Match(GarvikParserT__14)
+			p.Match(GarvikParserT__15)
 		}
 		{
 			p.SetState(12)
 			p.expr(11)
 		}
 
-	case GarvikParserT__4:
+	case GarvikParserT__5:
 		localctx = NewListExprContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
 			p.SetState(13)
-			p.Match(GarvikParserT__4)
+			p.Match(GarvikParserT__5)
 		}
 		{
 			p.SetState(14)
@@ -1965,10 +2121,10 @@ func (p *GarvikParser) expr(_p int) (localctx IExprContext) {
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
-		for _la == GarvikParserT__15 {
+		for _la == GarvikParserT__16 {
 			{
 				p.SetState(15)
-				p.Match(GarvikParserT__15)
+				p.Match(GarvikParserT__16)
 			}
 			{
 				p.SetState(16)
@@ -1981,7 +2137,7 @@ func (p *GarvikParser) expr(_p int) (localctx IExprContext) {
 		}
 		{
 			p.SetState(22)
-			p.Match(GarvikParserT__5)
+			p.Match(GarvikParserT__6)
 		}
 
 	case GarvikParserT__7:
@@ -2001,19 +2157,19 @@ func (p *GarvikParser) expr(_p int) (localctx IExprContext) {
 			p.Match(GarvikParserT__8)
 		}
 
-	case GarvikParserT__16:
+	case GarvikParserT__17:
 		localctx = NewStructExprContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
 			p.SetState(28)
-			p.Match(GarvikParserT__16)
+			p.Match(GarvikParserT__17)
 		}
 		p.SetState(32)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
-		for ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<GarvikParserT__4)|(1<<GarvikParserT__7)|(1<<GarvikParserT__14)|(1<<GarvikParserT__16)|(1<<GarvikParserT__18)|(1<<GarvikParserT__21)|(1<<GarvikParserT__23)|(1<<GarvikParserBOOL)|(1<<GarvikParserID)|(1<<GarvikParserNUM)|(1<<GarvikParserSTR))) != 0 {
+		for ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<GarvikParserT__5)|(1<<GarvikParserT__7)|(1<<GarvikParserT__15)|(1<<GarvikParserT__17)|(1<<GarvikParserT__19)|(1<<GarvikParserT__22)|(1<<GarvikParserT__24)|(1<<GarvikParserBOOL)|(1<<GarvikParserID)|(1<<GarvikParserNUM)|(1<<GarvikParserSTR))) != 0 {
 			{
 				p.SetState(29)
 				p.expr(0)
@@ -2025,16 +2181,16 @@ func (p *GarvikParser) expr(_p int) (localctx IExprContext) {
 		}
 		{
 			p.SetState(35)
-			p.Match(GarvikParserT__17)
+			p.Match(GarvikParserT__18)
 		}
 
-	case GarvikParserT__18:
+	case GarvikParserT__19:
 		localctx = NewIfElseExprContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
 			p.SetState(36)
-			p.Match(GarvikParserT__18)
+			p.Match(GarvikParserT__19)
 		}
 		{
 			p.SetState(37)
@@ -2045,7 +2201,7 @@ func (p *GarvikParser) expr(_p int) (localctx IExprContext) {
 		}
 		{
 			p.SetState(38)
-			p.Match(GarvikParserT__19)
+			p.Match(GarvikParserT__20)
 		}
 		{
 			p.SetState(39)
@@ -2056,7 +2212,7 @@ func (p *GarvikParser) expr(_p int) (localctx IExprContext) {
 		}
 		{
 			p.SetState(40)
-			p.Match(GarvikParserT__20)
+			p.Match(GarvikParserT__21)
 		}
 		{
 			p.SetState(41)
@@ -2066,13 +2222,13 @@ func (p *GarvikParser) expr(_p int) (localctx IExprContext) {
 			localctx.(*IfElseExprContext).f = _x
 		}
 
-	case GarvikParserT__21:
+	case GarvikParserT__22:
 		localctx = NewLetExprContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
 			p.SetState(43)
-			p.Match(GarvikParserT__21)
+			p.Match(GarvikParserT__22)
 		}
 		{
 			p.SetState(44)
@@ -2083,7 +2239,7 @@ func (p *GarvikParser) expr(_p int) (localctx IExprContext) {
 		}
 		{
 			p.SetState(45)
-			p.Match(GarvikParserT__6)
+			p.Match(GarvikParserT__4)
 		}
 		{
 			p.SetState(46)
@@ -2094,7 +2250,7 @@ func (p *GarvikParser) expr(_p int) (localctx IExprContext) {
 		}
 		{
 			p.SetState(47)
-			p.Match(GarvikParserT__22)
+			p.Match(GarvikParserT__23)
 		}
 		{
 			p.SetState(48)
@@ -2104,13 +2260,13 @@ func (p *GarvikParser) expr(_p int) (localctx IExprContext) {
 			localctx.(*LetExprContext).expression = _x
 		}
 
-	case GarvikParserT__23:
+	case GarvikParserT__24:
 		localctx = NewLenExprContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
 			p.SetState(50)
-			p.Match(GarvikParserT__23)
+			p.Match(GarvikParserT__24)
 		}
 		{
 			p.SetState(51)
@@ -2160,7 +2316,7 @@ func (p *GarvikParser) expr(_p int) (localctx IExprContext) {
 		panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
 	}
 	p.GetParserRuleContext().SetStop(p.GetTokenStream().LT(-1))
-	p.SetState(107)
+	p.SetState(116)
 	p.GetErrorHandler().Sync(p)
 	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 5, p.GetParserRuleContext())
 
@@ -2170,7 +2326,7 @@ func (p *GarvikParser) expr(_p int) (localctx IExprContext) {
 				p.TriggerExitRuleEvent()
 			}
 			_prevctx = localctx
-			p.SetState(105)
+			p.SetState(114)
 			p.GetErrorHandler().Sync(p)
 			switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 4, p.GetParserRuleContext()) {
 			case 1:
@@ -2180,8 +2336,8 @@ func (p *GarvikParser) expr(_p int) (localctx IExprContext) {
 				p.PushNewRecursionContext(localctx, _startState, GarvikParserRULE_expr)
 				p.SetState(58)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 24)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 24)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 26)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 26)", ""))
 				}
 				{
 					p.SetState(59)
@@ -2190,7 +2346,7 @@ func (p *GarvikParser) expr(_p int) (localctx IExprContext) {
 				{
 					p.SetState(60)
 
-					var _x = p.expr(25)
+					var _x = p.expr(27)
 
 					localctx.(*EqualExprContext).right = _x
 				}
@@ -2202,8 +2358,8 @@ func (p *GarvikParser) expr(_p int) (localctx IExprContext) {
 				p.PushNewRecursionContext(localctx, _startState, GarvikParserRULE_expr)
 				p.SetState(61)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 23)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 23)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 25)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 25)", ""))
 				}
 				{
 					p.SetState(62)
@@ -2212,7 +2368,7 @@ func (p *GarvikParser) expr(_p int) (localctx IExprContext) {
 				{
 					p.SetState(63)
 
-					var _x = p.expr(24)
+					var _x = p.expr(26)
 
 					localctx.(*LessExprContext).right = _x
 				}
@@ -2224,8 +2380,8 @@ func (p *GarvikParser) expr(_p int) (localctx IExprContext) {
 				p.PushNewRecursionContext(localctx, _startState, GarvikParserRULE_expr)
 				p.SetState(64)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 22)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 22)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 24)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 24)", ""))
 				}
 				{
 					p.SetState(65)
@@ -2234,20 +2390,20 @@ func (p *GarvikParser) expr(_p int) (localctx IExprContext) {
 				{
 					p.SetState(66)
 
-					var _x = p.expr(23)
+					var _x = p.expr(25)
 
 					localctx.(*GreaterExprContext).right = _x
 				}
 
 			case 4:
-				localctx = NewDotExprContext(p, NewExprContext(p, _parentctx, _parentState))
-				localctx.(*DotExprContext).id = _prevctx
+				localctx = NewDotAssignExprContext(p, NewExprContext(p, _parentctx, _parentState))
+				localctx.(*DotAssignExprContext).id = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, GarvikParserRULE_expr)
 				p.SetState(67)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 21)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 21)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 23)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 23)", ""))
 				}
 				{
 					p.SetState(68)
@@ -2256,236 +2412,291 @@ func (p *GarvikParser) expr(_p int) (localctx IExprContext) {
 				{
 					p.SetState(69)
 
-					var _x = p.expr(22)
+					var _x = p.expr(0)
+
+					localctx.(*DotAssignExprContext).field = _x
+				}
+				{
+					p.SetState(70)
+					p.Match(GarvikParserT__4)
+				}
+				{
+					p.SetState(71)
+
+					var _x = p.expr(24)
+
+					localctx.(*DotAssignExprContext).value = _x
+				}
+
+			case 5:
+				localctx = NewDotExprContext(p, NewExprContext(p, _parentctx, _parentState))
+				localctx.(*DotExprContext).id = _prevctx
+
+				p.PushNewRecursionContext(localctx, _startState, GarvikParserRULE_expr)
+				p.SetState(73)
+
+				if !(p.Precpred(p.GetParserRuleContext(), 22)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 22)", ""))
+				}
+				{
+					p.SetState(74)
+					p.Match(GarvikParserT__3)
+				}
+				{
+					p.SetState(75)
+
+					var _x = p.expr(23)
 
 					localctx.(*DotExprContext).field = _x
 				}
 
-			case 5:
+			case 6:
 				localctx = NewLookupAssignExprContext(p, NewExprContext(p, _parentctx, _parentState))
 				localctx.(*LookupAssignExprContext).id = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, GarvikParserRULE_expr)
-				p.SetState(70)
+				p.SetState(76)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 19)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 19)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 21)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 21)", ""))
 				}
 				{
-					p.SetState(71)
-					p.Match(GarvikParserT__4)
+					p.SetState(77)
+					p.Match(GarvikParserT__5)
 				}
 				{
-					p.SetState(72)
+					p.SetState(78)
 
 					var _x = p.expr(0)
 
 					localctx.(*LookupAssignExprContext).key = _x
 				}
 				{
-					p.SetState(73)
-					p.Match(GarvikParserT__5)
-				}
-				{
-					p.SetState(74)
+					p.SetState(79)
 					p.Match(GarvikParserT__6)
 				}
 				{
-					p.SetState(75)
+					p.SetState(80)
+					p.Match(GarvikParserT__4)
+				}
+				{
+					p.SetState(81)
 
-					var _x = p.expr(20)
+					var _x = p.expr(22)
 
 					localctx.(*LookupAssignExprContext).value = _x
 				}
 
-			case 6:
+			case 7:
 				localctx = NewDivExprContext(p, NewExprContext(p, _parentctx, _parentState))
 				localctx.(*DivExprContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, GarvikParserRULE_expr)
-				p.SetState(77)
+				p.SetState(83)
+
+				if !(p.Precpred(p.GetParserRuleContext(), 18)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 18)", ""))
+				}
+				{
+					p.SetState(84)
+					p.Match(GarvikParserT__9)
+				}
+				{
+					p.SetState(85)
+
+					var _x = p.expr(19)
+
+					localctx.(*DivExprContext).right = _x
+				}
+
+			case 8:
+				localctx = NewMultExprContext(p, NewExprContext(p, _parentctx, _parentState))
+				localctx.(*MultExprContext).left = _prevctx
+
+				p.PushNewRecursionContext(localctx, _startState, GarvikParserRULE_expr)
+				p.SetState(86)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 17)) {
 					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 17)", ""))
 				}
 				{
-					p.SetState(78)
-					p.Match(GarvikParserT__9)
+					p.SetState(87)
+					p.Match(GarvikParserT__10)
 				}
 				{
-					p.SetState(79)
+					p.SetState(88)
 
 					var _x = p.expr(18)
 
-					localctx.(*DivExprContext).right = _x
+					localctx.(*MultExprContext).right = _x
 				}
 
-			case 7:
-				localctx = NewMultExprContext(p, NewExprContext(p, _parentctx, _parentState))
-				localctx.(*MultExprContext).left = _prevctx
+			case 9:
+				localctx = NewSubExprContext(p, NewExprContext(p, _parentctx, _parentState))
+				localctx.(*SubExprContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, GarvikParserRULE_expr)
-				p.SetState(80)
+				p.SetState(89)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 16)) {
 					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 16)", ""))
 				}
 				{
-					p.SetState(81)
-					p.Match(GarvikParserT__10)
+					p.SetState(90)
+					p.Match(GarvikParserT__11)
 				}
 				{
-					p.SetState(82)
+					p.SetState(91)
 
 					var _x = p.expr(17)
 
-					localctx.(*MultExprContext).right = _x
+					localctx.(*SubExprContext).right = _x
 				}
 
-			case 8:
-				localctx = NewSubExprContext(p, NewExprContext(p, _parentctx, _parentState))
-				localctx.(*SubExprContext).left = _prevctx
+			case 10:
+				localctx = NewAddExprContext(p, NewExprContext(p, _parentctx, _parentState))
+				localctx.(*AddExprContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, GarvikParserRULE_expr)
-				p.SetState(83)
+				p.SetState(92)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 15)) {
 					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 15)", ""))
 				}
 				{
-					p.SetState(84)
-					p.Match(GarvikParserT__11)
+					p.SetState(93)
+					p.Match(GarvikParserT__12)
 				}
 				{
-					p.SetState(85)
+					p.SetState(94)
 
 					var _x = p.expr(16)
 
-					localctx.(*SubExprContext).right = _x
+					localctx.(*AddExprContext).right = _x
 				}
 
-			case 9:
-				localctx = NewAddExprContext(p, NewExprContext(p, _parentctx, _parentState))
-				localctx.(*AddExprContext).left = _prevctx
+			case 11:
+				localctx = NewLambdaExprContext(p, NewExprContext(p, _parentctx, _parentState))
+				localctx.(*LambdaExprContext).param = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, GarvikParserRULE_expr)
-				p.SetState(86)
+				p.SetState(95)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 14)) {
 					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 14)", ""))
 				}
 				{
-					p.SetState(87)
-					p.Match(GarvikParserT__12)
+					p.SetState(96)
+					p.Match(GarvikParserT__13)
 				}
 				{
-					p.SetState(88)
+					p.SetState(97)
 
 					var _x = p.expr(15)
 
-					localctx.(*AddExprContext).right = _x
+					localctx.(*LambdaExprContext).body = _x
 				}
 
-			case 10:
-				localctx = NewLambdaExprContext(p, NewExprContext(p, _parentctx, _parentState))
-				localctx.(*LambdaExprContext).param = _prevctx
+			case 12:
+				localctx = NewFieldExprContext(p, NewExprContext(p, _parentctx, _parentState))
+				localctx.(*FieldExprContext).id = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, GarvikParserRULE_expr)
-				p.SetState(89)
+				p.SetState(98)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 13)) {
 					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 13)", ""))
 				}
 				{
-					p.SetState(90)
-					p.Match(GarvikParserT__13)
+					p.SetState(99)
+					p.Match(GarvikParserT__14)
 				}
 				{
-					p.SetState(91)
+					p.SetState(100)
 
 					var _x = p.expr(14)
 
-					localctx.(*LambdaExprContext).body = _x
+					localctx.(*FieldExprContext).field = _x
 				}
 
-			case 11:
+			case 13:
 				localctx = NewAssignExprContext(p, NewExprContext(p, _parentctx, _parentState))
 				localctx.(*AssignExprContext).id = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, GarvikParserRULE_expr)
-				p.SetState(92)
+				p.SetState(101)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 12)) {
 					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 12)", ""))
 				}
 				{
-					p.SetState(93)
-					p.Match(GarvikParserT__6)
+					p.SetState(102)
+					p.Match(GarvikParserT__4)
 				}
 				{
-					p.SetState(94)
+					p.SetState(103)
 
 					var _x = p.expr(13)
 
 					localctx.(*AssignExprContext).value = _x
 				}
 
-			case 12:
+			case 14:
 				localctx = NewLookupExprContext(p, NewExprContext(p, _parentctx, _parentState))
 				localctx.(*LookupExprContext).id = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, GarvikParserRULE_expr)
-				p.SetState(95)
+				p.SetState(104)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 20)) {
 					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 20)", ""))
 				}
 				{
-					p.SetState(96)
-					p.Match(GarvikParserT__4)
+					p.SetState(105)
+					p.Match(GarvikParserT__5)
 				}
 				{
-					p.SetState(97)
+					p.SetState(106)
 
 					var _x = p.expr(0)
 
 					localctx.(*LookupExprContext).key = _x
 				}
 				{
-					p.SetState(98)
-					p.Match(GarvikParserT__5)
+					p.SetState(107)
+					p.Match(GarvikParserT__6)
 				}
 
-			case 13:
+			case 15:
 				localctx = NewCallExprContext(p, NewExprContext(p, _parentctx, _parentState))
 				localctx.(*CallExprContext).fun = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, GarvikParserRULE_expr)
-				p.SetState(100)
+				p.SetState(109)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 18)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 18)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 19)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 19)", ""))
 				}
 				{
-					p.SetState(101)
+					p.SetState(110)
 					p.Match(GarvikParserT__7)
 				}
 				{
-					p.SetState(102)
+					p.SetState(111)
 
 					var _x = p.expr(0)
 
 					localctx.(*CallExprContext).arg = _x
 				}
 				{
-					p.SetState(103)
+					p.SetState(112)
 					p.Match(GarvikParserT__8)
 				}
 
 			}
 
 		}
-		p.SetState(109)
+		p.SetState(118)
 		p.GetErrorHandler().Sync(p)
 		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 5, p.GetParserRuleContext())
 	}
@@ -2510,43 +2721,49 @@ func (p *GarvikParser) Sempred(localctx antlr.RuleContext, ruleIndex, predIndex 
 func (p *GarvikParser) Expr_Sempred(localctx antlr.RuleContext, predIndex int) bool {
 	switch predIndex {
 	case 0:
-		return p.Precpred(p.GetParserRuleContext(), 24)
+		return p.Precpred(p.GetParserRuleContext(), 26)
 
 	case 1:
-		return p.Precpred(p.GetParserRuleContext(), 23)
+		return p.Precpred(p.GetParserRuleContext(), 25)
 
 	case 2:
-		return p.Precpred(p.GetParserRuleContext(), 22)
+		return p.Precpred(p.GetParserRuleContext(), 24)
 
 	case 3:
-		return p.Precpred(p.GetParserRuleContext(), 21)
+		return p.Precpred(p.GetParserRuleContext(), 23)
 
 	case 4:
-		return p.Precpred(p.GetParserRuleContext(), 19)
+		return p.Precpred(p.GetParserRuleContext(), 22)
 
 	case 5:
-		return p.Precpred(p.GetParserRuleContext(), 17)
+		return p.Precpred(p.GetParserRuleContext(), 21)
 
 	case 6:
-		return p.Precpred(p.GetParserRuleContext(), 16)
+		return p.Precpred(p.GetParserRuleContext(), 18)
 
 	case 7:
-		return p.Precpred(p.GetParserRuleContext(), 15)
+		return p.Precpred(p.GetParserRuleContext(), 17)
 
 	case 8:
-		return p.Precpred(p.GetParserRuleContext(), 14)
+		return p.Precpred(p.GetParserRuleContext(), 16)
 
 	case 9:
-		return p.Precpred(p.GetParserRuleContext(), 13)
+		return p.Precpred(p.GetParserRuleContext(), 15)
 
 	case 10:
-		return p.Precpred(p.GetParserRuleContext(), 12)
+		return p.Precpred(p.GetParserRuleContext(), 14)
 
 	case 11:
-		return p.Precpred(p.GetParserRuleContext(), 20)
+		return p.Precpred(p.GetParserRuleContext(), 13)
 
 	case 12:
-		return p.Precpred(p.GetParserRuleContext(), 18)
+		return p.Precpred(p.GetParserRuleContext(), 12)
+
+	case 13:
+		return p.Precpred(p.GetParserRuleContext(), 20)
+
+	case 14:
+		return p.Precpred(p.GetParserRuleContext(), 19)
 
 	default:
 		panic("No predicate with index: " + fmt.Sprint(predIndex))
