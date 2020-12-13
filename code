@@ -79,5 +79,12 @@
 // l + 5
 // l is not a number
 
+s = {
+  a = 5
+}
+
+s.a = 6
+s.a
+
 
 
