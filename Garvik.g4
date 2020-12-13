@@ -1,4 +1,4 @@
-grammar Simpl;
+grammar Garvik;
 
 BOOL: 'true' | 'false'; // match boolean
 ID: [a-z]+; // match identifiers

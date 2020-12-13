@@ -14,11 +14,11 @@ func eval(input string) {
 	is := antlr.NewInputStream(input)
 
 	// Create the Lexer
-	lexer := parser.NewSimplLexer(is)
+	lexer := parser.NewGarvikLexer(is)
 	stream := antlr.NewCommonTokenStream(lexer, antlr.TokenDefaultChannel)
 
 	// Create the Parser
-	p := parser.NewSimplParser(stream)
+	p := parser.NewGarvikParser(stream)
 
 	// Finally parse the expression (by walking the tree)
 	var visitor evaluator.Evaluator

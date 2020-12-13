@@ -1,4 +1,4 @@
-// Code generated from Simpl.g4 by ANTLR 4.8. DO NOT EDIT.
+// Code generated from Garvik.g4 by ANTLR 4.8. DO NOT EDIT.
 
 package parser
 
@@ -114,7 +114,7 @@ var lexerRuleNames = []string{
 	"WS",
 }
 
-type SimplLexer struct {
+type GarvikLexer struct {
 	*antlr.BaseLexer
 	channelNames []string
 	modeNames    []string
@@ -129,9 +129,9 @@ func init() {
 	}
 }
 
-func NewSimplLexer(input antlr.CharStream) *SimplLexer {
+func NewGarvikLexer(input antlr.CharStream) *GarvikLexer {
 
-	l := new(SimplLexer)
+	l := new(GarvikLexer)
 
 	l.BaseLexer = antlr.NewBaseLexer(input)
 	l.Interpreter = antlr.NewLexerATNSimulator(l, lexerAtn, lexerDecisionToDFA, antlr.NewPredictionContextCache())
@@ -141,39 +141,39 @@ func NewSimplLexer(input antlr.CharStream) *SimplLexer {
 	l.RuleNames = lexerRuleNames
 	l.LiteralNames = lexerLiteralNames
 	l.SymbolicNames = lexerSymbolicNames
-	l.GrammarFileName = "Simpl.g4"
+	l.GrammarFileName = "Garvik.g4"
 	// TODO: l.EOF = antlr.TokenEOF
 
 	return l
 }
 
-// SimplLexer tokens.
+// GarvikLexer tokens.
 const (
-	SimplLexerT__0  = 1
-	SimplLexerT__1  = 2
-	SimplLexerT__2  = 3
-	SimplLexerT__3  = 4
-	SimplLexerT__4  = 5
-	SimplLexerT__5  = 6
-	SimplLexerT__6  = 7
-	SimplLexerT__7  = 8
-	SimplLexerT__8  = 9
-	SimplLexerT__9  = 10
-	SimplLexerT__10 = 11
-	SimplLexerT__11 = 12
-	SimplLexerT__12 = 13
-	SimplLexerT__13 = 14
-	SimplLexerT__14 = 15
-	SimplLexerT__15 = 16
-	SimplLexerT__16 = 17
-	SimplLexerT__17 = 18
-	SimplLexerT__18 = 19
-	SimplLexerT__19 = 20
-	SimplLexerT__20 = 21
-	SimplLexerT__21 = 22
-	SimplLexerBOOL  = 23
-	SimplLexerID    = 24
-	SimplLexerNUM   = 25
-	SimplLexerSTR   = 26
-	SimplLexerWS    = 27
+	GarvikLexerT__0  = 1
+	GarvikLexerT__1  = 2
+	GarvikLexerT__2  = 3
+	GarvikLexerT__3  = 4
+	GarvikLexerT__4  = 5
+	GarvikLexerT__5  = 6
+	GarvikLexerT__6  = 7
+	GarvikLexerT__7  = 8
+	GarvikLexerT__8  = 9
+	GarvikLexerT__9  = 10
+	GarvikLexerT__10 = 11
+	GarvikLexerT__11 = 12
+	GarvikLexerT__12 = 13
+	GarvikLexerT__13 = 14
+	GarvikLexerT__14 = 15
+	GarvikLexerT__15 = 16
+	GarvikLexerT__16 = 17
+	GarvikLexerT__17 = 18
+	GarvikLexerT__18 = 19
+	GarvikLexerT__19 = 20
+	GarvikLexerT__20 = 21
+	GarvikLexerT__21 = 22
+	GarvikLexerBOOL  = 23
+	GarvikLexerID    = 24
+	GarvikLexerNUM   = 25
+	GarvikLexerSTR   = 26
+	GarvikLexerWS    = 27
 )

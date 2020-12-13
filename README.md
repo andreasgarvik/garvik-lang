@@ -7,7 +7,7 @@ My own little programming language :sparkles:
 ```
 // "Functions"
 a = 5
-f = a -> b * a
+f = b -> b * a
 f(6)
 // 30
 
@@ -88,6 +88,20 @@ f([s, 5])
 fib = x -> if x == 0 then 0 else if x == 1 then 1 else fib(x-1) + fib(x-2)
 fib(10)
 // 55
+
+// "Error messages"
+a = b
+// b is not defined
+c = 5
+c(5)
+// c is not a function
+c[0]
+// c is not a list
+l = [1,2,3]
+l[3]
+// list index out of bounds
+l + 5
+// l is not a number
 ```
 
 ## How to run

@@ -1,11 +1,11 @@
-// Code generated from Simpl.g4 by ANTLR 4.8. DO NOT EDIT.
+// Code generated from Garvik.g4 by ANTLR 4.8. DO NOT EDIT.
 
-package parser // Simpl
+package parser // Garvik
 
 import "github.com/antlr/antlr4/runtime/Go/antlr"
 
-// SimplListener is a complete listener for a parse tree produced by SimplParser.
-type SimplListener interface {
+// GarvikListener is a complete listener for a parse tree produced by GarvikParser.
+type GarvikListener interface {
 	antlr.ParseTreeListener
 
 	// EnterProgram is called when entering the program production.

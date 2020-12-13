@@ -1,6 +1,6 @@
-// Code generated from Simpl.g4 by ANTLR 4.8. DO NOT EDIT.
+// Code generated from Garvik.g4 by ANTLR 4.8. DO NOT EDIT.
 
-package parser // Simpl
+package parser // Garvik
 
 import (
 	"fmt"
@@ -89,12 +89,12 @@ func init() {
 	}
 }
 
-type SimplParser struct {
+type GarvikParser struct {
 	*antlr.BaseParser
 }
 
-func NewSimplParser(input antlr.TokenStream) *SimplParser {
-	this := new(SimplParser)
+func NewGarvikParser(input antlr.TokenStream) *GarvikParser {
+	this := new(GarvikParser)
 
 	this.BaseParser = antlr.NewBaseParser(input)
 
@@ -102,47 +102,47 @@ func NewSimplParser(input antlr.TokenStream) *SimplParser {
 	this.RuleNames = ruleNames
 	this.LiteralNames = literalNames
 	this.SymbolicNames = symbolicNames
-	this.GrammarFileName = "Simpl.g4"
+	this.GrammarFileName = "Garvik.g4"
 
 	return this
 }
 
-// SimplParser tokens.
+// GarvikParser tokens.
 const (
-	SimplParserEOF   = antlr.TokenEOF
-	SimplParserT__0  = 1
-	SimplParserT__1  = 2
-	SimplParserT__2  = 3
-	SimplParserT__3  = 4
-	SimplParserT__4  = 5
-	SimplParserT__5  = 6
-	SimplParserT__6  = 7
-	SimplParserT__7  = 8
-	SimplParserT__8  = 9
-	SimplParserT__9  = 10
-	SimplParserT__10 = 11
-	SimplParserT__11 = 12
-	SimplParserT__12 = 13
-	SimplParserT__13 = 14
-	SimplParserT__14 = 15
-	SimplParserT__15 = 16
-	SimplParserT__16 = 17
-	SimplParserT__17 = 18
-	SimplParserT__18 = 19
-	SimplParserT__19 = 20
-	SimplParserT__20 = 21
-	SimplParserT__21 = 22
-	SimplParserBOOL  = 23
-	SimplParserID    = 24
-	SimplParserNUM   = 25
-	SimplParserSTR   = 26
-	SimplParserWS    = 27
+	GarvikParserEOF   = antlr.TokenEOF
+	GarvikParserT__0  = 1
+	GarvikParserT__1  = 2
+	GarvikParserT__2  = 3
+	GarvikParserT__3  = 4
+	GarvikParserT__4  = 5
+	GarvikParserT__5  = 6
+	GarvikParserT__6  = 7
+	GarvikParserT__7  = 8
+	GarvikParserT__8  = 9
+	GarvikParserT__9  = 10
+	GarvikParserT__10 = 11
+	GarvikParserT__11 = 12
+	GarvikParserT__12 = 13
+	GarvikParserT__13 = 14
+	GarvikParserT__14 = 15
+	GarvikParserT__15 = 16
+	GarvikParserT__16 = 17
+	GarvikParserT__17 = 18
+	GarvikParserT__18 = 19
+	GarvikParserT__19 = 20
+	GarvikParserT__20 = 21
+	GarvikParserT__21 = 22
+	GarvikParserBOOL  = 23
+	GarvikParserID    = 24
+	GarvikParserNUM   = 25
+	GarvikParserSTR   = 26
+	GarvikParserWS    = 27
 )
 
-// SimplParser rules.
+// GarvikParser rules.
 const (
-	SimplParserRULE_program = 0
-	SimplParserRULE_expr    = 1
+	GarvikParserRULE_program = 0
+	GarvikParserRULE_expr    = 1
 )
 
 // IProgramContext is an interface to support dynamic dispatch.
@@ -164,7 +164,7 @@ type ProgramContext struct {
 func NewEmptyProgramContext() *ProgramContext {
 	var p = new(ProgramContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = SimplParserRULE_program
+	p.RuleIndex = GarvikParserRULE_program
 	return p
 }
 
@@ -176,7 +176,7 @@ func NewProgramContext(parser antlr.Parser, parent antlr.ParserRuleContext, invo
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = SimplParserRULE_program
+	p.RuleIndex = GarvikParserRULE_program
 
 	return p
 }
@@ -215,20 +215,20 @@ func (s *ProgramContext) ToStringTree(ruleNames []string, recog antlr.Recognizer
 }
 
 func (s *ProgramContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.EnterProgram(s)
 	}
 }
 
 func (s *ProgramContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.ExitProgram(s)
 	}
 }
 
 func (s *ProgramContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case SimplVisitor:
+	case GarvikVisitor:
 		return t.VisitProgram(s)
 
 	default:
@@ -236,9 +236,9 @@ func (s *ProgramContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	}
 }
 
-func (p *SimplParser) Program() (localctx IProgramContext) {
+func (p *GarvikParser) Program() (localctx IProgramContext) {
 	localctx = NewProgramContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 0, SimplParserRULE_program)
+	p.EnterRule(localctx, 0, GarvikParserRULE_program)
 	var _la int
 
 	defer func() {
@@ -262,7 +262,7 @@ func (p *SimplParser) Program() (localctx IProgramContext) {
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	for ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SimplParserT__2)|(1<<SimplParserT__5)|(1<<SimplParserT__12)|(1<<SimplParserT__14)|(1<<SimplParserT__16)|(1<<SimplParserT__19)|(1<<SimplParserT__21)|(1<<SimplParserBOOL)|(1<<SimplParserID)|(1<<SimplParserNUM)|(1<<SimplParserSTR))) != 0 {
+	for ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<GarvikParserT__2)|(1<<GarvikParserT__5)|(1<<GarvikParserT__12)|(1<<GarvikParserT__14)|(1<<GarvikParserT__16)|(1<<GarvikParserT__19)|(1<<GarvikParserT__21)|(1<<GarvikParserBOOL)|(1<<GarvikParserID)|(1<<GarvikParserNUM)|(1<<GarvikParserSTR))) != 0 {
 		{
 			p.SetState(4)
 			p.expr(0)
@@ -295,7 +295,7 @@ type ExprContext struct {
 func NewEmptyExprContext() *ExprContext {
 	var p = new(ExprContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = SimplParserRULE_expr
+	p.RuleIndex = GarvikParserRULE_expr
 	return p
 }
 
@@ -307,7 +307,7 @@ func NewExprContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokin
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = SimplParserRULE_expr
+	p.RuleIndex = GarvikParserRULE_expr
 
 	return p
 }
@@ -345,24 +345,24 @@ func (s *StrExprContext) GetRuleContext() antlr.RuleContext {
 }
 
 func (s *StrExprContext) STR() antlr.TerminalNode {
-	return s.GetToken(SimplParserSTR, 0)
+	return s.GetToken(GarvikParserSTR, 0)
 }
 
 func (s *StrExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.EnterStrExpr(s)
 	}
 }
 
 func (s *StrExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.ExitStrExpr(s)
 	}
 }
 
 func (s *StrExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case SimplVisitor:
+	case GarvikVisitor:
 		return t.VisitStrExpr(s)
 
 	default:
@@ -422,20 +422,20 @@ func (s *DotExprContext) Expr(i int) IExprContext {
 }
 
 func (s *DotExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.EnterDotExpr(s)
 	}
 }
 
 func (s *DotExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.ExitDotExpr(s)
 	}
 }
 
 func (s *DotExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case SimplVisitor:
+	case GarvikVisitor:
 		return t.VisitDotExpr(s)
 
 	default:
@@ -477,20 +477,20 @@ func (s *LenExprContext) Expr() IExprContext {
 }
 
 func (s *LenExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.EnterLenExpr(s)
 	}
 }
 
 func (s *LenExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.ExitLenExpr(s)
 	}
 }
 
 func (s *LenExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case SimplVisitor:
+	case GarvikVisitor:
 		return t.VisitLenExpr(s)
 
 	default:
@@ -555,20 +555,20 @@ func (s *IfElseExprContext) Expr(i int) IExprContext {
 }
 
 func (s *IfElseExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.EnterIfElseExpr(s)
 	}
 }
 
 func (s *IfElseExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.ExitIfElseExpr(s)
 	}
 }
 
 func (s *IfElseExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case SimplVisitor:
+	case GarvikVisitor:
 		return t.VisitIfElseExpr(s)
 
 	default:
@@ -628,20 +628,20 @@ func (s *SubExprContext) Expr(i int) IExprContext {
 }
 
 func (s *SubExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.EnterSubExpr(s)
 	}
 }
 
 func (s *SubExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.ExitSubExpr(s)
 	}
 }
 
 func (s *SubExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case SimplVisitor:
+	case GarvikVisitor:
 		return t.VisitSubExpr(s)
 
 	default:
@@ -701,20 +701,20 @@ func (s *MultExprContext) Expr(i int) IExprContext {
 }
 
 func (s *MultExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.EnterMultExpr(s)
 	}
 }
 
 func (s *MultExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.ExitMultExpr(s)
 	}
 }
 
 func (s *MultExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case SimplVisitor:
+	case GarvikVisitor:
 		return t.VisitMultExpr(s)
 
 	default:
@@ -751,20 +751,20 @@ func (s *CommentExprContext) Expr() IExprContext {
 }
 
 func (s *CommentExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.EnterCommentExpr(s)
 	}
 }
 
 func (s *CommentExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.ExitCommentExpr(s)
 	}
 }
 
 func (s *CommentExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case SimplVisitor:
+	case GarvikVisitor:
 		return t.VisitCommentExpr(s)
 
 	default:
@@ -801,20 +801,20 @@ func (s *ParenExprContext) Expr() IExprContext {
 }
 
 func (s *ParenExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.EnterParenExpr(s)
 	}
 }
 
 func (s *ParenExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.ExitParenExpr(s)
 	}
 }
 
 func (s *ParenExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case SimplVisitor:
+	case GarvikVisitor:
 		return t.VisitParenExpr(s)
 
 	default:
@@ -879,20 +879,20 @@ func (s *LetExprContext) Expr(i int) IExprContext {
 }
 
 func (s *LetExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.EnterLetExpr(s)
 	}
 }
 
 func (s *LetExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.ExitLetExpr(s)
 	}
 }
 
 func (s *LetExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case SimplVisitor:
+	case GarvikVisitor:
 		return t.VisitLetExpr(s)
 
 	default:
@@ -919,24 +919,24 @@ func (s *NumExprContext) GetRuleContext() antlr.RuleContext {
 }
 
 func (s *NumExprContext) NUM() antlr.TerminalNode {
-	return s.GetToken(SimplParserNUM, 0)
+	return s.GetToken(GarvikParserNUM, 0)
 }
 
 func (s *NumExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.EnterNumExpr(s)
 	}
 }
 
 func (s *NumExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.ExitNumExpr(s)
 	}
 }
 
 func (s *NumExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case SimplVisitor:
+	case GarvikVisitor:
 		return t.VisitNumExpr(s)
 
 	default:
@@ -996,20 +996,20 @@ func (s *AddExprContext) Expr(i int) IExprContext {
 }
 
 func (s *AddExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.EnterAddExpr(s)
 	}
 }
 
 func (s *AddExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.ExitAddExpr(s)
 	}
 }
 
 func (s *AddExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case SimplVisitor:
+	case GarvikVisitor:
 		return t.VisitAddExpr(s)
 
 	default:
@@ -1069,20 +1069,20 @@ func (s *LambdaExprContext) Expr(i int) IExprContext {
 }
 
 func (s *LambdaExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.EnterLambdaExpr(s)
 	}
 }
 
 func (s *LambdaExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.ExitLambdaExpr(s)
 	}
 }
 
 func (s *LambdaExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case SimplVisitor:
+	case GarvikVisitor:
 		return t.VisitLambdaExpr(s)
 
 	default:
@@ -1132,20 +1132,20 @@ func (s *StructExprContext) Expr(i int) IExprContext {
 }
 
 func (s *StructExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.EnterStructExpr(s)
 	}
 }
 
 func (s *StructExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.ExitStructExpr(s)
 	}
 }
 
 func (s *StructExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case SimplVisitor:
+	case GarvikVisitor:
 		return t.VisitStructExpr(s)
 
 	default:
@@ -1205,20 +1205,20 @@ func (s *LookupExprContext) Expr(i int) IExprContext {
 }
 
 func (s *LookupExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.EnterLookupExpr(s)
 	}
 }
 
 func (s *LookupExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.ExitLookupExpr(s)
 	}
 }
 
 func (s *LookupExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case SimplVisitor:
+	case GarvikVisitor:
 		return t.VisitLookupExpr(s)
 
 	default:
@@ -1278,20 +1278,20 @@ func (s *DivExprContext) Expr(i int) IExprContext {
 }
 
 func (s *DivExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.EnterDivExpr(s)
 	}
 }
 
 func (s *DivExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.ExitDivExpr(s)
 	}
 }
 
 func (s *DivExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case SimplVisitor:
+	case GarvikVisitor:
 		return t.VisitDivExpr(s)
 
 	default:
@@ -1356,20 +1356,20 @@ func (s *LookupAssignExprContext) Expr(i int) IExprContext {
 }
 
 func (s *LookupAssignExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.EnterLookupAssignExpr(s)
 	}
 }
 
 func (s *LookupAssignExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.ExitLookupAssignExpr(s)
 	}
 }
 
 func (s *LookupAssignExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case SimplVisitor:
+	case GarvikVisitor:
 		return t.VisitLookupAssignExpr(s)
 
 	default:
@@ -1396,24 +1396,24 @@ func (s *BoolExprContext) GetRuleContext() antlr.RuleContext {
 }
 
 func (s *BoolExprContext) BOOL() antlr.TerminalNode {
-	return s.GetToken(SimplParserBOOL, 0)
+	return s.GetToken(GarvikParserBOOL, 0)
 }
 
 func (s *BoolExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.EnterBoolExpr(s)
 	}
 }
 
 func (s *BoolExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.ExitBoolExpr(s)
 	}
 }
 
 func (s *BoolExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case SimplVisitor:
+	case GarvikVisitor:
 		return t.VisitBoolExpr(s)
 
 	default:
@@ -1473,20 +1473,20 @@ func (s *CallExprContext) Expr(i int) IExprContext {
 }
 
 func (s *CallExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.EnterCallExpr(s)
 	}
 }
 
 func (s *CallExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.ExitCallExpr(s)
 	}
 }
 
 func (s *CallExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case SimplVisitor:
+	case GarvikVisitor:
 		return t.VisitCallExpr(s)
 
 	default:
@@ -1536,20 +1536,20 @@ func (s *ListExprContext) Expr(i int) IExprContext {
 }
 
 func (s *ListExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.EnterListExpr(s)
 	}
 }
 
 func (s *ListExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.ExitListExpr(s)
 	}
 }
 
 func (s *ListExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case SimplVisitor:
+	case GarvikVisitor:
 		return t.VisitListExpr(s)
 
 	default:
@@ -1609,20 +1609,20 @@ func (s *AssignExprContext) Expr(i int) IExprContext {
 }
 
 func (s *AssignExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.EnterAssignExpr(s)
 	}
 }
 
 func (s *AssignExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.ExitAssignExpr(s)
 	}
 }
 
 func (s *AssignExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case SimplVisitor:
+	case GarvikVisitor:
 		return t.VisitAssignExpr(s)
 
 	default:
@@ -1649,24 +1649,24 @@ func (s *IdExprContext) GetRuleContext() antlr.RuleContext {
 }
 
 func (s *IdExprContext) ID() antlr.TerminalNode {
-	return s.GetToken(SimplParserID, 0)
+	return s.GetToken(GarvikParserID, 0)
 }
 
 func (s *IdExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.EnterIdExpr(s)
 	}
 }
 
 func (s *IdExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.ExitIdExpr(s)
 	}
 }
 
 func (s *IdExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case SimplVisitor:
+	case GarvikVisitor:
 		return t.VisitIdExpr(s)
 
 	default:
@@ -1726,20 +1726,20 @@ func (s *EqualExprContext) Expr(i int) IExprContext {
 }
 
 func (s *EqualExprContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.EnterEqualExpr(s)
 	}
 }
 
 func (s *EqualExprContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(SimplListener); ok {
+	if listenerT, ok := listener.(GarvikListener); ok {
 		listenerT.ExitEqualExpr(s)
 	}
 }
 
 func (s *EqualExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
-	case SimplVisitor:
+	case GarvikVisitor:
 		return t.VisitEqualExpr(s)
 
 	default:
@@ -1747,18 +1747,18 @@ func (s *EqualExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	}
 }
 
-func (p *SimplParser) Expr() (localctx IExprContext) {
+func (p *GarvikParser) Expr() (localctx IExprContext) {
 	return p.expr(0)
 }
 
-func (p *SimplParser) expr(_p int) (localctx IExprContext) {
+func (p *GarvikParser) expr(_p int) (localctx IExprContext) {
 	var _parentctx antlr.ParserRuleContext = p.GetParserRuleContext()
 	_parentState := p.GetState()
 	localctx = NewExprContext(p, p.GetParserRuleContext(), _parentState)
 	var _prevctx IExprContext = localctx
 	var _ antlr.ParserRuleContext = _prevctx // TODO: To prevent unused variable warning.
 	_startState := 2
-	p.EnterRecursionRule(localctx, 2, SimplParserRULE_expr, _p)
+	p.EnterRecursionRule(localctx, 2, GarvikParserRULE_expr, _p)
 	var _la int
 
 	defer func() {
@@ -1784,27 +1784,27 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
-	case SimplParserT__12:
+	case GarvikParserT__12:
 		localctx = NewCommentExprContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 
 		{
 			p.SetState(11)
-			p.Match(SimplParserT__12)
+			p.Match(GarvikParserT__12)
 		}
 		{
 			p.SetState(12)
 			p.expr(11)
 		}
 
-	case SimplParserT__2:
+	case GarvikParserT__2:
 		localctx = NewListExprContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
 			p.SetState(13)
-			p.Match(SimplParserT__2)
+			p.Match(GarvikParserT__2)
 		}
 		{
 			p.SetState(14)
@@ -1814,10 +1814,10 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
-		for _la == SimplParserT__13 {
+		for _la == GarvikParserT__13 {
 			{
 				p.SetState(15)
-				p.Match(SimplParserT__13)
+				p.Match(GarvikParserT__13)
 			}
 			{
 				p.SetState(16)
@@ -1830,16 +1830,16 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 		}
 		{
 			p.SetState(22)
-			p.Match(SimplParserT__3)
+			p.Match(GarvikParserT__3)
 		}
 
-	case SimplParserT__5:
+	case GarvikParserT__5:
 		localctx = NewParenExprContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
 			p.SetState(24)
-			p.Match(SimplParserT__5)
+			p.Match(GarvikParserT__5)
 		}
 		{
 			p.SetState(25)
@@ -1847,22 +1847,22 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 		}
 		{
 			p.SetState(26)
-			p.Match(SimplParserT__6)
+			p.Match(GarvikParserT__6)
 		}
 
-	case SimplParserT__14:
+	case GarvikParserT__14:
 		localctx = NewStructExprContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
 			p.SetState(28)
-			p.Match(SimplParserT__14)
+			p.Match(GarvikParserT__14)
 		}
 		p.SetState(32)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
-		for ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SimplParserT__2)|(1<<SimplParserT__5)|(1<<SimplParserT__12)|(1<<SimplParserT__14)|(1<<SimplParserT__16)|(1<<SimplParserT__19)|(1<<SimplParserT__21)|(1<<SimplParserBOOL)|(1<<SimplParserID)|(1<<SimplParserNUM)|(1<<SimplParserSTR))) != 0 {
+		for ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<GarvikParserT__2)|(1<<GarvikParserT__5)|(1<<GarvikParserT__12)|(1<<GarvikParserT__14)|(1<<GarvikParserT__16)|(1<<GarvikParserT__19)|(1<<GarvikParserT__21)|(1<<GarvikParserBOOL)|(1<<GarvikParserID)|(1<<GarvikParserNUM)|(1<<GarvikParserSTR))) != 0 {
 			{
 				p.SetState(29)
 				p.expr(0)
@@ -1874,16 +1874,16 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 		}
 		{
 			p.SetState(35)
-			p.Match(SimplParserT__15)
+			p.Match(GarvikParserT__15)
 		}
 
-	case SimplParserT__16:
+	case GarvikParserT__16:
 		localctx = NewIfElseExprContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
 			p.SetState(36)
-			p.Match(SimplParserT__16)
+			p.Match(GarvikParserT__16)
 		}
 		{
 			p.SetState(37)
@@ -1894,7 +1894,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 		}
 		{
 			p.SetState(38)
-			p.Match(SimplParserT__17)
+			p.Match(GarvikParserT__17)
 		}
 		{
 			p.SetState(39)
@@ -1905,7 +1905,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 		}
 		{
 			p.SetState(40)
-			p.Match(SimplParserT__18)
+			p.Match(GarvikParserT__18)
 		}
 		{
 			p.SetState(41)
@@ -1915,13 +1915,13 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 			localctx.(*IfElseExprContext).f = _x
 		}
 
-	case SimplParserT__19:
+	case GarvikParserT__19:
 		localctx = NewLetExprContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
 			p.SetState(43)
-			p.Match(SimplParserT__19)
+			p.Match(GarvikParserT__19)
 		}
 		{
 			p.SetState(44)
@@ -1932,7 +1932,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 		}
 		{
 			p.SetState(45)
-			p.Match(SimplParserT__4)
+			p.Match(GarvikParserT__4)
 		}
 		{
 			p.SetState(46)
@@ -1943,7 +1943,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 		}
 		{
 			p.SetState(47)
-			p.Match(SimplParserT__20)
+			p.Match(GarvikParserT__20)
 		}
 		{
 			p.SetState(48)
@@ -1953,13 +1953,13 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 			localctx.(*LetExprContext).expression = _x
 		}
 
-	case SimplParserT__21:
+	case GarvikParserT__21:
 		localctx = NewLenExprContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
 			p.SetState(50)
-			p.Match(SimplParserT__21)
+			p.Match(GarvikParserT__21)
 		}
 		{
 			p.SetState(51)
@@ -1969,40 +1969,40 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 			localctx.(*LenExprContext).id = _x
 		}
 
-	case SimplParserBOOL:
+	case GarvikParserBOOL:
 		localctx = NewBoolExprContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
 			p.SetState(52)
-			p.Match(SimplParserBOOL)
+			p.Match(GarvikParserBOOL)
 		}
 
-	case SimplParserID:
+	case GarvikParserID:
 		localctx = NewIdExprContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
 			p.SetState(53)
-			p.Match(SimplParserID)
+			p.Match(GarvikParserID)
 		}
 
-	case SimplParserNUM:
+	case GarvikParserNUM:
 		localctx = NewNumExprContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
 			p.SetState(54)
-			p.Match(SimplParserNUM)
+			p.Match(GarvikParserNUM)
 		}
 
-	case SimplParserSTR:
+	case GarvikParserSTR:
 		localctx = NewStrExprContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
 			p.SetState(55)
-			p.Match(SimplParserSTR)
+			p.Match(GarvikParserSTR)
 		}
 
 	default:
@@ -2026,7 +2026,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				localctx = NewEqualExprContext(p, NewExprContext(p, _parentctx, _parentState))
 				localctx.(*EqualExprContext).left = _prevctx
 
-				p.PushNewRecursionContext(localctx, _startState, SimplParserRULE_expr)
+				p.PushNewRecursionContext(localctx, _startState, GarvikParserRULE_expr)
 				p.SetState(58)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 22)) {
@@ -2034,7 +2034,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				}
 				{
 					p.SetState(59)
-					p.Match(SimplParserT__0)
+					p.Match(GarvikParserT__0)
 				}
 				{
 					p.SetState(60)
@@ -2048,7 +2048,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				localctx = NewDotExprContext(p, NewExprContext(p, _parentctx, _parentState))
 				localctx.(*DotExprContext).id = _prevctx
 
-				p.PushNewRecursionContext(localctx, _startState, SimplParserRULE_expr)
+				p.PushNewRecursionContext(localctx, _startState, GarvikParserRULE_expr)
 				p.SetState(61)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 21)) {
@@ -2056,7 +2056,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				}
 				{
 					p.SetState(62)
-					p.Match(SimplParserT__1)
+					p.Match(GarvikParserT__1)
 				}
 				{
 					p.SetState(63)
@@ -2070,7 +2070,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				localctx = NewLookupAssignExprContext(p, NewExprContext(p, _parentctx, _parentState))
 				localctx.(*LookupAssignExprContext).id = _prevctx
 
-				p.PushNewRecursionContext(localctx, _startState, SimplParserRULE_expr)
+				p.PushNewRecursionContext(localctx, _startState, GarvikParserRULE_expr)
 				p.SetState(64)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 19)) {
@@ -2078,7 +2078,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				}
 				{
 					p.SetState(65)
-					p.Match(SimplParserT__2)
+					p.Match(GarvikParserT__2)
 				}
 				{
 					p.SetState(66)
@@ -2089,11 +2089,11 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				}
 				{
 					p.SetState(67)
-					p.Match(SimplParserT__3)
+					p.Match(GarvikParserT__3)
 				}
 				{
 					p.SetState(68)
-					p.Match(SimplParserT__4)
+					p.Match(GarvikParserT__4)
 				}
 				{
 					p.SetState(69)
@@ -2107,7 +2107,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				localctx = NewDivExprContext(p, NewExprContext(p, _parentctx, _parentState))
 				localctx.(*DivExprContext).left = _prevctx
 
-				p.PushNewRecursionContext(localctx, _startState, SimplParserRULE_expr)
+				p.PushNewRecursionContext(localctx, _startState, GarvikParserRULE_expr)
 				p.SetState(71)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 17)) {
@@ -2115,7 +2115,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				}
 				{
 					p.SetState(72)
-					p.Match(SimplParserT__7)
+					p.Match(GarvikParserT__7)
 				}
 				{
 					p.SetState(73)
@@ -2129,7 +2129,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				localctx = NewMultExprContext(p, NewExprContext(p, _parentctx, _parentState))
 				localctx.(*MultExprContext).left = _prevctx
 
-				p.PushNewRecursionContext(localctx, _startState, SimplParserRULE_expr)
+				p.PushNewRecursionContext(localctx, _startState, GarvikParserRULE_expr)
 				p.SetState(74)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 16)) {
@@ -2137,7 +2137,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				}
 				{
 					p.SetState(75)
-					p.Match(SimplParserT__8)
+					p.Match(GarvikParserT__8)
 				}
 				{
 					p.SetState(76)
@@ -2151,7 +2151,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				localctx = NewSubExprContext(p, NewExprContext(p, _parentctx, _parentState))
 				localctx.(*SubExprContext).left = _prevctx
 
-				p.PushNewRecursionContext(localctx, _startState, SimplParserRULE_expr)
+				p.PushNewRecursionContext(localctx, _startState, GarvikParserRULE_expr)
 				p.SetState(77)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 15)) {
@@ -2159,7 +2159,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				}
 				{
 					p.SetState(78)
-					p.Match(SimplParserT__9)
+					p.Match(GarvikParserT__9)
 				}
 				{
 					p.SetState(79)
@@ -2173,7 +2173,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				localctx = NewAddExprContext(p, NewExprContext(p, _parentctx, _parentState))
 				localctx.(*AddExprContext).left = _prevctx
 
-				p.PushNewRecursionContext(localctx, _startState, SimplParserRULE_expr)
+				p.PushNewRecursionContext(localctx, _startState, GarvikParserRULE_expr)
 				p.SetState(80)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 14)) {
@@ -2181,7 +2181,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				}
 				{
 					p.SetState(81)
-					p.Match(SimplParserT__10)
+					p.Match(GarvikParserT__10)
 				}
 				{
 					p.SetState(82)
@@ -2195,7 +2195,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				localctx = NewLambdaExprContext(p, NewExprContext(p, _parentctx, _parentState))
 				localctx.(*LambdaExprContext).param = _prevctx
 
-				p.PushNewRecursionContext(localctx, _startState, SimplParserRULE_expr)
+				p.PushNewRecursionContext(localctx, _startState, GarvikParserRULE_expr)
 				p.SetState(83)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 13)) {
@@ -2203,7 +2203,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				}
 				{
 					p.SetState(84)
-					p.Match(SimplParserT__11)
+					p.Match(GarvikParserT__11)
 				}
 				{
 					p.SetState(85)
@@ -2217,7 +2217,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				localctx = NewAssignExprContext(p, NewExprContext(p, _parentctx, _parentState))
 				localctx.(*AssignExprContext).id = _prevctx
 
-				p.PushNewRecursionContext(localctx, _startState, SimplParserRULE_expr)
+				p.PushNewRecursionContext(localctx, _startState, GarvikParserRULE_expr)
 				p.SetState(86)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 12)) {
@@ -2225,7 +2225,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				}
 				{
 					p.SetState(87)
-					p.Match(SimplParserT__4)
+					p.Match(GarvikParserT__4)
 				}
 				{
 					p.SetState(88)
@@ -2239,7 +2239,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				localctx = NewLookupExprContext(p, NewExprContext(p, _parentctx, _parentState))
 				localctx.(*LookupExprContext).id = _prevctx
 
-				p.PushNewRecursionContext(localctx, _startState, SimplParserRULE_expr)
+				p.PushNewRecursionContext(localctx, _startState, GarvikParserRULE_expr)
 				p.SetState(89)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 20)) {
@@ -2247,7 +2247,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				}
 				{
 					p.SetState(90)
-					p.Match(SimplParserT__2)
+					p.Match(GarvikParserT__2)
 				}
 				{
 					p.SetState(91)
@@ -2258,14 +2258,14 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				}
 				{
 					p.SetState(92)
-					p.Match(SimplParserT__3)
+					p.Match(GarvikParserT__3)
 				}
 
 			case 11:
 				localctx = NewCallExprContext(p, NewExprContext(p, _parentctx, _parentState))
 				localctx.(*CallExprContext).fun = _prevctx
 
-				p.PushNewRecursionContext(localctx, _startState, SimplParserRULE_expr)
+				p.PushNewRecursionContext(localctx, _startState, GarvikParserRULE_expr)
 				p.SetState(94)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 18)) {
@@ -2273,7 +2273,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				}
 				{
 					p.SetState(95)
-					p.Match(SimplParserT__5)
+					p.Match(GarvikParserT__5)
 				}
 				{
 					p.SetState(96)
@@ -2284,7 +2284,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 				}
 				{
 					p.SetState(97)
-					p.Match(SimplParserT__6)
+					p.Match(GarvikParserT__6)
 				}
 
 			}
@@ -2298,7 +2298,7 @@ func (p *SimplParser) expr(_p int) (localctx IExprContext) {
 	return localctx
 }
 
-func (p *SimplParser) Sempred(localctx antlr.RuleContext, ruleIndex, predIndex int) bool {
+func (p *GarvikParser) Sempred(localctx antlr.RuleContext, ruleIndex, predIndex int) bool {
 	switch ruleIndex {
 	case 1:
 		var t *ExprContext = nil
@@ -2312,7 +2312,7 @@ func (p *SimplParser) Sempred(localctx antlr.RuleContext, ruleIndex, predIndex i
 	}
 }
 
-func (p *SimplParser) Expr_Sempred(localctx antlr.RuleContext, predIndex int) bool {
+func (p *GarvikParser) Expr_Sempred(localctx antlr.RuleContext, predIndex int) bool {
 	switch predIndex {
 	case 0:
 		return p.Precpred(p.GetParserRuleContext(), 22)
