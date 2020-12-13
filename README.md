@@ -60,8 +60,18 @@ map(l)
 
 // "Structs"
 s = { a: 5 }
+s.a = 6
 s.a
-// 5
+// 6
+
+obj = {
+  i: 2
+  GetI: _ -> obj.i
+  SetI: i -> obj.i = i
+}
+obj.SetI(3)
+obj.GetI(_)
+// 3
 
 // "Passing structs"
 f = x -> x.f(x.b - x.a) + x.l[1]
@@ -84,15 +94,6 @@ s = {
 }
 f([s, 5])
 // 10
-
-obj = {
-  i: 2
-  GetI: _ -> obj.i
-  SetI: i -> obj.i = i
-}
-obj.SetI(3)
-obj.GetI(_)
-// 3
 
 // "Lexical scoping"
 a = 1
