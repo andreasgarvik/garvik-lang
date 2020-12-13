@@ -166,10 +166,14 @@ func (v *Evaluator) VisitBoolExpr(ctx *parser.BoolExprContext) interface{} {
 // VisitIfElseExpr evaluates an if then else expression
 func (v *Evaluator) VisitIfElseExpr(ctx *parser.IfElseExprContext) interface{} {
 	con := ctx.GetCon().Accept(v)
-	if con.(bool) {
-		return ctx.GetT().Accept(v)
+	c, ok := con.(bool)
+	if ok {
+		if c {
+			return ctx.GetT().Accept(v)
+		}
+		return ctx.GetF().Accept(v)
 	}
-	return ctx.GetF().Accept(v)
+	return fmt.Sprintf("%s is not a condition", ctx.GetCon().GetText())
 }
 
 // VisitDivExpr evaluates a division expression
