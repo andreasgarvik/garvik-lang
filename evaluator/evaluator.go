@@ -23,16 +23,13 @@ func (v *Evaluator) VisitProgram(ctx *parser.ProgramContext) interface{} {
 	for _, expr := range ctx.AllExpr() {
 		result := expr.Accept(v)
 		if result != nil {
-			fun, ok := result.(FunValue)
-			if ok {
+			if fun, ok := result.(FunValue); ok {
 				fmt.Printf("%s -> %s \n", fun.Param, fun.Body.GetText())
 			}
-			s, ok := result.(StructValue)
-			if ok {
+			if s, ok := result.(StructValue); ok {
 				fmt.Printf("%s = { ", expr.GetText())
 				for id, field := range s.Env.Pop().(map[interface{}]interface{}) {
-					fun, ok := field.(parser.IExprContext)
-					if ok {
+					if fun, ok := field.(parser.IExprContext); ok {
 						fmt.Printf("%s: %v ", id, fun.GetText())
 					} else {
 						fmt.Printf("%s: %v ", id, field)
@@ -51,8 +48,7 @@ func (v *Evaluator) VisitProgram(ctx *parser.ProgramContext) interface{} {
 func (v *Evaluator) VisitCallExpr(ctx *parser.CallExprContext) interface{} {
 	fun := ctx.GetFun().Accept(v)
 	if fun != nil {
-		f, ok := fun.(FunValue)
-		if ok {
+		if f, ok := fun.(FunValue); ok {
 			env := make(map[interface{}]interface{})
 			env[ctx.GetFun().GetText()] = f
 			arg := ctx.GetArg().Accept(v)
@@ -65,8 +61,7 @@ func (v *Evaluator) VisitCallExpr(ctx *parser.CallExprContext) interface{} {
 			v.stack = temp
 			return result
 		}
-		m, ok := fun.(MethodValue)
-		if ok {
+		if m, ok := fun.(MethodValue); ok {
 			arg := ctx.GetArg().Accept(v)
 			e := m.Struct.Env.Pop()
 			env := e.(map[interface{}]interface{})
@@ -105,10 +100,8 @@ func (v *Evaluator) VisitMultExpr(ctx *parser.MultExprContext) interface{} {
 	left := ctx.GetLeft().Accept(v)
 	right := ctx.GetRight().Accept(v)
 	if left != nil && right != nil {
-		l, ok := left.(int)
-		if ok {
-			r, ok := right.(int)
-			if ok {
+		if l, ok := left.(int); ok {
+			if r, ok := right.(int); ok {
 				return l * r
 			}
 			return fmt.Sprintf("%s is not a number", ctx.GetRight().GetText())
@@ -151,10 +144,8 @@ func (v *Evaluator) VisitAddExpr(ctx *parser.AddExprContext) interface{} {
 	left := ctx.GetLeft().Accept(v)
 	right := ctx.GetRight().Accept(v)
 	if left != nil && right != nil {
-		l, ok := left.(int)
-		if ok {
-			r, ok := right.(int)
-			if ok {
+		if l, ok := left.(int); ok {
+			if r, ok := right.(int); ok {
 				return l + r
 			}
 			return fmt.Sprintf("%s is not a number", ctx.GetRight().GetText())
@@ -174,8 +165,7 @@ func (v *Evaluator) VisitAddExpr(ctx *parser.AddExprContext) interface{} {
 // VisitIdExpr evaluates a ID expression
 func (v *Evaluator) VisitIdExpr(ctx *parser.IdExprContext) interface{} {
 	id := ctx.ID().GetText()
-	hv, ok := v.heap[id]
-	if ok {
+	if hv, ok := v.heap[id]; ok {
 		return hv
 	}
 
@@ -207,8 +197,7 @@ func (v *Evaluator) VisitBoolExpr(ctx *parser.BoolExprContext) interface{} {
 // VisitIfElseExpr evaluates an if then else expression
 func (v *Evaluator) VisitIfElseExpr(ctx *parser.IfElseExprContext) interface{} {
 	con := ctx.GetCon().Accept(v)
-	c, ok := con.(bool)
-	if ok {
+	if c, ok := con.(bool); ok {
 		if c {
 			return ctx.GetT().Accept(v)
 		}
@@ -222,10 +211,8 @@ func (v *Evaluator) VisitDivExpr(ctx *parser.DivExprContext) interface{} {
 	left := ctx.GetLeft().Accept(v)
 	right := ctx.GetRight().Accept(v)
 	if left != nil && right != nil {
-		l, ok := left.(int)
-		if ok {
-			r, ok := right.(int)
-			if ok {
+		if l, ok := left.(int); ok {
+			if r, ok := right.(int); ok {
 				return l / r
 			}
 			return fmt.Sprintf("%s is not a number", ctx.GetRight().GetText())
@@ -247,10 +234,8 @@ func (v *Evaluator) VisitSubExpr(ctx *parser.SubExprContext) interface{} {
 	left := ctx.GetLeft().Accept(v)
 	right := ctx.GetRight().Accept(v)
 	if left != nil && right != nil {
-		l, ok := left.(int)
-		if ok {
-			r, ok := right.(int)
-			if ok {
+		if l, ok := left.(int); ok {
+			if r, ok := right.(int); ok {
 				return l - r
 			}
 			return fmt.Sprintf("%s is not a number", ctx.GetRight().GetText())
@@ -272,10 +257,8 @@ func (v *Evaluator) VisitEqualExpr(ctx *parser.EqualExprContext) interface{} {
 	left := ctx.GetLeft().Accept(v)
 	right := ctx.GetRight().Accept(v)
 	if left != nil && right != nil {
-		l, ok := left.(int)
-		if ok {
-			r, ok := right.(int)
-			if ok {
+		if l, ok := left.(int); ok {
+			if r, ok := right.(int); ok {
 				return l == r
 			}
 			return fmt.Sprintf("%s is not a number", ctx.GetRight().GetText())
@@ -297,10 +280,8 @@ func (v *Evaluator) VisitLessExpr(ctx *parser.LessExprContext) interface{} {
 	left := ctx.GetLeft().Accept(v)
 	right := ctx.GetRight().Accept(v)
 	if left != nil && right != nil {
-		l, ok := left.(int)
-		if ok {
-			r, ok := right.(int)
-			if ok {
+		if l, ok := left.(int); ok {
+			if r, ok := right.(int); ok {
 				return l < r
 			}
 			return fmt.Sprintf("%s is not a number", ctx.GetRight().GetText())
@@ -322,10 +303,8 @@ func (v *Evaluator) VisitGreaterExpr(ctx *parser.GreaterExprContext) interface{}
 	left := ctx.GetLeft().Accept(v)
 	right := ctx.GetRight().Accept(v)
 	if left != nil && right != nil {
-		l, ok := left.(int)
-		if ok {
-			r, ok := right.(int)
-			if ok {
+		if l, ok := left.(int); ok {
+			if r, ok := right.(int); ok {
 				return l > r
 			}
 			return fmt.Sprintf("%s is not a number", ctx.GetRight().GetText())
@@ -354,8 +333,7 @@ func (v *Evaluator) VisitAssignExpr(ctx *parser.AssignExprContext) interface{} {
 	id := ctx.GetId().GetText()
 	value := ctx.GetValue().Accept(v)
 	if value != nil {
-		s, ok := value.(StructValue)
-		if ok {
+		if s, ok := value.(StructValue); ok {
 			v.heap[id] = s
 			return nil
 		}
@@ -377,8 +355,7 @@ func (v *Evaluator) VisitStructExpr(ctx *parser.StructExprContext) interface{} {
 	fields := make(map[interface{}]interface{})
 	for _, expr := range ctx.AllExpr() {
 		e := expr.Accept(v)
-		field, ok := e.(FieldValue)
-		if ok {
+		if field, ok := e.(FieldValue); ok {
 			fields[field.ID] = field.Value
 		} else {
 			fmt.Printf("%s is not a field \n", expr.GetText())
@@ -393,8 +370,7 @@ func (v *Evaluator) VisitStructExpr(ctx *parser.StructExprContext) interface{} {
 func (v *Evaluator) VisitFieldExpr(ctx *parser.FieldExprContext) interface{} {
 	id := ctx.GetId().GetText()
 	field := ctx.GetValue().Accept(v)
-	_, ok := field.(FunValue)
-	if ok {
+	if _, ok := field.(FunValue); ok {
 		return FieldValue{id, ctx.GetValue()}
 	}
 	return FieldValue{id, field}
@@ -404,19 +380,16 @@ func (v *Evaluator) VisitFieldExpr(ctx *parser.FieldExprContext) interface{} {
 func (v *Evaluator) VisitDotExpr(ctx *parser.DotExprContext) interface{} {
 	id := ctx.GetId().Accept(v)
 	if id != nil {
-		s, ok := id.(StructValue)
-		if ok {
+		if s, ok := id.(StructValue); ok {
 			f := ctx.GetField().GetText()
 			env := s.Env.Peek()
 			if env == nil {
 				return nil
 			}
-			value, ok := env.(map[interface{}]interface{})[f]
-			if ok {
+			if value, ok := env.(map[interface{}]interface{})[f]; ok {
 				c := string(f[0])
 				if strings.ToUpper(c) == c {
-					fun, ok := value.(parser.IExprContext)
-					if ok {
+					if fun, ok := value.(parser.IExprContext); ok {
 						f := fun.Accept(v)
 						return MethodValue{s, f.(FunValue)}
 					}
@@ -443,10 +416,8 @@ func (v *Evaluator) VisitListExpr(ctx *parser.ListExprContext) interface{} {
 func (v *Evaluator) VisitLookupExpr(ctx *parser.LookupExprContext) interface{} {
 	id := ctx.GetId().Accept(v)
 	if id != nil {
-		list, ok := id.([]interface{})
-		if ok {
-			key, ok := ctx.GetKey().Accept(v).(int)
-			if ok {
+		if list, ok := id.([]interface{}); ok {
+			if key, ok := ctx.GetKey().Accept(v).(int); ok {
 				if key < len(list) {
 					return list[key]
 				}
@@ -463,8 +434,7 @@ func (v *Evaluator) VisitLookupExpr(ctx *parser.LookupExprContext) interface{} {
 func (v *Evaluator) VisitLenExpr(ctx *parser.LenExprContext) interface{} {
 	id := ctx.GetId().Accept(v)
 	if id != nil {
-		list, ok := id.([]interface{})
-		if ok {
+		if list, ok := id.([]interface{}); ok {
 			return len(list)
 		}
 		return fmt.Sprintf("%s is not a list", ctx.GetId().GetText())
@@ -476,10 +446,8 @@ func (v *Evaluator) VisitLenExpr(ctx *parser.LenExprContext) interface{} {
 func (v *Evaluator) VisitLookupAssignExpr(ctx *parser.LookupAssignExprContext) interface{} {
 	id := ctx.GetId().Accept(v)
 	if id != nil {
-		list, ok := id.([]interface{})
-		if ok {
-			key, ok := ctx.GetKey().Accept(v).(int)
-			if ok {
+		if list, ok := id.([]interface{}); ok {
+			if key, ok := ctx.GetKey().Accept(v).(int); ok {
 				value := ctx.GetValue().Accept(v)
 				if value != nil {
 					if key < len(list) {
@@ -501,8 +469,7 @@ func (v *Evaluator) VisitLookupAssignExpr(ctx *parser.LookupAssignExprContext) i
 func (v *Evaluator) VisitDotAssignExpr(ctx *parser.DotAssignExprContext) interface{} {
 	id := ctx.GetId().Accept(v)
 	if id != nil {
-		s, ok := id.(StructValue)
-		if ok {
+		if s, ok := id.(StructValue); ok {
 			f := ctx.GetField().GetText()
 			key := ctx.GetId().GetText()
 			value := ctx.GetValue().Accept(v)
