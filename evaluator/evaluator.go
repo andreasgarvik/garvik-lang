@@ -30,8 +30,16 @@ func (v *Evaluator) VisitProgram(ctx *parser.ProgramContext) interface{} {
 			s, ok := result.(StructValue)
 			if ok {
 				fmt.Printf("%s = { ", expr.GetText())
-				for id, value := range s.fields {
-					fmt.Printf("%s: %v", id, value)
+				for id, field := range s.fields {
+					expr, ok := id.(parser.IExprContext)
+					if ok {
+						value := expr.Accept(v)
+						if value == nil {
+							fmt.Printf("%s: %v ", expr.GetText(), field)
+						}
+					} else {
+						fmt.Printf("%s: %v ", id, field.(parser.IExprContext).GetText())
+					}
 				}
 				fmt.Printf(" } \n")
 			} else {
