@@ -337,7 +337,7 @@ public class GarvikParser extends Parser {
 	}
 	public static class FieldExprContext extends ExprContext {
 		public ExprContext id;
-		public ExprContext field;
+		public ExprContext value;
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
 		}
@@ -759,7 +759,7 @@ public class GarvikParser extends Parser {
 						setState(99);
 						match(T__14);
 						setState(100);
-						((FieldExprContext)_localctx).field = expr(14);
+						((FieldExprContext)_localctx).value = expr(14);
 						}
 						break;
 					case 13:

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"strconv"
+	"strings"
 
 	"github.com/andreasgarvik/inf225-lab3-go/parser"
 	"github.com/golang-collections/collections/stack"
@@ -49,13 +50,17 @@ func (v *Evaluator) VisitCallExpr(ctx *parser.CallExprContext) interface{} {
 		if ok {
 			env := make(map[interface{}]interface{})
 			env[ctx.GetFun().GetText()] = f
-			env[f.Param] = ctx.GetArg().Accept(v)
+			arg := ctx.GetArg().Accept(v)
+			env[f.Param] = arg
 			temp := v.stack
 			v.stack = f.Env
 			v.stack.Push(env)
 			result := f.Body.Accept(v)
-			v.stack.Pop()
+			new := v.stack.Pop()
 			v.stack = temp
+			if len(new.(map[interface{}]interface{})) == 1 {
+				v.stack.Push(new)
+			}
 			return result
 		}
 		return fmt.Sprintf("%s is not a function", ctx.GetFun().GetText())
@@ -349,16 +354,12 @@ func (v *Evaluator) VisitCommentExpr(ctx *parser.CommentExprContext) interface{}
 
 // VisitStructExpr evaluates a struct expression
 func (v *Evaluator) VisitStructExpr(ctx *parser.StructExprContext) interface{} {
-	env := make(map[interface{}]interface{})
 	fields := make(map[interface{}]interface{})
 	for _, expr := range ctx.AllExpr() {
-		v.stack.Push(env)
 		e := expr.Accept(v)
-		v.stack.Pop()
-		f, ok := e.(FieldValue)
+		field, ok := e.(FieldValue)
 		if ok {
-			env[f.ID] = f.Value
-			fields[f.ID] = f.Value
+			fields[field.ID] = field.Value
 		} else {
 			fmt.Printf("%s is not a field \n", expr.GetText())
 		}
@@ -369,8 +370,12 @@ func (v *Evaluator) VisitStructExpr(ctx *parser.StructExprContext) interface{} {
 // VisitFieldExpr evaluates a field expression
 func (v *Evaluator) VisitFieldExpr(ctx *parser.FieldExprContext) interface{} {
 	id := ctx.GetId().GetText()
-	field := ctx.GetField().Accept(v)
-	return FieldValue{id, field}
+	field := ctx.GetValue().Accept(v)
+	_, ok := field.(FunValue)
+	if ok {
+		return FieldValue{id, ctx.GetValue()}
+	}
+	return FieldValue{ctx.GetId(), field}
 }
 
 // VisitDotExpr evaluates a dot expression
@@ -379,10 +384,38 @@ func (v *Evaluator) VisitDotExpr(ctx *parser.DotExprContext) interface{} {
 	if id != nil {
 		s, ok := id.(StructValue)
 		if ok {
+			env := make(map[interface{}]interface{})
+			for i, field := range s.fields {
+				expr, ok := i.(parser.IExprContext)
+				if ok {
+					value := expr.Accept(v)
+					if value == nil {
+						env[expr.GetText()] = field
+					}
+				} else {
+					env[i] = field
+				}
+			}
+			v.stack.Push(env)
 			f := ctx.GetField().GetText()
-			field, ok := s.fields[f]
+			value, ok := s.fields[f]
 			if ok {
-				return field
+				fun, ok := value.(parser.IExprContext)
+				if ok {
+					result := fun.Accept(v)
+					v.stack.Pop()
+					return result
+				}
+				c := string(f[0])
+				if strings.ToUpper(c) == c {
+					value := ctx.GetField().Accept(v)
+					return value
+				}
+			}
+			c := string(f[0])
+			if strings.ToUpper(c) == c {
+				value := ctx.GetField().Accept(v)
+				return value
 			}
 			return fmt.Sprintf("%s is not a field of %s", ctx.GetField().GetText(), ctx.GetId().GetText())
 		}

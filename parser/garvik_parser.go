@@ -1583,7 +1583,7 @@ func (s *MultExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 type FieldExprContext struct {
 	*ExprContext
 	id    IExprContext
-	field IExprContext
+	value IExprContext
 }
 
 func NewFieldExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *FieldExprContext {
@@ -1598,11 +1598,11 @@ func NewFieldExprContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *Fiel
 
 func (s *FieldExprContext) GetId() IExprContext { return s.id }
 
-func (s *FieldExprContext) GetField() IExprContext { return s.field }
+func (s *FieldExprContext) GetValue() IExprContext { return s.value }
 
 func (s *FieldExprContext) SetId(v IExprContext) { s.id = v }
 
-func (s *FieldExprContext) SetField(v IExprContext) { s.field = v }
+func (s *FieldExprContext) SetValue(v IExprContext) { s.value = v }
 
 func (s *FieldExprContext) GetRuleContext() antlr.RuleContext {
 	return s
@@ -2616,7 +2616,7 @@ func (p *GarvikParser) expr(_p int) (localctx IExprContext) {
 
 					var _x = p.expr(14)
 
-					localctx.(*FieldExprContext).field = _x
+					localctx.(*FieldExprContext).value = _x
 				}
 
 			case 13:

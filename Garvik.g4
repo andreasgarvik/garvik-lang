@@ -23,7 +23,7 @@ expr:
 	| left = expr '-' right = expr								# subExpr
 	| left = expr '+' right = expr								# addExpr
 	| param = expr '->' body = expr								# lambdaExpr
-	| id = expr ':' field = expr								# fieldExpr
+	| id = expr ':' value = expr								# fieldExpr
 	| id = expr '=' value = expr								# assignExpr
 	| '//' expr													# commentExpr
 	| '[' expr (',' expr)* ']'									# listExpr

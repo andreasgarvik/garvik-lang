@@ -59,38 +59,43 @@ map(l)
 // [2,4,6]
 
 // "Structs"
-s = { a: 5 }
-s.a = 6
-s.a
+s = { A: 5 }
+s.A = 6
+s.A
 // 6
 
+// "Encapsulation"
 obj = {
   i: 2
-  GetI: _ -> obj.i
-  SetI: i -> obj.i = i
+  GetI: _ -> i
+  SetI: x -> (i = x)
 }
-obj.SetI(3)
+
+obj.i
+//i is not a field of obj
+
 obj.GetI(_)
-// 3
+// 2
+
+obj.SetI(5)
+obj.GetI(_)
+// 5
 
 // "Passing structs"
-f = x -> x.f(x.b - x.a) + x.l[1]
-li = [1,2,3]
+f = x -> x.L[1] + x.F(x.B - x.A)
 s = {
-  a: 10
-  b: 20
-  f: x -> x / 2
-  l: li
+  A: 10
+  B: 20
+  F: x -> x / 2
+  L: [1,2,3]
 }
-li = [1]
 f(s)
 // 7
 
-f = x -> x[0].g(x[1])
+f = x -> x[0].F(x[1])
 s = {
   a: 5
-  f: x -> x + a
-  g: f
+  F: x -> x + a
 }
 f([s, 5])
 // 10

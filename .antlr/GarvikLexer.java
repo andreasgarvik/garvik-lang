@@ -1,4 +1,4 @@
-// Generated from /home/andreas/master/inf225/project/Garvik.g4 by ANTLR 4.8
+// Generated from /home/andreas/master/inf225/project/copy by ANTLR 4.8
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -94,7 +94,7 @@ public class GarvikLexer extends Lexer {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Garvik.g4"; }
+	public String getGrammarFileName() { return "copy"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
