@@ -72,14 +72,17 @@ obj = {
 }
 
 obj.i
-//i is not a field of obj
-
+// i is not a field of obj
 obj.GetI(_)
 // 2
-
+i
+// i is not defined
+i = 7
 obj.SetI(5)
 obj.GetI(_)
 // 5
+i
+// 7
 
 // "Passing structs"
 f = x -> x.L[1] + x.F(x.B - x.A)

@@ -30,15 +30,12 @@ func (v *Evaluator) VisitProgram(ctx *parser.ProgramContext) interface{} {
 			s, ok := result.(StructValue)
 			if ok {
 				fmt.Printf("%s = { ", expr.GetText())
-				for id, field := range s.fields {
-					expr, ok := id.(parser.IExprContext)
+				for id, field := range s.Env.Pop().(map[interface{}]interface{}) {
+					fun, ok := field.(parser.IExprContext)
 					if ok {
-						value := expr.Accept(v)
-						if value == nil {
-							fmt.Printf("%s: %v ", expr.GetText(), field)
-						}
+						fmt.Printf("%s: %v ", id, fun.GetText())
 					} else {
-						fmt.Printf("%s: %v ", id, field.(parser.IExprContext).GetText())
+						fmt.Printf("%s: %v ", id, field)
 					}
 				}
 				fmt.Printf(" } \n")
@@ -64,14 +61,29 @@ func (v *Evaluator) VisitCallExpr(ctx *parser.CallExprContext) interface{} {
 			v.stack = f.Env
 			v.stack.Push(env)
 			result := f.Body.Accept(v)
-			new := v.stack.Pop()
+			v.stack.Pop()
 			v.stack = temp
-			if len(new.(map[interface{}]interface{})) == 1 {
-				v.stack.Push(new)
-			}
 			return result
 		}
-		return fmt.Sprintf("%s is not a function", ctx.GetFun().GetText())
+		m, ok := fun.(MethodValue)
+		if ok {
+			arg := ctx.GetArg().Accept(v)
+			e := m.Struct.Env.Pop()
+			env := e.(map[interface{}]interface{})
+			env[m.Fun.Param] = arg
+			m.Struct.Env.Push(env)
+			temp := v.stack
+			v.stack = *m.Struct.Env
+			result := m.Fun.Body.Accept(v)
+			for k, v := range v.stack.Peek().(map[interface{}]interface{}) {
+				se := m.Struct.Env.Pop().(map[interface{}]interface{})
+				se[k] = v
+				m.Struct.Env.Push(se)
+			}
+			v.stack = temp
+			return result
+		}
+		return fmt.Sprintf("%s is not a function or method", ctx.GetFun().GetText())
 	}
 	return fmt.Sprintf("%s is not defined", ctx.GetFun().GetText())
 }
@@ -177,7 +189,7 @@ func (v *Evaluator) VisitIdExpr(ctx *parser.IdExprContext) interface{} {
 		}
 		return value
 	}
-	return nil
+	return fmt.Sprintf("%s is not defined", id)
 }
 
 // VisitBoolExpr evaluates a boolean expression
@@ -372,7 +384,9 @@ func (v *Evaluator) VisitStructExpr(ctx *parser.StructExprContext) interface{} {
 			fmt.Printf("%s is not a field \n", expr.GetText())
 		}
 	}
-	return StructValue{fields}
+	env := stack.New()
+	env.Push(fields)
+	return StructValue{env}
 }
 
 // VisitFieldExpr evaluates a field expression
@@ -383,7 +397,7 @@ func (v *Evaluator) VisitFieldExpr(ctx *parser.FieldExprContext) interface{} {
 	if ok {
 		return FieldValue{id, ctx.GetValue()}
 	}
-	return FieldValue{ctx.GetId(), field}
+	return FieldValue{id, field}
 }
 
 // VisitDotExpr evaluates a dot expression
@@ -392,38 +406,22 @@ func (v *Evaluator) VisitDotExpr(ctx *parser.DotExprContext) interface{} {
 	if id != nil {
 		s, ok := id.(StructValue)
 		if ok {
-			env := make(map[interface{}]interface{})
-			for i, field := range s.fields {
-				expr, ok := i.(parser.IExprContext)
-				if ok {
-					value := expr.Accept(v)
-					if value == nil {
-						env[expr.GetText()] = field
-					}
-				} else {
-					env[i] = field
-				}
-			}
-			v.stack.Push(env)
 			f := ctx.GetField().GetText()
-			value, ok := s.fields[f]
+			env := s.Env.Peek()
+			if env == nil {
+				return nil
+			}
+			value, ok := env.(map[interface{}]interface{})[f]
 			if ok {
-				fun, ok := value.(parser.IExprContext)
-				if ok {
-					result := fun.Accept(v)
-					v.stack.Pop()
-					return result
-				}
 				c := string(f[0])
 				if strings.ToUpper(c) == c {
-					value := ctx.GetField().Accept(v)
+					fun, ok := value.(parser.IExprContext)
+					if ok {
+						f := fun.Accept(v)
+						return MethodValue{s, f.(FunValue)}
+					}
 					return value
 				}
-			}
-			c := string(f[0])
-			if strings.ToUpper(c) == c {
-				value := ctx.GetField().Accept(v)
-				return value
 			}
 			return fmt.Sprintf("%s is not a field of %s", ctx.GetField().GetText(), ctx.GetId().GetText())
 		}
@@ -508,7 +506,9 @@ func (v *Evaluator) VisitDotAssignExpr(ctx *parser.DotAssignExprContext) interfa
 			f := ctx.GetField().GetText()
 			key := ctx.GetId().GetText()
 			value := ctx.GetValue().Accept(v)
-			s.fields[f] = value
+			env := s.Env.Pop()
+			env.(map[interface{}]interface{})[f] = value
+			s.Env.Push(env)
 			v.heap[key] = s
 			return nil
 		}
