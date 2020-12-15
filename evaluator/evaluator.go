@@ -77,6 +77,10 @@ func (v *Evaluator) VisitCallExpr(ctx *parser.CallExprContext) interface{} {
 				t.Struct.Env.Push(se)
 			}
 			v.stack = temp
+			e = t.Struct.Env.Pop()
+			env = e.(map[interface{}]interface{})
+			delete(env, t.Fun.Param)
+			t.Struct.Env.Push(env)
 			return result
 		default:
 			return fmt.Sprintf("%s is not a function or method", ctx.GetFun().GetText())

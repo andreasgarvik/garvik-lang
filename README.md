@@ -44,7 +44,7 @@ times = x ->
   else
     times([c - 1, f, [f(l[0]),f(l[1]),f(l[2])]])
 times(l)
-// [9 10 11]
+// [9,10,11]
 
 l = [0, x -> x * 2,[1,2,3]]
 map = x ->
@@ -85,14 +85,18 @@ i
 // 7
 
 // "Passing structs"
-f = x -> x.L[1] + x.F(x.B - x.A)
+f = x -> x.SetP(x.L[1] + x.F(x.B - x.A))
 s = {
   A: 10
   B: 20
   F: x -> x / 2
   L: [1,2,3]
+  p: _
+  GetP: _ -> p
+  SetP: x -> (p = x)
 }
 f(s)
+s.GetP(_)
 // 7
 
 f = x -> x[0].F(x[1])
