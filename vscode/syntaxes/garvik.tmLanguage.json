@@ -6,10 +6,19 @@
 			"include": "#number" 
 		},
 		{
-			"include": "#keywords"
+			"include": "#arrow" 
 		},
 		{
-			"include": "#strings"
+			"include": "#true" 
+		},
+		{
+			"include": "#false" 
+		},
+		{
+			"include": "#keyword"
+		},
+		{
+			"include": "#string"
 		},
 		{ 
 			"include": "#paren" 
@@ -23,16 +32,28 @@
 	],
 	"repository": {
 		"number": {
-      "match": "[0-9]",
+      "match": "[0-9]+",
       "name": "constant.numeric"
-    },
-		"keywords": {
+		},
+		"arrow": {
+      "match": "->",
+      "name": "keyword.control.garvik"
+		},
+		"true": {
+			"match": "true",
+			"name": "constant.language.boolean.true"
+		},
+		"false":{
+			"match": "false",
+			"name": "constant.language.boolean.false"
+		},
+		"keyword": {
 			"patterns": [{
 				"name": "keyword.control.garvik",
 				"match": "\\b(if|then|else|let|in|len)\\b"
 			}]
 		},
-		"strings": {
+		"string": {
 			"name": "string.quoted.double.garvik",
 			"begin": "\"",
 			"end": "\"",

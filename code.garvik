@@ -1,0 +1,11 @@
+l = [4, x -> x + 2,[1,2,3]]
+times = x ->
+  let c = x[0] in
+  let f = x[1] in
+  let l = x[2] in
+  if c == 0
+    then l
+  else
+    times([c - 1, f, [f(l[0]),f(l[1]),f(l[2])]])
+times(l)
+// [9,10,11]

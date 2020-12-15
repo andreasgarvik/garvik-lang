@@ -1,7 +1,7 @@
 grammar Garvik;
 
 BOOL: 'true' | 'false'; // match boolean
-ID: [a-zA-Z_]+; // match identifiers
+ID: [a-zA-Z_][a-zA-Z0-9_]*; // match identifiers
 NUM: [0-9]+; // match integers
 STR:
 	'"' ('\\' [btnfr"'\\] | ~[\r\n\\"])* '"'; // match string literal
