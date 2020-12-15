@@ -23,11 +23,13 @@ func (v *Evaluator) VisitProgram(ctx *parser.ProgramContext) interface{} {
 	for _, expr := range ctx.AllExpr() {
 		result := expr.Accept(v)
 		if result != nil {
-			if fun, ok := result.(FunValue); ok {
-				fmt.Printf("%s->%s \n", fun.Param, fun.Body.GetText())
-			} else if s, ok := result.(StructValue); ok {
+			switch v := result.(type) {
+
+			case FunValue:
+				fmt.Printf("%s->%s \n", v.Param, v.Body.GetText())
+			case StructValue:
 				fmt.Print("{ ")
-				for id, field := range s.Env.Pop().(map[interface{}]interface{}) {
+				for id, field := range v.Env.Pop().(map[interface{}]interface{}) {
 					if fun, ok := field.(parser.IExprContext); ok {
 						fmt.Printf("%s: %v ", id, fun.GetText())
 					} else {
@@ -35,7 +37,7 @@ func (v *Evaluator) VisitProgram(ctx *parser.ProgramContext) interface{} {
 					}
 				}
 				fmt.Printf("} \n")
-			} else {
+			default:
 				fmt.Println(result)
 			}
 		}

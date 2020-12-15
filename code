@@ -1,1 +1,9 @@
+obj = {
+  i: 2
+  GetI: _ -> i
+  SetI: x -> (i = x)
+}
 
+obj
+f = x -> x
+f
