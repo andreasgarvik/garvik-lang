@@ -1,0 +1,84 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Garvik",
+	"patterns": [
+		{
+			"include": "#number" 
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{ 
+			"include": "#paren" 
+		},
+		{ 
+			"include": "#list" 
+		},
+		{ 
+			"include": "#struct" 
+		}
+	],
+	"repository": {
+		"number": {
+      "match": "[0-9]",
+      "name": "constant.numeric"
+    },
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.garvik",
+				"match": "\\b(if|then|else|let|in|len)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.garvik",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.garvik",
+					"match": "\\\\."
+				}
+			]
+		},
+		"paren": {
+      "begin": "\\(",
+      "end": "\\)",
+      "beginCaptures": {
+        "0": { "name": "punctuation.paren.open" }
+      },
+      "endCaptures": {
+        "0": { "name": "punctuation.paren.close" }
+      },
+      "name": "expression.group",
+      "patterns": [{ "include": "#expression" }]
+		},
+		"list": {
+      "begin": "\\[",
+      "end": "\\]",
+      "beginCaptures": {
+        "0": { "name": "punctuation.paren.open" }
+      },
+      "endCaptures": {
+        "0": { "name": "punctuation.paren.close" }
+      },
+      "name": "expression.group",
+      "patterns": [{ "include": "#expression" }]
+		},
+		"struct": {
+      "begin": "\\{",
+      "end": "\\}",
+      "beginCaptures": {
+        "0": { "name": "punctuation.paren.open" }
+      },
+      "endCaptures": {
+        "0": { "name": "punctuation.paren.close" }
+      },
+      "name": "expression.group",
+      "patterns": [{ "include": "#expression" }]
+		}
+	},
+	"scopeName": "source.garvik"
+}

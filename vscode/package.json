@@ -1,0 +1,26 @@
+{
+    "name": "garvik-lang",
+    "displayName": "Garvik-Lang",
+    "description": "Syntax highlightning for garvik lang",
+    "version": "0.0.1",
+    "publisher": "AndreasGarvik",
+    "engines": {
+        "vscode": "^1.52.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "garvik",
+            "aliases": ["Garvik", "garvik"],
+            "extensions": [".garvik"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "garvik",
+            "scopeName": "source.garvik",
+            "path": "./syntaxes/garvik.tmLanguage.json"
+        }]
+    }
+}
