@@ -84,6 +84,22 @@ obj.GetI(_)
 i
 // 7
 
+g = {
+  count: 0
+  Count: _ -> count
+  UpdateCount: _ -> (count = count + 1)
+}
+
+g.UpdateCount(_)
+g.Count(_)
+// 1
+g.UpdateCount(_)
+g.Count(_)
+// 2
+g.UpdateCount(_)
+g.Count(_)
+// 3
+
 // "Passing structs"
 f = x -> x.SetP(x.L[1] + x.F(x.B - x.A))
 s = {

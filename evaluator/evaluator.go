@@ -26,6 +26,8 @@ func (v *Evaluator) VisitProgram(ctx *parser.ProgramContext) interface{} {
 			switch t := result.(type) {
 			case FunValue:
 				fmt.Printf("%s->%s \n", t.Param, t.Body.GetText())
+			case MethodValue:
+				fmt.Printf("%s->%s \n", t.Fun.Param, t.Fun.Body.GetText())
 			case StructValue:
 				fmt.Print("{ ")
 				for id, field := range t.Env.Pop().(map[interface{}]interface{}) {
