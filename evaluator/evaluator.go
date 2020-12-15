@@ -23,13 +23,12 @@ func (v *Evaluator) VisitProgram(ctx *parser.ProgramContext) interface{} {
 	for _, expr := range ctx.AllExpr() {
 		result := expr.Accept(v)
 		if result != nil {
-			switch v := result.(type) {
-
+			switch t := result.(type) {
 			case FunValue:
-				fmt.Printf("%s->%s \n", v.Param, v.Body.GetText())
+				fmt.Printf("%s->%s \n", t.Param, t.Body.GetText())
 			case StructValue:
 				fmt.Print("{ ")
-				for id, field := range v.Env.Pop().(map[interface{}]interface{}) {
+				for id, field := range t.Env.Pop().(map[interface{}]interface{}) {
 					if fun, ok := field.(parser.IExprContext); ok {
 						fmt.Printf("%s: %v ", id, fun.GetText())
 					} else {
@@ -49,37 +48,39 @@ func (v *Evaluator) VisitProgram(ctx *parser.ProgramContext) interface{} {
 func (v *Evaluator) VisitCallExpr(ctx *parser.CallExprContext) interface{} {
 	fun := ctx.GetFun().Accept(v)
 	if fun != nil {
-		if f, ok := fun.(FunValue); ok {
+		switch t := fun.(type) {
+		case FunValue:
 			env := make(map[interface{}]interface{})
-			env[ctx.GetFun().GetText()] = f
+			env[ctx.GetFun().GetText()] = t
 			arg := ctx.GetArg().Accept(v)
-			env[f.Param] = arg
+			env[t.Param] = arg
 			temp := v.stack
-			v.stack = f.Env
+			v.stack = t.Env
 			v.stack.Push(env)
-			result := f.Body.Accept(v)
+			result := t.Body.Accept(v)
 			v.stack.Pop()
 			v.stack = temp
 			return result
-		}
-		if m, ok := fun.(MethodValue); ok {
+
+		case MethodValue:
 			arg := ctx.GetArg().Accept(v)
-			e := m.Struct.Env.Pop()
+			e := t.Struct.Env.Pop()
 			env := e.(map[interface{}]interface{})
-			env[m.Fun.Param] = arg
-			m.Struct.Env.Push(env)
+			env[t.Fun.Param] = arg
+			t.Struct.Env.Push(env)
 			temp := v.stack
-			v.stack = *m.Struct.Env
-			result := m.Fun.Body.Accept(v)
+			v.stack = *t.Struct.Env
+			result := t.Fun.Body.Accept(v)
 			for k, v := range v.stack.Peek().(map[interface{}]interface{}) {
-				se := m.Struct.Env.Pop().(map[interface{}]interface{})
+				se := t.Struct.Env.Pop().(map[interface{}]interface{})
 				se[k] = v
-				m.Struct.Env.Push(se)
+				t.Struct.Env.Push(se)
 			}
 			v.stack = temp
 			return result
+		default:
+			return fmt.Sprintf("%s is not a function or method", ctx.GetFun().GetText())
 		}
-		return fmt.Sprintf("%s is not a function or method", ctx.GetFun().GetText())
 	}
 	return fmt.Sprintf("%s is not defined", ctx.GetFun().GetText())
 }
