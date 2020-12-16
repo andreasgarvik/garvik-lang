@@ -164,6 +164,15 @@ func (v *Evaluator) VisitNumExpr(ctx *parser.NumExprContext) interface{} {
 	return num
 }
 
+// VisitNegativeExpr evaluates a neagtive expression
+func (v *Evaluator) VisitNegativeExpr(ctx *parser.NegativeExprContext) interface{} {
+	expr := ctx.Expr().Accept(v)
+	if n, ok := expr.(int); ok {
+		return n * -1
+	}
+	return fmt.Sprintf("%s is not a number", ctx.Expr().GetText())
+}
+
 // VisitStrExpr evaluates a string expression
 func (v *Evaluator) VisitStrExpr(ctx *parser.StrExprContext) interface{} {
 	str := ctx.STR().GetText()
@@ -487,6 +496,9 @@ func (v *Evaluator) VisitLookupAssignExpr(ctx *parser.LookupAssignExprContext) i
 			if key, ok := ctx.GetKey().Accept(v).(int); ok {
 				value := ctx.GetValue().Accept(v)
 				if value != nil {
+					if key < 0 {
+						return append([]interface{}{value}, list...)
+					}
 					if key < len(list) {
 						list[key] = value
 						return list
@@ -496,6 +508,30 @@ func (v *Evaluator) VisitLookupAssignExpr(ctx *parser.LookupAssignExprContext) i
 				return fmt.Sprintf("%s is not defined", ctx.GetValue().GetText())
 			}
 			return fmt.Sprintf("%s is not a number", ctx.GetKey().GetText())
+		}
+		return fmt.Sprintf("%s is not a list", ctx.GetId().GetText())
+	}
+	return fmt.Sprintf("%s is not defined", ctx.GetId().GetText())
+}
+
+// VisitPopExpr evaluates a list pop expression
+func (v *Evaluator) VisitPopExpr(ctx *parser.PopExprContext) interface{} {
+	id := ctx.GetId().Accept(v)
+	if id != nil {
+		if list, ok := id.([]interface{}); ok {
+			return list[:len(list)-1]
+		}
+		return fmt.Sprintf("%s is not a list", ctx.GetId().GetText())
+	}
+	return fmt.Sprintf("%s is not defined", ctx.GetId().GetText())
+}
+
+// VisitDropExpr evaluates a list drop expression
+func (v *Evaluator) VisitDropExpr(ctx *parser.DropExprContext) interface{} {
+	id := ctx.GetId().Accept(v)
+	if id != nil {
+		if list, ok := id.([]interface{}); ok {
+			return list[1:]
 		}
 		return fmt.Sprintf("%s is not a list", ctx.GetId().GetText())
 	}

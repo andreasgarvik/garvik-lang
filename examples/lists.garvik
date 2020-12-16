@@ -34,3 +34,23 @@ map = x ->
     map([c + 1, f, l[c] = (f(l[c]))])
 map(l)
 // [2,4,6]
+
+l = [0,0,[1,2,3,4,5]]  
+fold = x -> 
+  let c = x[0] in
+  let s = x[1] in
+  let l = x[2] in
+  if c == len l 
+    then s
+  else fold([c + 1,s + l[c], l]) 
+fold(l)
+
+l = [2,3,4]
+p = l[-1] = 1
+p 
+pop p 
+drop p
+
+
+
+

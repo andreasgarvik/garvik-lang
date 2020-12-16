@@ -20,6 +20,12 @@ type GarvikVisitor interface {
 	// Visit a parse tree produced by GarvikParser#lenExpr.
 	VisitLenExpr(ctx *LenExprContext) interface{}
 
+	// Visit a parse tree produced by GarvikParser#negativeExpr.
+	VisitNegativeExpr(ctx *NegativeExprContext) interface{}
+
+	// Visit a parse tree produced by GarvikParser#popExpr.
+	VisitPopExpr(ctx *PopExprContext) interface{}
+
 	// Visit a parse tree produced by GarvikParser#subExpr.
 	VisitSubExpr(ctx *SubExprContext) interface{}
 
@@ -73,6 +79,9 @@ type GarvikVisitor interface {
 
 	// Visit a parse tree produced by GarvikParser#numExpr.
 	VisitNumExpr(ctx *NumExprContext) interface{}
+
+	// Visit a parse tree produced by GarvikParser#dropExpr.
+	VisitDropExpr(ctx *DropExprContext) interface{}
 
 	// Visit a parse tree produced by GarvikParser#addExpr.
 	VisitAddExpr(ctx *AddExprContext) interface{}

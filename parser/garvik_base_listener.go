@@ -45,6 +45,18 @@ func (s *BaseGarvikListener) EnterLenExpr(ctx *LenExprContext) {}
 // ExitLenExpr is called when production lenExpr is exited.
 func (s *BaseGarvikListener) ExitLenExpr(ctx *LenExprContext) {}
 
+// EnterNegativeExpr is called when production negativeExpr is entered.
+func (s *BaseGarvikListener) EnterNegativeExpr(ctx *NegativeExprContext) {}
+
+// ExitNegativeExpr is called when production negativeExpr is exited.
+func (s *BaseGarvikListener) ExitNegativeExpr(ctx *NegativeExprContext) {}
+
+// EnterPopExpr is called when production popExpr is entered.
+func (s *BaseGarvikListener) EnterPopExpr(ctx *PopExprContext) {}
+
+// ExitPopExpr is called when production popExpr is exited.
+func (s *BaseGarvikListener) ExitPopExpr(ctx *PopExprContext) {}
+
 // EnterSubExpr is called when production subExpr is entered.
 func (s *BaseGarvikListener) EnterSubExpr(ctx *SubExprContext) {}
 
@@ -152,6 +164,12 @@ func (s *BaseGarvikListener) EnterNumExpr(ctx *NumExprContext) {}
 
 // ExitNumExpr is called when production numExpr is exited.
 func (s *BaseGarvikListener) ExitNumExpr(ctx *NumExprContext) {}
+
+// EnterDropExpr is called when production dropExpr is entered.
+func (s *BaseGarvikListener) EnterDropExpr(ctx *DropExprContext) {}
+
+// ExitDropExpr is called when production dropExpr is exited.
+func (s *BaseGarvikListener) ExitDropExpr(ctx *DropExprContext) {}
 
 // EnterAddExpr is called when production addExpr is entered.
 func (s *BaseGarvikListener) EnterAddExpr(ctx *AddExprContext) {}

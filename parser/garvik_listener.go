@@ -20,6 +20,12 @@ type GarvikListener interface {
 	// EnterLenExpr is called when entering the lenExpr production.
 	EnterLenExpr(c *LenExprContext)
 
+	// EnterNegativeExpr is called when entering the negativeExpr production.
+	EnterNegativeExpr(c *NegativeExprContext)
+
+	// EnterPopExpr is called when entering the popExpr production.
+	EnterPopExpr(c *PopExprContext)
+
 	// EnterSubExpr is called when entering the subExpr production.
 	EnterSubExpr(c *SubExprContext)
 
@@ -74,6 +80,9 @@ type GarvikListener interface {
 	// EnterNumExpr is called when entering the numExpr production.
 	EnterNumExpr(c *NumExprContext)
 
+	// EnterDropExpr is called when entering the dropExpr production.
+	EnterDropExpr(c *DropExprContext)
+
 	// EnterAddExpr is called when entering the addExpr production.
 	EnterAddExpr(c *AddExprContext)
 
@@ -100,6 +109,12 @@ type GarvikListener interface {
 
 	// ExitLenExpr is called when exiting the lenExpr production.
 	ExitLenExpr(c *LenExprContext)
+
+	// ExitNegativeExpr is called when exiting the negativeExpr production.
+	ExitNegativeExpr(c *NegativeExprContext)
+
+	// ExitPopExpr is called when exiting the popExpr production.
+	ExitPopExpr(c *PopExprContext)
 
 	// ExitSubExpr is called when exiting the subExpr production.
 	ExitSubExpr(c *SubExprContext)
@@ -154,6 +169,9 @@ type GarvikListener interface {
 
 	// ExitNumExpr is called when exiting the numExpr production.
 	ExitNumExpr(c *NumExprContext)
+
+	// ExitDropExpr is called when exiting the dropExpr production.
+	ExitDropExpr(c *DropExprContext)
 
 	// ExitAddExpr is called when exiting the addExpr production.
 	ExitAddExpr(c *AddExprContext)

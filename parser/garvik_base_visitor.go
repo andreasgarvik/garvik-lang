@@ -24,6 +24,14 @@ func (v *BaseGarvikVisitor) VisitLenExpr(ctx *LenExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseGarvikVisitor) VisitNegativeExpr(ctx *NegativeExprContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGarvikVisitor) VisitPopExpr(ctx *PopExprContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseGarvikVisitor) VisitSubExpr(ctx *SubExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -93,6 +101,10 @@ func (v *BaseGarvikVisitor) VisitCommentExpr(ctx *CommentExprContext) interface{
 }
 
 func (v *BaseGarvikVisitor) VisitNumExpr(ctx *NumExprContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseGarvikVisitor) VisitDropExpr(ctx *DropExprContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

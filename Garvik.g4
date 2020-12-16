@@ -25,6 +25,7 @@ expr:
 	| param = expr '->' body = expr								# lambdaExpr
 	| id = expr ':' value = expr								# fieldExpr
 	| id = expr '=' value = expr								# assignExpr
+	| '-' expr													# negativeExpr
 	| '//' expr													# commentExpr
 	| '[' expr (',' expr)* ']'									# listExpr
 	| '(' expr ')'												# parenExpr
@@ -32,6 +33,8 @@ expr:
 	| 'if' con = expr 'then' t = expr 'else' f = expr			# ifElseExpr
 	| 'let' id = expr '=' value = expr 'in' expression = expr	# letExpr
 	| 'len' id = expr											# lenExpr
+	| 'pop' id = expr											# popExpr
+	| 'drop' id = expr											# dropExpr
 	| BOOL														# boolExpr
 	| ID														# idExpr
 	| NUM														# numExpr
