@@ -16,6 +16,8 @@ builds:
     ignore:
       - goos: linux
         goarch: 386
+      - goos: windows
+        goarch: 386
 archives:
   - replacements:
       darwin: Darwin
