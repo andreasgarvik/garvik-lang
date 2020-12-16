@@ -33,7 +33,7 @@ public class GarvikParser extends Parser {
 		return new String[] {
 			null, "'=='", "'<'", "'>'", "'.'", "'='", "'['", "']'", "'('", "')'", 
 			"'/'", "'*'", "'-'", "'+'", "'->'", "':'", "'//'", "','", "'{'", "'}'", 
-			"'if'", "'then'", "'else'", "'let'", "'in'", "'len'", "'pop'", "'drop'"
+			"'if'", "'then'", "'else'", "'let'", "'in'", "'pop'", "'drop'", "'len'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
@@ -567,35 +567,35 @@ public class GarvikParser extends Parser {
 				break;
 			case T__24:
 				{
-				_localctx = new LenExprContext(_localctx);
+				_localctx = new PopExprContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 				setState(52);
 				match(T__24);
 				setState(53);
-				((LenExprContext)_localctx).id = expr(7);
+				((PopExprContext)_localctx).id = expr(7);
 				}
 				break;
 			case T__25:
 				{
-				_localctx = new PopExprContext(_localctx);
+				_localctx = new DropExprContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 				setState(54);
 				match(T__25);
 				setState(55);
-				((PopExprContext)_localctx).id = expr(6);
+				((DropExprContext)_localctx).id = expr(6);
 				}
 				break;
 			case T__26:
 				{
-				_localctx = new DropExprContext(_localctx);
+				_localctx = new LenExprContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 				setState(56);
 				match(T__26);
 				setState(57);
-				((DropExprContext)_localctx).id = expr(5);
+				((LenExprContext)_localctx).id = expr(5);
 				}
 				break;
 			case BOOL:

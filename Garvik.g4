@@ -32,9 +32,9 @@ expr:
 	| '{' expr* '}'												# structExpr
 	| 'if' con = expr 'then' t = expr 'else' f = expr			# ifElseExpr
 	| 'let' id = expr '=' value = expr 'in' expression = expr	# letExpr
-	| 'len' id = expr											# lenExpr
 	| 'pop' id = expr											# popExpr
 	| 'drop' id = expr											# dropExpr
+	| 'len' id = expr											# lenExpr
 	| BOOL														# boolExpr
 	| ID														# idExpr
 	| NUM														# numExpr

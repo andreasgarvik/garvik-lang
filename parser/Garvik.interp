@@ -24,9 +24,9 @@ null
 'else'
 'let'
 'in'
-'len'
 'pop'
 'drop'
+'len'
 null
 null
 null

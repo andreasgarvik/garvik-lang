@@ -81,7 +81,7 @@ var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
 var literalNames = []string{
 	"", "'=='", "'<'", "'>'", "'.'", "'='", "'['", "']'", "'('", "')'", "'/'",
 	"'*'", "'-'", "'+'", "'->'", "':'", "'//'", "','", "'{'", "'}'", "'if'",
-	"'then'", "'else'", "'let'", "'in'", "'len'", "'pop'", "'drop'",
+	"'then'", "'else'", "'let'", "'in'", "'pop'", "'drop'", "'len'",
 }
 var symbolicNames = []string{
 	"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
@@ -2439,7 +2439,7 @@ func (p *GarvikParser) expr(_p int) (localctx IExprContext) {
 		}
 
 	case GarvikParserT__24:
-		localctx = NewLenExprContext(p, localctx)
+		localctx = NewPopExprContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
@@ -2451,11 +2451,11 @@ func (p *GarvikParser) expr(_p int) (localctx IExprContext) {
 
 			var _x = p.expr(7)
 
-			localctx.(*LenExprContext).id = _x
+			localctx.(*PopExprContext).id = _x
 		}
 
 	case GarvikParserT__25:
-		localctx = NewPopExprContext(p, localctx)
+		localctx = NewDropExprContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
@@ -2467,11 +2467,11 @@ func (p *GarvikParser) expr(_p int) (localctx IExprContext) {
 
 			var _x = p.expr(6)
 
-			localctx.(*PopExprContext).id = _x
+			localctx.(*DropExprContext).id = _x
 		}
 
 	case GarvikParserT__26:
-		localctx = NewDropExprContext(p, localctx)
+		localctx = NewLenExprContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
@@ -2483,7 +2483,7 @@ func (p *GarvikParser) expr(_p int) (localctx IExprContext) {
 
 			var _x = p.expr(5)
 
-			localctx.(*DropExprContext).id = _x
+			localctx.(*LenExprContext).id = _x
 		}
 
 	case GarvikParserBOOL:
