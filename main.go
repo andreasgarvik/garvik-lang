@@ -2,10 +2,11 @@ package main
 
 import (
 	"io/ioutil"
+	"log"
 	"os"
 
-	"github.com/andreasgarvik/inf225-lab3-go/evaluator"
-	"github.com/andreasgarvik/inf225-lab3-go/parser"
+	"github.com/andreasgarvik/garvik-lang/evaluator"
+	"github.com/andreasgarvik/garvik-lang/parser"
 	"github.com/antlr/antlr4/runtime/Go/antlr"
 )
 
@@ -28,7 +29,7 @@ func eval(input string) {
 func main() {
 	content, err := ioutil.ReadFile(os.Args[1])
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 	eval(string(content))
 }

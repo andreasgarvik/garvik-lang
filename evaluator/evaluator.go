@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/andreasgarvik/inf225-lab3-go/parser"
+	"github.com/andreasgarvik/garvik-lang/parser"
 	"github.com/golang-collections/collections/stack"
 )
 
@@ -25,19 +25,48 @@ func (v *Evaluator) VisitProgram(ctx *parser.ProgramContext) interface{} {
 		if result != nil {
 			switch t := result.(type) {
 			case FunValue:
-				fmt.Printf("%s->%s \n", t.Param, t.Body.GetText())
+				fmt.Printf("%s -> %s \n", t.Param, t.Body.GetText())
 			case MethodValue:
-				fmt.Printf("%s->%s \n", t.Fun.Param, t.Fun.Body.GetText())
+				fmt.Printf("%s -> %s \n", t.Fun.Param, t.Fun.Body.GetText())
 			case StructValue:
 				fmt.Print("{ ")
-				for id, field := range t.Env.Pop().(map[interface{}]interface{}) {
+				for id, field := range t.Env.Peek().(map[interface{}]interface{}) {
 					if fun, ok := field.(parser.IExprContext); ok {
-						fmt.Printf("%s: %v ", id, fun.GetText())
+						f := fun.Accept(v)
+						fun := f.(FunValue)
+						fmt.Printf("%s: %s -> %s ", id, fun.Param, fun.Body.GetText())
 					} else {
 						fmt.Printf("%s: %v ", id, field)
 					}
 				}
 				fmt.Printf("} \n")
+			case []interface{}:
+				fmt.Print("[")
+				for i, e := range t {
+					switch lt := e.(type) {
+					case FunValue:
+						fmt.Printf("%s -> %s,", lt.Param, lt.Body.GetText())
+					case StructValue:
+						fmt.Print("{ ")
+						for id, field := range lt.Env.Peek().(map[interface{}]interface{}) {
+							if fun, ok := field.(parser.IExprContext); ok {
+								f := fun.Accept(v)
+								fun := f.(FunValue)
+								fmt.Printf("%s: %s -> %s ", id, fun.Param, fun.Body.GetText())
+							} else {
+								fmt.Printf("%s: %v ", id, field)
+							}
+						}
+						fmt.Printf("},")
+					default:
+						if i == len(t)-1 {
+							fmt.Printf("%v", e)
+						} else {
+							fmt.Printf("%v,", e)
+						}
+					}
+				}
+				fmt.Println("]")
 			default:
 				fmt.Println(result)
 			}

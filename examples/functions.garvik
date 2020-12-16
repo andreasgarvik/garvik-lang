@@ -1,0 +1,12 @@
+a = 5
+f = b -> b * a
+f(6)
+// 30
+
+f = x -> x(2)
+f(x -> x * 2)
+// 4
+
+fib = x -> if x < 2 then 1 else fib(x-1) + fib(x-2)
+fib(10)
+// 89

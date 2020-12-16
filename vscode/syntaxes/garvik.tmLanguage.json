@@ -3,6 +3,9 @@
 	"name": "Garvik",
 	"patterns": [
 		{
+			"include": "#comment" 
+		},
+		{
 			"include": "#number" 
 		},
 		{
@@ -31,6 +34,11 @@
 		}
 	],
 	"repository": {
+		"comment": {
+			"begin": "//",
+			"end": "\n",
+      "name": "comment.line.double-slash"
+		},
 		"number": {
       "match": "[0-9]+",
       "name": "constant.numeric"

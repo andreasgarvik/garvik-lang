@@ -1,4 +1,4 @@
-module github.com/andreasgarvik/inf225-lab3-go
+module github.com/andreasgarvik/garvik-lang
 
 go 1.15
 

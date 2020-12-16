@@ -1,7 +1,7 @@
 package evaluator
 
 import (
-	"github.com/andreasgarvik/inf225-lab3-go/parser"
+	"github.com/andreasgarvik/garvik-lang/parser"
 	"github.com/golang-collections/collections/stack"
 )
 
