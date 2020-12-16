@@ -153,5 +153,6 @@ l + 5
 ## How to run
 
 ```
-go run main.go *file*
+go get github.com/andreasgarvik/garvik-lang
+garvik-lang *file*
 ```
